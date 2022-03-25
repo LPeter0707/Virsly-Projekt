@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLMainmenuSceneController">
+   <children>
+      <AnchorPane prefHeight="421.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="buttonDailySale" layoutX="68.0" layoutY="188.0" mnemonicParsing="false" onAction="#dailysalePushed" text="Napi forgalom">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonDailyInventory" layoutX="250.0" layoutY="188.0" mnemonicParsing="false" onAction="#dailyinventoryPushed" text="Napi leltár">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonOrder" layoutX="400.0" layoutY="188.0" mnemonicParsing="false" onAction="#orderPushed" text="Áruszállítás">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonBack" layoutX="274.0" layoutY="361.0" mnemonicParsing="false" onAction="#backPushed" text="Vissza" />
+            <Text layoutX="199.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Főmenü">
+               <font>
+                  <Font size="56.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
