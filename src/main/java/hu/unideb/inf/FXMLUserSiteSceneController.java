@@ -2,10 +2,9 @@ package hu.unideb.inf;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
@@ -20,16 +19,25 @@ public class FXMLUserSiteSceneController {
     private Button buttonKapcsolat;
 
     @FXML
-    void menuPushed(ActionEvent event) throws IOException {
+    private BorderPane mainPane;
 
+    @FXML
+    void menuPushed(ActionEvent event) throws IOException {
+        FXMLScenes object = new FXMLScenes();
+        Pane view = object.getPage("FXMLMenu");
+        mainPane.setCenter(view);
     }
 
     @FXML
     void kosarPushed(ActionEvent event) throws IOException {
-
+        FXMLScenes object = new FXMLScenes();
+        Pane view = object.getPage("FXMLproba");
+        mainPane.setCenter(view);
     }
     @FXML
     void kapcsolatPushed(ActionEvent event) throws IOException {
-
+        FXMLScenes object = new FXMLScenes();
+        Pane view = object.getPage("FXMLKapcsolat");
+        mainPane.setCenter(view);
     }
 }

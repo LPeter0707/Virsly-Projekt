@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane prefHeight="568.0" prefWidth="253.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="715.0" prefWidth="585.0">
+               <children>
+                  <TextArea layoutX="14.0" layoutY="14.0" prefHeight="651.0" prefWidth="570.0" text="Étlap&#10;&#10;New York Hot Dog&#9;1100ft&#10;hot dog kifli, virsli, cheddar szósz, pirított hagyma, ketchup, majonéz&#10;&#10;---------------------------------------------------------------------------------------------------&#10;Chicago Hot Dog&#9;&#9;1300ft&#10;hot dog kifli, grill kolbász, mustár, pirított hagyma, paradicsom, uborka, jalapeno&#10;&#10;---------------------------------------------------------------------------------------------------&#10;Amsterdam Hot Dog&#9;1450ft&#10;hot dog kifli, zöld virsli, paradicsom, házi zöldség mix, házi majonéz, ketchup, mustár&#10;&#10;---------------------------------------------------------------------------------------------------&#10;Debrecen Hot Dog&#9;1300ft&#10;hot dog kifli, debreceni páros, bacon, paradicsom, pirított hagyma, magyaros/házi majonéz&#10;&#10;---------------------------------------------------------------------------------------------------&#10;Athén Hot Dog&#9;&#9;1100ft&#10;hot dog kifli, bárány-marha kolbász, padlizsánkrém, feta, paradicsom, hagyma, uborka&#10;&#10;---------------------------------------------------------------------------------------------------&#10;Tokió Hot Dog&#9;&#9;1550ft&#10;hot dog kifli, kacsa kolbász, sushi gyömbér, wasabi, pirított hagyma, szója szósz&#10;&#10;---------------------------------------------------------------------------------------------------&#10;Mexikó Hot Dog&#9;&#9;1550ft&#10;hot dog kifli, virsli, jalapeno, kukorica, bab, mexikói salsa, tortilla chips&#10;&#10;---------------------------------------------------------------------------------------------------&#10;Kijev Hot Dog&#9;&#9;1100ft&#10;hot dog kifli, mangalica hurka, majonéz, mustár, jalapeno, uborka &#10;---------------------------------------------------------------------------------------------------&#10;Kívánság Hot Dog&#9;1500ft&#10;Hot dog kifli, válaszható hús, válaszható 4 feltét&#10;&#10;Itallap&#10;&#10;Coca Cola 0,5l 450ft&#10;Cola Cola light 0,5l 450ft&#10;Fanat 0,5l 450ft&#10;Sprite 0,5l 450ft&#10;Cappy Narancs 0,5l 450ft&#10;Szénsavmentes víz 0,5l 300ft&#10;Szénsavas víz 0,5l 300ft&#10;Red Bull 0,25l 600ft&#10;Heineken 0,33l 500ft&#10;Soproni 0,5l 690ft&#10;Dreher 0,5l 690ft&#10;" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</VBox>

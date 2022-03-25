@@ -18,6 +18,9 @@ public class FXMLLoginUserSceneController {
     private Button buttonSignin;
 
     @FXML
+    private Button buttonLogin;
+
+    @FXML
     void backPushed(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLLogin.fxml"));
         Scene scene = new Scene(loader.load());
@@ -39,6 +42,18 @@ public class FXMLLoginUserSceneController {
                 buttonSignin.getScene().getWindow();
         stage2.close();
         stage.setTitle("Sign in");
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    void loginPushed(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLUserSite.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = new Stage();
+        Stage stage2 = (Stage)
+                buttonLogin.getScene().getWindow();
+        stage2.close();
+        stage.setTitle("UserSite");
         stage.setScene(scene);
         stage.show();
     }
