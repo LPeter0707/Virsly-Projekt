@@ -10,3 +10,14 @@
     -fx-background-color :  #AB6B81;
 }
 
+#vissza{
+ -fx-background-color: #AB6B81;
+}
+
+#vissza:hover{
+ -fx-background-color: #9D526C;
+}
+
+#vissza:pushed{
+ -fx-background-color: #C79CAB;
+}
