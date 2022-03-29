@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane prefHeight="533.0" prefWidth="824.0">
+        <content>
+          <AnchorPane minHeight="900.0" minWidth="807.0" prefHeight="698.0" prefWidth="581.0">
+               <children>
+                  <GridPane layoutX="120.0" layoutY="59.0" prefHeight="443.0" prefWidth="552.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="10.0" prefWidth="388.0" />
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="164.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints fillHeight="false" maxHeight="35.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="35.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="49.0" prefWidth="388.0" text="New York Hot Dog">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <Label prefHeight="42.0" prefWidth="42.0" text="1100ft" textAlignment="RIGHT" GridPane.columnIndex="1" />
+                        <Label prefHeight="124.0" prefWidth="387.0" text="hot dog kifli, virsli, cheddar szósz, pirított hagyma, ketchup, majonéz" GridPane.rowIndex="1" />
+                        <Label prefHeight="49.0" prefWidth="388.0" text="Chicago Hot Dog" GridPane.rowIndex="2" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="1300ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label prefHeight="124.0" prefWidth="387.0" text="hot dog kifli, grill kolbász, mustár, pirított hagyma, uborka, jalapeno" GridPane.rowIndex="3" />
+                        <Label prefHeight="49.0" prefWidth="388.0" text="Amsterdam Hot Dog" GridPane.rowIndex="4" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="1450ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label prefHeight="124.0" prefWidth="387.0" text="hot dog kifli, zöld virsli, paradicsom, házi zöldség mix, házi majonéz, ketchup, mustár" GridPane.rowIndex="5" />
+                        <Label prefHeight="49.0" prefWidth="388.0" text="Debrecen Hot Dog" GridPane.rowIndex="6" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="1300ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label prefHeight="124.0" prefWidth="387.0" text="hot dog kifli, debreceni páros, bacon, paradicsom, pirított hagyma, magyaros/házi majonéz" GridPane.rowIndex="7" />
+                        <Label prefHeight="49.0" prefWidth="388.0" text="Athén Hot Dog" GridPane.rowIndex="8" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="1100ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label prefHeight="124.0" prefWidth="387.0" text="hot dog kifli, bárány-marha kolbász, padlizsánkrém, feta, paradicsom, hagyma, uborka" GridPane.rowIndex="9" />
+                        <Label prefHeight="49.0" prefWidth="388.0" text="Tokió Hot Dog" GridPane.rowIndex="10" />
+                        <Label prefHeight="49.0" prefWidth="388.0" text="Mexikó Hot Dog" GridPane.rowIndex="12" />
+                        <Label prefHeight="49.0" prefWidth="388.0" text="Kijev Hot Dog" GridPane.rowIndex="14" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="1550ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="1550ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="1100ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                        <Label prefHeight="124.0" prefWidth="387.0" text="hot dog kifli, kacsa kolbász, sushi gyömbér, wasabi, pirított hagyma, szója szósz" GridPane.rowIndex="11" />
+                        <Label prefHeight="124.0" prefWidth="387.0" text="hot dog kifli, virsli, jalapeno, kukorica, bab, mexikói salsa, tortilla chips" GridPane.rowIndex="13" />
+                        <Label prefHeight="124.0" prefWidth="387.0" text="hot dog kifli, mangalica hurka, majonéz, mustár, jalapeno, uborka " GridPane.rowIndex="15" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="224.0" layoutY="570.0" prefHeight="300.0" prefWidth="280.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.0" minWidth="10.0" prefWidth="238.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="42.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="100.0" text="Coca Cola 0,5l" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="450ft" textAlignment="RIGHT" GridPane.columnIndex="1" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="450ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="450ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="450ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="300ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="300ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="600ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label prefHeight="31.0" prefWidth="100.0" text="Cola light 0,5l" GridPane.rowIndex="1" />
+                        <Label prefHeight="31.0" prefWidth="100.0" text="Fanta 0,5l" GridPane.rowIndex="2" />
+                        <Label prefHeight="30.0" prefWidth="121.0" text="Cappy Narancs 0,5l" GridPane.rowIndex="3" />
+                        <Label prefHeight="30.0" prefWidth="136.0" text="Szénsavmentes víz 0,5l" GridPane.rowIndex="4" />
+                        <Label prefHeight="31.0" prefWidth="100.0" text="Szénsavas víz 0,5l" GridPane.rowIndex="5" />
+                        <Label prefHeight="31.0" prefWidth="100.0" text="Red Bull 0,25l" GridPane.rowIndex="6" />
+                        <Label prefHeight="31.0" prefWidth="100.0" text="Heineken 0,33l" GridPane.rowIndex="7" />
+                        <Label prefHeight="31.0" prefWidth="100.0" text="Soproni 0,5l" GridPane.rowIndex="8" />
+                        <Label prefHeight="31.0" prefWidth="100.0" text="Dreher 0,5l" GridPane.rowIndex="9" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="500ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="690ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label prefHeight="42.0" prefWidth="42.0" text="690ft" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                     </children>
+                  </GridPane>
+                  <Label layoutX="94.0" layoutY="23.0" prefHeight="36.0" prefWidth="52.0" text="Étlap">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="527.0" prefHeight="36.0" prefWidth="71.0" text="Ital lap">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="684.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="729.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="729.0" layoutY="124.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="684.0" layoutY="124.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="684.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="684.0" layoutY="228.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="684.0" layoutY="281.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="684.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="684.0" layoutY="392.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="729.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="729.0" layoutY="228.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="729.0" layoutY="281.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="729.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="729.0" layoutY="392.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="729.0" layoutY="450.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="684.0" layoutY="450.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="573.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="634.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="603.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="663.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="723.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="753.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="783.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="813.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="504.0" layoutY="841.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+                  <Button layoutX="544.0" layoutY="573.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="544.0" layoutY="603.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="544.0" layoutY="634.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="544.0" layoutY="663.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="544.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="544.0" layoutY="723.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="544.0" layoutY="753.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="544.0" layoutY="783.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="544.0" layoutY="813.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button layoutX="544.0" layoutY="841.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</VBox>

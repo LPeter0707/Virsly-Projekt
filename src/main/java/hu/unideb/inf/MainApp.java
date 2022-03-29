@@ -2,20 +2,25 @@ package hu.unideb.inf;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.awt.*;
 
 
 public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLStudentsScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLLogin.fxml"));
         Scene scene = new Scene(loader.load());
-        stage.setTitle("Students Register");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
+
         /*Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
         
         Scene scene = new Scene(root);
