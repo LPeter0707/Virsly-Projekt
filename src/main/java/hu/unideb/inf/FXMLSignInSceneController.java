@@ -33,14 +33,9 @@ public class FXMLSignInSceneController<usernameValue> {
     private TextField uname;
     public String usernameValue;
 
-
     @FXML
     private TextField pass;
     public String passwordValue;
-
-
-
-
 
     @FXML
     void backPushed(ActionEvent event) throws IOException {

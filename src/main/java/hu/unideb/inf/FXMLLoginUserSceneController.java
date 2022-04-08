@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FXMLLoginUserSceneController {
+public class FXMLLoginUserSceneController extends FXMLUserSiteSceneController{
 
     @FXML
     private Button buttonBack;
@@ -32,9 +32,6 @@ public class FXMLLoginUserSceneController {
 
     @FXML
     private TextField GetPassword;
-
-
-
 
     @FXML
     void backPushed(ActionEvent event) throws IOException {
@@ -72,6 +69,7 @@ public class FXMLLoginUserSceneController {
                     buttonLogin.getScene().getWindow();
             stage2.close();
             stage.setTitle("UserSite");
+            FXMLUserSiteSceneController.username_static.setText(GetUsername.getText());
             stage.setScene(scene);
             stage.show();
         }

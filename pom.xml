@@ -47,6 +47,11 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.4.4.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>17.0.0.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

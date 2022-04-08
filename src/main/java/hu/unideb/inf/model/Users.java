@@ -9,7 +9,6 @@ import java.io.Serializable;
 @Entity
 public class Users implements Serializable {
 
-
     @Id
     @GeneratedValue
     private Integer id;

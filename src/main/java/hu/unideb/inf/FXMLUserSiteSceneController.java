@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
@@ -23,6 +24,16 @@ public class FXMLUserSiteSceneController {
 
     @FXML
     private Button buttonVissza;
+
+    @FXML
+    private Label username;
+
+    public static Label username_static;
+
+    @FXML
+    public void initialize(){
+        username_static = username;
+    }
 
     @FXML
     void menuPushed(ActionEvent event) throws IOException {
