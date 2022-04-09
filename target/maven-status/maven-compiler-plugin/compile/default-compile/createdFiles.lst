@@ -2,4 +2,8 @@ hu\unideb\inf\model\FileUserDAO.class
 hu\unideb\inf\model\Users.class
 hu\unideb\inf\Application.class
 hu\unideb\inf\model\JpaUsersDao.class
+hu\unideb\inf\model\Admins.class
 hu\unideb\inf\model\UsersDAO.class
+hu\unideb\inf\model\JpaAdminsDao.class
+hu\unideb\inf\model\AdminsDAO.class
+hu\unideb\inf\model\FileAdminDAO.class

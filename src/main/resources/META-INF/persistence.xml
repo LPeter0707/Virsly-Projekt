@@ -7,7 +7,7 @@
     <persistence-unit name="br.com.fredericci.pu">
         <description>Hibernate EntityManager Demo</description>
         <class>hu.unideb.inf.model.Users</class>
-
+        <class>hu.unideb.inf.model.Admins</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
