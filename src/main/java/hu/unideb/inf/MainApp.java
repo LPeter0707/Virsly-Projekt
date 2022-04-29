@@ -41,6 +41,7 @@ public class MainApp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+
         try {
             hu.unideb.inf.Application.main();
         } catch (SQLException e) {

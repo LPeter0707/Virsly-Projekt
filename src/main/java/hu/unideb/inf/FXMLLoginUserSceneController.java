@@ -29,7 +29,6 @@ public class FXMLLoginUserSceneController extends FXMLUserSiteSceneController{
     @FXML
     private TextField GetUsername;
 
-
     @FXML
     private TextField GetPassword;
 
@@ -69,7 +68,7 @@ public class FXMLLoginUserSceneController extends FXMLUserSiteSceneController{
                     buttonLogin.getScene().getWindow();
             stage2.close();
             stage.setTitle("UserSite");
-            FXMLUserSiteSceneController.username_static.setText(GetUsername.getText());
+            FXMLUserSiteSceneController.username_static.setText(GetUsername.getText()); //kiirja a user nevét
             stage.setScene(scene);
             stage.show();
         }

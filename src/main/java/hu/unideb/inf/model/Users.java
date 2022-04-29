@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class Users implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String Username;
     private String Password;

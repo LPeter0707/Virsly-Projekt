@@ -18,6 +18,9 @@ public class JpaAdminsDao implements AdminsDAO{
 
     @Override
     public void saveAdmin(Admins a) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(a);
+        entityManager.getTransaction().commit();
     }
 
     @Override
