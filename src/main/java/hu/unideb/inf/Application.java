@@ -13,26 +13,29 @@ public class Application {
         startDatabase();
 
         try (AdminsDAO aDAO = new JpaAdminsDao();) {
+            if (aDAO.getAdmin().size() == 0)
+            {
+                Admins admin1 = new Admins();
+                admin1.setUsername("Csabi");
+                admin1.setPassword("Agora123");
+                aDAO.saveAdmin(admin1);
 
-            Admins admin1 = new Admins();
-            admin1.setUsername("Csabi");
-            admin1.setPassword("Agora123");
-            aDAO.saveAdmin(admin1);
+                Admins admin2 = new Admins();
+                admin2.setUsername("Nándi");
+                admin2.setPassword("Faszaaprojekt");
+                aDAO.saveAdmin(admin2);
 
-            Admins admin2 = new Admins();
-            admin2.setUsername("Nándi");
-            admin2.setPassword("Faszaaprojekt");
-            aDAO.saveAdmin(admin2);
+                Admins admin3 = new Admins();
+                admin3.setUsername("Sanyi");
+                admin3.setPassword("Sanko0910");
+                aDAO.saveAdmin(admin3);
 
-            Admins admin3 = new Admins();
-            admin3.setUsername("Sanyi");
-            admin3.setPassword("Sanko0910");
-            aDAO.saveAdmin(admin3);
+                Admins admin4 = new Admins();
+                admin4.setUsername("Peti");
+                admin4.setPassword("BEdina0702");
+                aDAO.saveAdmin(admin4);
+            }
 
-            Admins admin4 = new Admins();
-            admin4.setUsername("Peti");
-            admin4.setPassword("BEdina0702");
-            aDAO.saveAdmin(admin4);
 
         } catch (Exception e) {
             e.printStackTrace();
