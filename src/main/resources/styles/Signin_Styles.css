@@ -1,0 +1,33 @@
+#buttonSave{
+    -fx-background-color :  #b98496;
+}
+
+#buttonSave:hover{
+    -fx-background-color :  #812142;
+}
+
+#buttonSave:pressed{
+    -fx-background-color :  #e3cdd5;
+}
+
+.bemenet{
+    -fx-background-color : transparent;
+    -fx-border-color: white;
+    -fx-color: white;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+#buttonBack{
+    -fx-opacity : 0;
+}
+
+#buttonBack:hover{
+    -fx-border: 2px solid white;
+
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonBack:pushed{
+    -fx-background-color: #C79CAB;
+}
