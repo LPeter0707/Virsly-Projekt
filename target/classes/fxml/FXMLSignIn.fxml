@@ -2,12 +2,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="605.0" prefWidth="838.0" style="-fx-background-color: #74092E;" stylesheets="@../styles/Signin_Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLSignInSceneController">
    <children>
@@ -35,6 +35,6 @@
       <TextField layoutX="345.0" layoutY="178.0" promptText="Vezetéknév" styleClass="bemenet" />
       <TextField layoutX="345.0" layoutY="233.0" promptText="Keresztnév" styleClass="bemenet" />
       <TextField fx:id="uname" layoutX="345.0" layoutY="290.0" promptText="valami@virsly.com" styleClass="bemenet" />
-      <TextField fx:id="pass" layoutX="345.0" layoutY="346.0" promptText="********" styleClass="bemenet" />
+      <PasswordField fx:id="pass" layoutX="345.0" layoutY="345.0" prefHeight="0.0" prefWidth="149.0" promptText="*************" styleClass="bemenet" />
    </children>
 </AnchorPane>

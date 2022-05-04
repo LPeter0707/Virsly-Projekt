@@ -1,25 +1,26 @@
-#buttonLogin {
-    -fx-background-color :  #b98496;
+#buttonLogin{
+    -fx-background-color :  #112B3C;
 }
 
 #buttonLogin:hover{
-    -fx-background-color :  #812142;
+    -fx-background-color :  #0a1924;
 }
 
 #buttonLogin:pressed{
-    -fx-background-color :  #e3cdd5;
+    -fx-background-color :  #cfd4d8;
 }
 
-#buttonSignin{
-    -fx-background-color :  #b98496;
+#buttonKerelem{
+    -fx-opacity : 0;
 }
 
-#buttonSignin:hover{
-    -fx-background-color :  #812142;
+#buttonKerelem:hover{
+    -fx-opacity : 0.3;
 }
 
-#buttonSignin:pressed{
-    -fx-background-color :  #e3cdd5;
+#buttonKerelem:pressed{
+    -fx-opacity : 0.3;
+    -fx-background-color :  #9faab1;
 }
 
 #GetUsername{
@@ -42,7 +43,6 @@
 
 #buttonBack:hover{
     -fx-border: 2px solid white;
-
     -fx-border-radius: 5px;
     -fx-opacity : 0.3;
 }

@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLLoginSceneController">
+<AnchorPane prefHeight="377.0" prefWidth="703.0" style="-fx-background-color: #74092E;" stylesheets="@../styles/Login_Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLLoginSceneController">
    <children>
-      <AnchorPane prefHeight="491.0" prefWidth="600.0">
-         <children>
-            <Button fx:id="buttonUser" layoutX="125.0" layoutY="188.0" mnemonicParsing="false" onAction="#userPushed" text="Felhasználó">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="buttonAdmin" layoutX="326.0" layoutY="188.0" mnemonicParsing="false" onAction="#adminPushed" text="Adminisztrátor">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Label layoutX="93.0" layoutY="38.0" text="Válaszd ki a szerepköröd">
-               <font>
-                  <Font size="38.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
+      <ImageView fitHeight="430.0" fitWidth="743.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Bg.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="buttonUser" layoutX="148.0" layoutY="240.0" mnemonicParsing="false" onAction="#userPushed" prefHeight="44.0" prefWidth="165.0" text="Felhasználó" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonAdmin" layoutX="393.0" layoutY="240.0" mnemonicParsing="false" onAction="#adminPushed" prefHeight="44.0" prefWidth="165.0" text="Adminisztrátor" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="156.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@User.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="123.0" fitWidth="123.0" layoutX="414.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Admin.png" />
+         </image>
+      </ImageView>
    </children>
-</VBox>
+</AnchorPane>

@@ -1,0 +1,52 @@
+#buttonDailySale{
+    -fx-background-color :  #405562;
+}
+
+#buttonDailySale:hover{
+    -fx-background-color :  #28404f;
+}
+
+#buttonDailySale:pressed{
+    -fx-background-color :  #cfd4d8;
+    -fx-text-fill: black;
+}
+
+#buttonDailyInventory{
+    -fx-background-color :  #405562;
+}
+
+#buttonDailyInventory:hover{
+    -fx-background-color :  #28404f;
+}
+
+#buttonDailyInventory:pressed{
+    -fx-background-color :  #cfd4d8;
+    -fx-text-fill: black;
+}
+#buttonOrder{
+    -fx-background-color :  #405562;
+}
+
+#buttonOrder:hover{
+    -fx-background-color :  #28404f;
+}
+
+#buttonOrder:pressed{
+    -fx-background-color :  #cfd4d8;
+    -fx-text-fill: black;
+}
+
+#buttonBack{
+    -fx-opacity : 0;
+}
+
+#buttonBack:hover{
+    -fx-border: 2px solid white;
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonBack:pushed{
+    -fx-background-color: #C79CAB;
+}
+
