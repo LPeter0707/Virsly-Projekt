@@ -1,16 +1,10 @@
 package hu.unideb.inf;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
-
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.sql.SQLException;
-
 
 public class MainApp extends Application {
 

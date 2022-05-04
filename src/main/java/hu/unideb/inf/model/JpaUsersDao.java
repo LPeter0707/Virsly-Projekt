@@ -1,15 +1,9 @@
 package hu.unideb.inf.model;
 
-
-
-import org.h2.tools.Server;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 

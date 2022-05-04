@@ -21,7 +21,7 @@ public class Application {
 
             Admins admin2 = new Admins();
             admin2.setUsername("Nándi");
-            admin2.setPassword("Faszaaprojekt");
+            admin2.setPassword("Szotirisz2");
             aDAO.saveAdmin(admin2);
 
             Admins admin3 = new Admins();
