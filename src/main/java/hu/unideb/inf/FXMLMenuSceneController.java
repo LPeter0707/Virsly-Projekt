@@ -3,6 +3,8 @@ package hu.unideb.inf;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.awt.*;
+
 public class FXMLMenuSceneController {
 
     ///////////////////Food//////////////////////
@@ -202,6 +204,8 @@ public class FXMLMenuSceneController {
     @FXML
     private Label dreherPrice;
     public static Label dreherPrice_static;
+
+
 
     @FXML
     public void initialize(){

@@ -12,6 +12,30 @@ public class Application {
     public static void main() throws SQLException {
         startDatabase();
 
+
+        try(StorageDao sDao = new JpaStorageDAO();){
+            if (sDao.getStorage().size() == 0) {
+                Storage kifli = new Storage();
+                kifli.setName("kifli");
+                kifli.setPiece(2);
+                sDao.saveItems(kifli);
+
+
+                Storage virsli = new Storage();
+                virsli.setName("Virsli");
+                virsli.setPiece(5);
+                sDao.saveItems(virsli);
+            }
+
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+
         try (AdminsDAO aDAO = new JpaAdminsDao();) {
             if (aDAO.getAdmin().size() == 0)
             {
