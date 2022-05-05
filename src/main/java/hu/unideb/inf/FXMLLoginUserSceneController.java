@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FXMLLoginUserSceneController extends FXMLUserSiteSceneController{
+public class FXMLLoginUserSceneController{
 
     @FXML
     private Button buttonBack;
@@ -57,6 +57,7 @@ public class FXMLLoginUserSceneController extends FXMLUserSiteSceneController{
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     void loginPushed(ActionEvent event) throws IOException {
 
@@ -72,10 +73,6 @@ public class FXMLLoginUserSceneController extends FXMLUserSiteSceneController{
             stage.setScene(scene);
             stage.show();
         }
-
-
-
-
     }
 
     private boolean ValidateUser(String username, String password){

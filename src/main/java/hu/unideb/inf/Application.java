@@ -25,10 +25,13 @@ public class Application {
                 admin2.setPassword("Faszaaprojekt");
                 aDAO.saveAdmin(admin2);
 
+
                 Admins admin3 = new Admins();
                 admin3.setUsername("Sanyi");
                 admin3.setPassword("Sanko0910");
                 aDAO.saveAdmin(admin3);
+
+
 
                 Admins admin4 = new Admins();
                 admin4.setUsername("Peti");
