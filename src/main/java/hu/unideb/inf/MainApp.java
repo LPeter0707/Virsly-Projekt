@@ -34,14 +34,13 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
-
         try {
             hu.unideb.inf.Application.main();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+        launch(args);
     }
 
 }

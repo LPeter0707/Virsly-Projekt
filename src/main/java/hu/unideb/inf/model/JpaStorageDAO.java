@@ -23,7 +23,7 @@ public class JpaStorageDAO implements StorageDao{
 
     @Override
     public List<Storage> getStorage() {
-        TypedQuery<Storage> query = entityManager.createQuery( "SELECT a FROM Admins a", Storage.class);
+        TypedQuery<Storage> query = entityManager.createQuery( "SELECT a FROM Storage a", Storage.class);
         List<Storage> storage = query.getResultList(); return storage;
     }
 

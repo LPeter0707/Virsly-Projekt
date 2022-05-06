@@ -80,17 +80,17 @@ public class FXMLUserSiteSceneController {
         FXMLMenuSceneController.chdPrice_static.setText("" + chicagohotdog.getPrice());
         FXMLMenuSceneController.chdList_static.setText(("" + chicagohotdog.getList()).substring(1, ("" + chicagohotdog.getList()).length() - 1));
 
-        Food amsterdamhotdog = new Food("Amsterdam Hot Dog", List.of("hot dog kifli, zöld virsli, paradicsom, házi zöldség mix, házi majonéz, ketchup, mustár"), 1450);
+        Food amsterdamhotdog = new Food("Amsterdam Hot Dog", List.of("hot dog kifli, virsli, paradicsom, házi zöldség mix, majonéz, ketchup, mustár"), 1450);
         FXMLMenuSceneController.ahdName_static.setText(amsterdamhotdog.getName());
         FXMLMenuSceneController.ahdPrice_static.setText("" + amsterdamhotdog.getPrice());
         FXMLMenuSceneController.ahdList_static.setText(("" + amsterdamhotdog.getList()).substring(1, ("" + amsterdamhotdog.getList()).length() - 1));
 
-        Food debrecenihotdog = new Food("Debreceni Hot Dog", List.of("hot dog kifli, debreceni páros, bacon, paradicsom, pirított hagyma, magyaros/házi majonéz"), 1300);
+        Food debrecenihotdog = new Food("Debreceni Hot Dog", List.of("hot dog kifli, debreceni páros, bacon, paradicsom, pirított hagyma, magyaroskrém"), 1300);
         FXMLMenuSceneController.dhdName_static.setText(debrecenihotdog.getName());
         FXMLMenuSceneController.dhdPrice_static.setText("" + debrecenihotdog.getPrice());
         FXMLMenuSceneController.dhdList_static.setText(("" + debrecenihotdog.getList()).substring(1, ("" + debrecenihotdog.getList()).length() - 1));
 
-        Food athenhotdog = new Food("Athén Hot Dog", List.of("hot dog kifli, debreceni páros, bacon, paradicsom, pirított hagyma, magyaros/házi majonéz"), 1300);
+        Food athenhotdog = new Food("Athén Hot Dog", List.of("hot dog kifli, bárány-marha kolbász, padlizsánkrém, feta, paradicsom, hagyma, uborka"), 1100);
         FXMLMenuSceneController.athdName_static.setText(athenhotdog.getName());
         FXMLMenuSceneController.athdPrice_static.setText("" + athenhotdog.getPrice());
         FXMLMenuSceneController.athdList_static.setText(("" + athenhotdog.getList()).substring(1, ("" + athenhotdog.getList()).length() - 1));
