@@ -13,24 +13,28 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FXMLUserSiteSceneController {
 
+    public static List<Food> kajak = new ArrayList<>();
+
     @FXML
     private AnchorPane mainPane;
+    public static AnchorPane mainPane_static;
 
     @FXML
     private Button buttonVissza;
 
     @FXML
     private Label username;
-
     public static Label username_static;
 
     @FXML
     public void initialize(){
         username_static = username;
+        mainPane_static = mainPane;
     }
 
     @FXML
@@ -48,6 +52,7 @@ public class FXMLUserSiteSceneController {
         Pane view = object.getPage("FXMLKosar");
         mainPane.getChildren().setAll(view);
     }
+
     @FXML
     void kapcsolatPushed(ActionEvent event) throws IOException {
         FXMLScenes object = new FXMLScenes();
@@ -68,14 +73,16 @@ public class FXMLUserSiteSceneController {
         stage.show();
     }
 
-    private void GridpaneFood()
+    public void GridpaneFood()
     {
         Food newyorkhotdog = new Food("New York Hot Dog", List.of("hot dog kifli, virsli, cheddar szósz, pirított hagyma, ketchup, majonéz"), 1100);
+        kajak.add(newyorkhotdog);
         FXMLMenuSceneController.nyhdName_static.setText(newyorkhotdog.getName());
         FXMLMenuSceneController.nyhdPrice_static.setText("" + newyorkhotdog.getPrice());
         FXMLMenuSceneController.nyhdList_static.setText(("" + newyorkhotdog.getList()).substring(1, ("" + newyorkhotdog.getList()).length() - 1));
 
         Food chicagohotdog = new Food("Chicago Hot Dog", List.of("hot dog kifli, grill kolbász, mustár, pirított hagyma, uborka, jalapeno"), 1300);
+        kajak.add(chicagohotdog);
         FXMLMenuSceneController.chdName_static.setText(chicagohotdog.getName());
         FXMLMenuSceneController.chdPrice_static.setText("" + chicagohotdog.getPrice());
         FXMLMenuSceneController.chdList_static.setText(("" + chicagohotdog.getList()).substring(1, ("" + chicagohotdog.getList()).length() - 1));

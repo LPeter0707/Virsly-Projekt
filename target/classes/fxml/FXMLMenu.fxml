@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLMenuSceneController">
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLMenuSceneController">
    <children>
       <ScrollPane prefHeight="533.0" prefWidth="824.0">
         <content>
@@ -115,11 +116,6 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-
-                  <Button layoutX="684.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
-                  <Button layoutX="729.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
-                  <Button layoutX="729.0" layoutY="124.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
-                  <Button layoutX="684.0" layoutY="124.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
                   <Button layoutX="684.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
                   <Button layoutX="684.0" layoutY="228.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
                   <Button layoutX="684.0" layoutY="281.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
@@ -152,9 +148,12 @@
                   <Button layoutX="544.0" layoutY="783.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
                   <Button layoutX="544.0" layoutY="813.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
                   <Button layoutX="544.0" layoutY="841.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button fx:id="buttonOrder" layoutX="23.0" layoutY="54.0" mnemonicParsing="false" onAction="#orderPushed" text="Rendelés" />
+                  <ChoiceBox fx:id="kaja1" layoutX="684.0" layoutY="67.0" prefHeight="25.0" prefWidth="66.0" />
+                  <ChoiceBox fx:id="kaja2" layoutX="683.0" layoutY="108.0" prefHeight="25.0" prefWidth="71.0" />
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
    </children>
-</VBox>
+</AnchorPane>

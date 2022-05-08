@@ -1,11 +1,31 @@
 package hu.unideb.inf;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
-import java.awt.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class FXMLMenuSceneController {
+
+    private ObservableList<Integer> valasztasok = FXCollections.observableArrayList(0,1,2,3,4,5);
+    public List<ChoiceBox> cb = new ArrayList<>();
+
+    @FXML
+    private ChoiceBox<Integer> kaja1;
+
+    @FXML
+    private ChoiceBox<Integer> kaja2;
+
+    @FXML
+    private Button buttonOrder;
 
     ///////////////////Food//////////////////////
 
@@ -209,6 +229,15 @@ public class FXMLMenuSceneController {
 
     @FXML
     public void initialize(){
+
+        kaja1.setValue(0);
+        kaja1.setItems(valasztasok);
+        cb.add(kaja1);
+
+        kaja2.setValue(0);
+        kaja2.setItems(valasztasok);
+        cb.add(kaja2);
+
         //Food
         nyhdName_static = nyhdName;
         nyhdPrice_static = nyhdPrice;
@@ -272,5 +301,21 @@ public class FXMLMenuSceneController {
 
         dreherName_static = dreherName;
         dreherPrice_static = dreherPrice;
+    }
+
+    @FXML
+    void orderPushed(ActionEvent event) throws IOException {
+        for (int i = 0; i < cb.size(); i++)
+        {
+            if ((int)(cb.get(i)).getValue() != 0)
+            {
+                int darab = (int)(cb.get(i)).getValue();
+                //System.out.println((int)(cb.get(i)).getValue());
+                /*System.out.println(darab);
+                System.out.println(i);*/
+                FXMLBasketSceneController.Rendeles(i,darab);
+            }
+
+        }
     }
 }
