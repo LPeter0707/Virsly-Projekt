@@ -12,9 +12,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1086.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLUserSiteSceneController">
    <children>
-      <VBox layoutX="-1.0" layoutY="241.0" prefHeight="451.0" prefWidth="247.0" style="-fx-background-color: #74092E;">
+      <VBox layoutX="-1.0" layoutY="241.0" prefHeight="444.0" prefWidth="247.0" style="-fx-background-color: #74092E;">
          <children>
-            <Button fx:id="buttonMenu" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#menuPushed" prefHeight="58.0" prefWidth="239.0" stylesheets="@../styles/Styles.css" text="Menü" textFill="WHITE">
+            <Button fx:id="buttonMenu" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#menuPushed" prefHeight="58.0" prefWidth="244.0" stylesheets="@../styles/Styles.css" text="Menü" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -25,7 +25,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonKosar" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#kosarPushed" prefHeight="58.0" prefWidth="238.0" stylesheets="@../styles/Styles.css" text="Kosár" textFill="WHITE">
+            <Button fx:id="buttonKosar" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#kosarPushed" prefHeight="58.0" prefWidth="244.0" stylesheets="@../styles/Styles.css" text="Kosár" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -33,7 +33,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="buttonKapcsolat" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#kapcsolatPushed" prefHeight="58.0" prefWidth="235.0" stylesheets="@../styles/Styles.css" text="Kapcsolat" textFill="WHITE">
+            <Button fx:id="buttonKapcsolat" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#kapcsolatPushed" prefHeight="58.0" prefWidth="244.0" stylesheets="@../styles/Styles.css" text="Kapcsolat" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -41,7 +41,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button id="vissza" fx:id="buttonVissza" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#VisszaPushed" prefHeight="58.0" prefWidth="241.0" stylesheets="@../styles/Styles.css" text="VISSZA" textFill="WHITE">
+            <Button id="vissza" fx:id="buttonVissza" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#VisszaPushed" prefHeight="58.0" prefWidth="245.0" stylesheets="@../styles/Styles.css" text="VISSZA" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>

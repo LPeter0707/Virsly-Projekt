@@ -1,25 +1,31 @@
 #buttonLogin {
     -fx-background-color :  #b98496;
+    -fx-text-fill: white;
 }
 
 #buttonLogin:hover{
     -fx-background-color :  #812142;
+    -fx-text-fill: white;
 }
 
 #buttonLogin:pressed{
     -fx-background-color :  #e3cdd5;
+    -fx-text-fill: black;
 }
 
 #buttonSignin{
     -fx-background-color :  #b98496;
+    -fx-text-fill: white;
 }
 
 #buttonSignin:hover{
     -fx-background-color :  #812142;
+    -fx-text-fill: white;
 }
 
 #buttonSignin:pressed{
     -fx-background-color :  #e3cdd5;
+    -fx-text-fill: black;
 }
 
 #GetUsername{

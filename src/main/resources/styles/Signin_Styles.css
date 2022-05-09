@@ -1,13 +1,16 @@
 #buttonSave{
     -fx-background-color :  #b98496;
+    -fx-text-fill: white;
 }
 
 #buttonSave:hover{
     -fx-background-color :  #812142;
+    -fx-text-fill: white;
 }
 
 #buttonSave:pressed{
     -fx-background-color :  #e3cdd5;
+    -fx-text-fill: black;
 }
 
 .bemenet{

@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: #112B3C;" stylesheets="@../styles/Main_Menu_Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLMainmenuSceneController">
    <children>
       <ImageView fitHeight="648.0" fitWidth="883.0" layoutY="-3.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
@@ -14,38 +13,38 @@
             <Image url="@Bg2.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="buttonDailySale" layoutX="149.0" layoutY="327.0" mnemonicParsing="false" onAction="#dailysalePushed" text="Napi forgalom" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="buttonDailyInventory" layoutX="364.0" layoutY="327.0" mnemonicParsing="false" onAction="#dailyinventoryPushed" prefHeight="44.0" prefWidth="154.0" text="Napi leltár" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="buttonOrder" layoutX="581.0" layoutY="327.0" mnemonicParsing="false" onAction="#orderPushed" prefHeight="44.0" prefWidth="154.0" text="Áruszállítás" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="buttonBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backPushed" prefHeight="67.0" prefWidth="74.0" />
       <ImageView fitHeight="55.0" fitWidth="39.0" layoutX="32.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@back.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="535.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="buttonDailySale" layoutX="149.0" layoutY="347.0" mnemonicParsing="false" onAction="#dailysalePushed" text="Napi forgalom" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonDailyInventory" layoutX="364.0" layoutY="347.0" mnemonicParsing="false" onAction="#dailyinventoryPushed" prefHeight="44.0" prefWidth="154.0" text="Napi leltár" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonOrder" layoutX="581.0" layoutY="347.0" mnemonicParsing="false" onAction="#orderPushed" prefHeight="44.0" prefWidth="154.0" text="Áruszállítás" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backPushed" prefHeight="67.0" prefWidth="74.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="535.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Delivery.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="380.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="380.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Inventory.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="151.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="151.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Traffic.png" />
          </image>

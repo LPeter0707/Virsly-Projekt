@@ -1,13 +1,16 @@
 #buttonLogin{
     -fx-background-color :  #112B3C;
+    -fx-text-fill: white;
 }
 
 #buttonLogin:hover{
     -fx-background-color :  #0a1924;
+    -fx-text-fill: white;
 }
 
 #buttonLogin:pressed{
     -fx-background-color :  #cfd4d8;
+    -fx-text-fill: black;
 }
 
 #buttonKerelem{
