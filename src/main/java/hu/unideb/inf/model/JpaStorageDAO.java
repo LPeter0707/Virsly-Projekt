@@ -28,6 +28,17 @@ public class JpaStorageDAO implements StorageDao{
     }
 
     @Override
+    public void updateStorage(List<Storage> lista) {
+
+        for (Storage items : lista) {
+            entityManager.getTransaction().begin();
+            entityManager.persist(items);
+            entityManager.getTransaction().commit();
+        }
+
+    }
+
+    @Override
     public void close() throws Exception {
         entityManager.close();
         entityManagerFactory.close();

@@ -19,9 +19,7 @@ public class Storage implements Serializable {
         return Name;
     }
 
-    public void setName(String name) {
-        Name = name;
-    }
+    public void setName(String name) { Name = name; }
 
     public int getPiece() {
         return piece;
