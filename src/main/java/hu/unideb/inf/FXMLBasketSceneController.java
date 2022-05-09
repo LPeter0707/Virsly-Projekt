@@ -47,17 +47,28 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         Kiir();
     }
 
+    static int count_fun(String name){
+        int db = 0;
+        for (Food item : lista) {
+            if (item.getName()==name){
+                db++;
+            }
+        }
+        return db;
+    }
+
     static void Kiir()
     {
-        int darab = 1;
+
         int osszeg = 0;
         Set<Food> szurtlista = new HashSet<>(lista);
         String[] tartalom = new String[szurtlista.size()];
         List<Food> kajalista = new ArrayList<>(szurtlista);
         for (int i = 0; i < kajalista.size(); i++)
         {
-            tartalom[i] = "" + kajalista.get(i).getName() + "\t\t\t" + darab + "db" + "\t" + darab * kajalista.get(i).getPrice() + " ft";
-            osszeg += darab * kajalista.get(i).getPrice();
+            int db = count_fun(kajalista.get(i).getName());
+            tartalom[i] = "" + kajalista.get(i).getName() + "\t\t\t" + db + "db" + "\t" + db * kajalista.get(i).getPrice() + " ft";
+            osszeg += db * kajalista.get(i).getPrice();
         }
 
         basket_static.setText(String.join("\n", tartalom));
@@ -76,16 +87,16 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         for(int i = 0; i < lista.size(); i++){
             for (int j = 0; j < lista.get(i).getList().size(); j++){
                 for (int k = 0; k < raktar.size(); k++){
-                    System.out.println(lista.get(i).getList().get(j) == (raktar.get(k).getName()));
-                    if (lista.get(i).getList().get(j) == (raktar.get(k).getName())) {
-                        raktar.get(k).setPiece(raktar.get(k).getPiece() - 1);
+                    if (lista.get(i).getList().get(j).contains(raktar.get(k).getName())) {
+                        if (raktar.get(k).getPiece() < 1){
+                            System.out.println("Nincs elég alapanyag az étel elkészítéséhez!\n");
+                        }else {
+                            raktar.get(k).setPiece(raktar.get(k).getPiece() - 1);
 
+                        }
                     }
                 }
             }
-        }
-        for (Storage item: raktar) {
-            System.out.println(item.getName()+ " " + item.getPiece());
         }
         storage.updateStorage(raktar);
 

@@ -75,7 +75,7 @@ public class FXMLUserSiteSceneController {
 
     public void GridpaneFood()
     {
-        Food newyorkhotdog = new Food("New York Hot Dog", List.of("hot dog kifli, virsli, cheddar szósz, pirított hagyma, ketchup, majonéz"), 1100);
+        Food newyorkhotdog = new Food("New York Hot Dog", List.of("hotdogkifli, virsli, cheddarszosz, piritotthagyma, ketchup, majonez"), 1100);
         kajak.add(newyorkhotdog);
         FXMLMenuSceneController.nyhdName_static.setText(newyorkhotdog.getName());
         FXMLMenuSceneController.nyhdPrice_static.setText("" + newyorkhotdog.getPrice());
