@@ -75,44 +75,44 @@ public class FXMLUserSiteSceneController {
 
     public void GridpaneFood()
     {
-        Food newyorkhotdog = new Food("New York Hot Dog", List.of("hotdogkifli, virsli, cheddarszosz, piritotthagyma, ketchup, majonez"), 1100);
+        Food newyorkhotdog = new Food("New York Hot Dog", List.of("Hot Dog kifli, Virsli, Cheddar szósz, Pirított hagyma, Ketchup, Majonéz"), 1100);
         kajak.add(newyorkhotdog);
         FXMLMenuSceneController.nyhdName_static.setText(newyorkhotdog.getName());
         FXMLMenuSceneController.nyhdPrice_static.setText("" + newyorkhotdog.getPrice());
         FXMLMenuSceneController.nyhdList_static.setText(("" + newyorkhotdog.getList()).substring(1, ("" + newyorkhotdog.getList()).length() - 1));
 
-        Food chicagohotdog = new Food("Chicago Hot Dog", List.of("hot dog kifli, grill kolbász, mustár, pirított hagyma, uborka, jalapeno"), 1300);
+        Food chicagohotdog = new Food("Chicago Hot Dog", List.of("Hot Dog kifli, Grillkolbász, Mustár, Pirított hagyma, Uborka, Jalapeno"), 1300);
         kajak.add(chicagohotdog);
         FXMLMenuSceneController.chdName_static.setText(chicagohotdog.getName());
         FXMLMenuSceneController.chdPrice_static.setText("" + chicagohotdog.getPrice());
         FXMLMenuSceneController.chdList_static.setText(("" + chicagohotdog.getList()).substring(1, ("" + chicagohotdog.getList()).length() - 1));
 
-        Food amsterdamhotdog = new Food("Amsterdam Hot Dog", List.of("hot dog kifli, virsli, paradicsom, házi zöldség mix, majonéz, ketchup, mustár"), 1450);
+        Food amsterdamhotdog = new Food("Amsterdam Hot Dog", List.of("Hot Dog kifli, Virsli, Paradicsom, Házi zöldség mix, Majonez, Ketchup, Mustár"), 1450);
         FXMLMenuSceneController.ahdName_static.setText(amsterdamhotdog.getName());
         FXMLMenuSceneController.ahdPrice_static.setText("" + amsterdamhotdog.getPrice());
         FXMLMenuSceneController.ahdList_static.setText(("" + amsterdamhotdog.getList()).substring(1, ("" + amsterdamhotdog.getList()).length() - 1));
 
-        Food debrecenihotdog = new Food("Debreceni Hot Dog", List.of("hot dog kifli, debreceni páros, bacon, paradicsom, pirított hagyma, magyaroskrém"), 1300);
+        Food debrecenihotdog = new Food("Debreceni Hot Dog", List.of("Hot Dog kifli, Debreceni páros, Bacon, Paradicsom, Pirított hagyma, Magyaros krém"), 1300);
         FXMLMenuSceneController.dhdName_static.setText(debrecenihotdog.getName());
         FXMLMenuSceneController.dhdPrice_static.setText("" + debrecenihotdog.getPrice());
         FXMLMenuSceneController.dhdList_static.setText(("" + debrecenihotdog.getList()).substring(1, ("" + debrecenihotdog.getList()).length() - 1));
 
-        Food athenhotdog = new Food("Athén Hot Dog", List.of("hot dog kifli, bárány-marha kolbász, padlizsánkrém, feta, paradicsom, hagyma, uborka"), 1100);
+        Food athenhotdog = new Food("Athén Hot Dog", List.of("Hot Dog kifli, Bárány-marha kolbász, Padlizsankrém, Feta, Paradicsom, Hagyma, Uborka"), 1100);
         FXMLMenuSceneController.athdName_static.setText(athenhotdog.getName());
         FXMLMenuSceneController.athdPrice_static.setText("" + athenhotdog.getPrice());
         FXMLMenuSceneController.athdList_static.setText(("" + athenhotdog.getList()).substring(1, ("" + athenhotdog.getList()).length() - 1));
 
-        Food tokiohotdog = new Food("Tokió Hot Dog", List.of("hot dog kifli, kacsa kolbász, sushi gyömbér, wasabi, pirított hagyma, szója szósz"), 1550);
+        Food tokiohotdog = new Food("Tokió Hot Dog", List.of("Hot Dog kifli, Kacsa kolbász, Sushi gyömbér, Wasabi, Pirított hagyma, Szoja szósz"), 1550);
         FXMLMenuSceneController.thdName_static.setText(tokiohotdog.getName());
         FXMLMenuSceneController.thdPrice_static.setText("" + tokiohotdog.getPrice());
         FXMLMenuSceneController.thdList_static.setText(("" + tokiohotdog.getList()).substring(1, ("" + tokiohotdog.getList()).length() - 1));
 
-        Food mexikohotdog = new Food("Mexikó Hot Dog", List.of("hot dog kifli, virsli, jalapeno, kukorica, bab, mexikói salsa, tortilla chips"), 1550);
+        Food mexikohotdog = new Food("Mexikó Hot Dog", List.of("Hot Dog kifli, Virsli, Jalapeno, Kukorica, Bab, Mexikói salsa, Tortilla chips"), 1550);
         FXMLMenuSceneController.mhdName_static.setText(mexikohotdog.getName());
         FXMLMenuSceneController.mhdPrice_static.setText("" + mexikohotdog.getPrice());
         FXMLMenuSceneController.mhdList_static.setText(("" + mexikohotdog.getList()).substring(1, ("" + mexikohotdog.getList()).length() - 1));
 
-        Food kijevhotdog = new Food("Kijev Hot Dog", List.of("hot dog kifli, mangalica hurka, majonéz, mustár, jalapeno, uborka "), 1100);
+        Food kijevhotdog = new Food("Kijev Hot Dog", List.of("Hot Dog kifli, Mangalica hurka, Majonéz, Mustár, Jalapeno, Uborka "), 1100);
         FXMLMenuSceneController.khdName_static.setText(kijevhotdog.getName());
         FXMLMenuSceneController.khdPrice_static.setText("" + kijevhotdog.getPrice());
         FXMLMenuSceneController.khdList_static.setText(("" + kijevhotdog.getList()).substring(1, ("" + kijevhotdog.getList()).length() - 1));

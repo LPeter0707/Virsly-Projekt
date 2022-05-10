@@ -7,6 +7,7 @@ import hu.unideb.inf.model.StorageDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 
@@ -22,6 +23,10 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
     @FXML
     private TextArea basket;
     public static TextArea basket_static;
+
+    @FXML
+    private Label vegosszeg;
+    private static Label vegosszeg_static;
 
     @FXML
     private Button buttonRendel;
@@ -70,13 +75,14 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
             tartalom[i] = "" + kajalista.get(i).getName() + "\t\t\t" + db + "db" + "\t" + db * kajalista.get(i).getPrice() + " ft";
             osszeg += db * kajalista.get(i).getPrice();
         }
-
+        vegosszeg_static.setText(osszeg + " Ft");
         basket_static.setText(String.join("\n", tartalom));
     }
 
     @FXML
     public void initialize(){
         basket_static = basket;
+        vegosszeg_static = vegosszeg;
     }
 
     @FXML

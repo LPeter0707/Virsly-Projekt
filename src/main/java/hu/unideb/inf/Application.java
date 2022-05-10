@@ -16,17 +16,17 @@ public class Application {
         try(StorageDao sDao = new JpaStorageDAO();){
             if (sDao.getStorage().size() == 0) {
                 Storage kifli = new Storage();
-                kifli.setName("hotdogkifli");
+                kifli.setName("Hot Dog kifli");
                 kifli.setPiece(2);
                 sDao.saveItems(kifli);
 
                 Storage virsli = new Storage();
-                virsli.setName("virsli");
+                virsli.setName("Virsli");
                 virsli.setPiece(5);
                 sDao.saveItems(virsli);
 
                 Storage grill_kolbasz = new Storage();
-                grill_kolbasz.setName("Grill kolbász");
+                grill_kolbasz.setName("Grillkolbász");
                 grill_kolbasz.setPiece(5);
                 sDao.saveItems(grill_kolbasz);
 
@@ -51,12 +51,12 @@ public class Application {
                 sDao.saveItems(barany_marha_kolbasz);
 
                 Storage cheddar_szosz = new Storage();
-                cheddar_szosz.setName("cheddarszosz");
+                cheddar_szosz.setName("Cheddar szósz");
                 cheddar_szosz.setPiece(5);
                 sDao.saveItems(cheddar_szosz);
 
                 Storage piritott_hagyma = new Storage();
-                piritott_hagyma.setName("piritotthagyma");
+                piritott_hagyma.setName("Pirított hagyma");
                 piritott_hagyma.setPiece(5);
                 sDao.saveItems(piritott_hagyma);
 
@@ -76,7 +76,7 @@ public class Application {
                 sDao.saveItems(uborka);
 
                 Storage sushi_gyomber = new Storage();
-                sushi_gyomber.setName("Sushi gyömbér");
+                sushi_gyomber.setName("Sushi gyomber");
                 sushi_gyomber.setPiece(5);
                 sDao.saveItems(sushi_gyomber);
 
@@ -121,32 +121,32 @@ public class Application {
                 sDao.saveItems(zolsegmix);
 
                 Storage ketchup = new Storage();
-                ketchup.setName("ketchup");
+                ketchup.setName("Ketchup");
                 ketchup.setPiece(5);
                 sDao.saveItems(ketchup);
 
                 Storage majonez = new Storage();
-                majonez.setName("majonez");
+                majonez.setName("Majonéz");
                 majonez.setPiece(5);
                 sDao.saveItems(majonez);
 
                 Storage mustar = new Storage();
-                mustar.setName("Mustar");
+                mustar.setName("Mustár");
                 mustar.setPiece(5);
                 sDao.saveItems(mustar);
 
                 Storage szoja_szosz = new Storage();
-                szoja_szosz.setName("Szojaszosz");
+                szoja_szosz.setName("Szója szósz");
                 szoja_szosz.setPiece(5);
                 sDao.saveItems(szoja_szosz);
 
                 Storage magyaroskrem = new Storage();
-                magyaroskrem.setName("Magyaroskrem");
+                magyaroskrem.setName("Magyaros krém");
                 magyaroskrem.setPiece(5);
                 sDao.saveItems(magyaroskrem);
 
                 Storage padlizsankrem = new Storage();
-                padlizsankrem.setName("Padlizsankrem");
+                padlizsankrem.setName("Padlizsánkrém");
                 padlizsankrem.setPiece(5);
                 sDao.saveItems(padlizsankrem);
 

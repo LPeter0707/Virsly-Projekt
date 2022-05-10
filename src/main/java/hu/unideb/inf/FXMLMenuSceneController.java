@@ -19,12 +19,6 @@ public class FXMLMenuSceneController {
     public List<ChoiceBox> cb = new ArrayList<>();
 
     @FXML
-    private ChoiceBox<Integer> kaja1;
-
-    @FXML
-    private ChoiceBox<Integer> kaja2;
-
-    @FXML
     private Button buttonOrder;
 
     ///////////////////Food//////////////////////
@@ -42,6 +36,9 @@ public class FXMLMenuSceneController {
     private Label nyhdList;
     public static Label nyhdList_static;
 
+    @FXML
+    private ChoiceBox<Integer> nyhdCB;
+
     //Chicago Hot Dog
     @FXML
     private Label chdName;
@@ -54,6 +51,9 @@ public class FXMLMenuSceneController {
     @FXML
     private Label chdList;
     public static Label chdList_static;
+
+    @FXML
+    private ChoiceBox<Integer> chdCB;
 
     //Amsterdam Hot Dog
     @FXML
@@ -68,6 +68,9 @@ public class FXMLMenuSceneController {
     private Label ahdList;
     public static Label ahdList_static;
 
+    @FXML
+    private ChoiceBox<Integer> ahdCB;
+
     //Debreceni Hot Dog
     @FXML
     private Label dhdName;
@@ -80,6 +83,9 @@ public class FXMLMenuSceneController {
     @FXML
     private Label dhdList;
     public static Label dhdList_static;
+
+    @FXML
+    private ChoiceBox<Integer> dhdCB;
 
     //Athén Hot Dog
     @FXML
@@ -94,6 +100,9 @@ public class FXMLMenuSceneController {
     private Label athdList;
     public static Label athdList_static;
 
+    @FXML
+    private ChoiceBox<Integer> athdCB;
+
     //Tokió Hot Dog
     @FXML
     private Label thdName;
@@ -106,6 +115,9 @@ public class FXMLMenuSceneController {
     @FXML
     private Label thdList;
     public static Label thdList_static;
+
+    @FXML
+    private ChoiceBox<Integer> thdCB;
 
     //Mexikó Hot Dog
     @FXML
@@ -120,6 +132,9 @@ public class FXMLMenuSceneController {
     private Label mhdList;
     public static Label mhdList_static;
 
+    @FXML
+    private ChoiceBox<Integer> mhdCB;
+
     //Kijev Hot Dog
     @FXML
     private Label khdName;
@@ -133,6 +148,9 @@ public class FXMLMenuSceneController {
     private Label khdList;
     public static Label khdList_static;
 
+    @FXML
+    private ChoiceBox<Integer> khdCB;
+
     ///////////////////Drink//////////////////////
 
     //Coca Cola
@@ -144,6 +162,9 @@ public class FXMLMenuSceneController {
     private Label cocacolaPrice;
     public static Label cocacolaPrice_static;
 
+    @FXML
+    private ChoiceBox<Integer> cocacolaCB;
+
     //Coca Lite
     @FXML
     private Label colaliteName;
@@ -152,6 +173,9 @@ public class FXMLMenuSceneController {
     @FXML
     private Label colalitePrice;
     public static Label colalitePrice_static;
+
+    @FXML
+    private ChoiceBox<Integer> colalightCB;
 
     //Fanta
     @FXML
@@ -162,6 +186,9 @@ public class FXMLMenuSceneController {
     private Label fantaPrice;
     public static Label fantaPrice_static;
 
+    @FXML
+    private ChoiceBox<Integer> fantaCB;
+
     //Cappy Narancs
     @FXML
     private Label cappynName;
@@ -170,6 +197,9 @@ public class FXMLMenuSceneController {
     @FXML
     private Label cappynPrice;
     public static Label cappynPrice_static;
+
+    @FXML
+    private ChoiceBox<Integer> cappynCB;
 
     //Szénsavmentesvíz
     @FXML
@@ -180,6 +210,9 @@ public class FXMLMenuSceneController {
     private Label mentesvizPrice;
     public static Label mentesvizPrice_static;
 
+    @FXML
+    private ChoiceBox<Integer> mentesvizCB;
+
     //Szénsavasvíz
     @FXML
     private Label savasvizName;
@@ -188,6 +221,9 @@ public class FXMLMenuSceneController {
     @FXML
     private Label savasvizPrice;
     public static Label savasvizPrice_static;
+
+    @FXML
+    private ChoiceBox<Integer> savasvizCB;
 
     //Redbull
     @FXML
@@ -198,6 +234,9 @@ public class FXMLMenuSceneController {
     private Label redbullPrice;
     public static Label redbullPrice_static;
 
+    @FXML
+    private ChoiceBox<Integer> redbullCB;
+
     //Heineken
     @FXML
     private Label heinekenName;
@@ -206,6 +245,9 @@ public class FXMLMenuSceneController {
     @FXML
     private Label heinekenPrice;
     public static Label heinekenPrice_static;
+
+    @FXML
+    private ChoiceBox<Integer> heinekenCB;
 
     //Soproni
     @FXML
@@ -216,6 +258,9 @@ public class FXMLMenuSceneController {
     private Label soproniPrice;
     public static Label soproniPrice_static;
 
+    @FXML
+    private ChoiceBox<Integer> soproniCB;
+
     //Dreher
     @FXML
     private Label dreherName;
@@ -225,18 +270,85 @@ public class FXMLMenuSceneController {
     private Label dreherPrice;
     public static Label dreherPrice_static;
 
+    @FXML
+    private ChoiceBox<Integer> dreherCB;
+
 
 
     @FXML
     public void initialize(){
 
-        kaja1.setValue(0);
-        kaja1.setItems(valasztasok);
-        cb.add(kaja1);
+        nyhdCB.setValue(0);
+        nyhdCB.setItems(valasztasok);
+        cb.add(nyhdCB);
 
-        kaja2.setValue(0);
-        kaja2.setItems(valasztasok);
-        cb.add(kaja2);
+        chdCB.setValue(0);
+        chdCB.setItems(valasztasok);
+        cb.add(chdCB);
+
+        ahdCB.setValue(0);
+        ahdCB.setItems(valasztasok);
+        cb.add(ahdCB);
+
+        dhdCB.setValue(0);
+        dhdCB.setItems(valasztasok);
+        cb.add(dhdCB);
+
+        ahdCB.setValue(0);
+        ahdCB.setItems(valasztasok);
+        cb.add(athdCB);
+
+        thdCB.setValue(0);
+        thdCB.setItems(valasztasok);
+        cb.add(thdCB);
+
+        mhdCB.setValue(0);
+        mhdCB.setItems(valasztasok);
+        cb.add(mhdCB);
+
+        khdCB.setValue(0);
+        khdCB.setItems(valasztasok);
+        cb.add(khdCB);
+
+        cocacolaCB.setValue(0);
+        cocacolaCB.setItems(valasztasok);
+        cb.add(cocacolaCB);
+
+        colalightCB.setValue(0);
+        colalightCB.setItems(valasztasok);
+        cb.add(colalightCB);
+
+        fantaCB.setValue(0);
+        fantaCB.setItems(valasztasok);
+        cb.add(fantaCB);
+
+        cappynCB.setValue(0);
+        cappynCB.setItems(valasztasok);
+        cb.add(cappynCB);
+
+        mentesvizCB.setValue(0);
+        mentesvizCB.setItems(valasztasok);
+        cb.add(mentesvizCB);
+
+        savasvizCB.setValue(0);
+        savasvizCB.setItems(valasztasok);
+        cb.add(savasvizCB);
+
+        redbullCB.setValue(0);
+        redbullCB.setItems(valasztasok);
+        cb.add(redbullCB);
+
+        heinekenCB.setValue(0);
+        heinekenCB.setItems(valasztasok);
+        cb.add(heinekenCB);
+
+        soproniCB.setValue(0);
+        soproniCB.setItems(valasztasok);
+        cb.add(soproniCB);
+
+        dreherCB.setValue(0);
+        dreherCB.setItems(valasztasok);
+        cb.add(dreherCB);
 
         //Food
         nyhdName_static = nyhdName;
@@ -310,9 +422,6 @@ public class FXMLMenuSceneController {
             if ((int)(cb.get(i)).getValue() != 0)
             {
                 int darab = (int)(cb.get(i)).getValue();
-                //System.out.println((int)(cb.get(i)).getValue());
-                /*System.out.println(darab);
-                System.out.println(i);*/
                 FXMLBasketSceneController.Rendeles(i,darab);
             }
 
