@@ -76,6 +76,7 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
             Napiforgalomital(itallista, count_ital(itallista.get(i).getName()), i);
         }
     }
+    public static List<Drink> itallistap = new ArrayList<>();
 
     static String[] italKiir()
     {
@@ -83,6 +84,7 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         Set<Drink> szurtlista = new HashSet<>(itallista);
         String[] tartalom = new String[szurtlista.size()];
         List<Drink> itallista = new ArrayList<>(szurtlista);
+        itallistap.addAll(itallista);
         for (int i = 0; i < itallista.size(); i++)
         {
             int db = count_ital(itallista.get(i).getName());
@@ -110,10 +112,9 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         mainPane_static.getChildren().setAll(view);
 
         //kajaKiir();
-        for (int i = 0; i < kajalista.size(); i++)
-        {
-            Napiforgalomkaja(kajalista, count_kaja(kajalista.get(i).getName()), i);
-        }
+
+            Napiforgalomkaja(kajalistap);
+
     }
 
     static int count_ital(String name){
@@ -135,13 +136,14 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         }
         return db;
     }
-
+    public static List<Food> kajalistap = new ArrayList<>();
     static String[] kajaKiir()
     {
         //int kajaosszeg = 0;
         Set<Food> szurtlista = new HashSet<>(kajalista);
         String[] tartalom = new String[szurtlista.size()];
         List<Food> kajalista = new ArrayList<>(szurtlista);
+        kajalistap.addAll(kajalista);
         for (int i = 0; i < kajalista.size(); i++)
         {
             int db = count_kaja(kajalista.get(i).getName());
@@ -153,7 +155,7 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         return tartalom;
     }
 
-    static void Napiforgalomkaja(List<Food> kajalista, int db, int i)
+    static void Napiforgalomkaja(List<Food> kajalista)
     {
         //////Napi forgalom /////////////////////////////EZT KELL ÁTNÉZNED SANYI///////////////////////////////////////////////////////////////
         //Fasza csak annyi a hiba hogy új sorrba menti és nem irja felül a régebbit
@@ -163,15 +165,20 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
                 Dailysale dailysale = new Dailysale();
                 if (forgalom.size() == 0)
                 {
-                    dailysale.setName(kajalista.get(i).getName());
-                    dailysale.setCount(db);
+                    dailysale.setName(kajalista.get(0).getName());
+                    dailysale.setCount(count_kaja(kajalista.get(0).getName()));
                     dDao.saveDailysale(dailysale);
-                }
+                    for (int i = 1; i < kajalista.size(); i++){
+                        dailysale.setName(kajalista.get(i).getName());
+                        dailysale.setCount(count_kaja(kajalista.get(i).getName()));
+                        dDao.saveDailysale(dailysale);
+                    }
+                }/*
                 else {
                     for (int j = 0; j < forgalom.size(); j++) {
                         //System.out.println("forgalom: " + forgalom.get(j).getName());
                         //System.out.println("kajalista: " + kajalista.get(i).getName());
-                        if (forgalom.get(j).getName().contains(kajalista.get(i).getName())) {
+                        if (forgalom.get(j).getName().contains(kajalista.get().getName())) {
                             //System.out.println("ok");
                             dailysale.setCount(forgalom.get(j).getCount() + db);
                             dailysale.setName(forgalom.get(j).getName());
@@ -185,7 +192,7 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
                             dDao.saveDailysale(dailysale);
                         }
                     }
-                }
+                }*/
             }catch (Exception e) {
                 e.printStackTrace();
             }
@@ -206,30 +213,57 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         List<Storage> raktar = new ArrayList<>();
         StorageDao storage = new JpaStorageDAO();
         raktar = storage.getStorage();
-        for(int i = 0; i < kajalista.size(); i++){
-            for (int j = 0; j < kajalista.get(i).getList().size(); j++){
+        boolean hiba = false;
+        for(int i = 0; i < kajalistap.size(); i++){
+            for (int j = 0; j < kajalistap.get(i).getList().size(); j++){
                 for (int k = 0; k < raktar.size(); k++){
-                    if (kajalista.get(i).getList().get(j).contains(raktar.get(k).getName())) {
-                        if (raktar.get(k).getPiece() < 1){
+                    if (kajalistap.get(i).getList().get(j).contains(raktar.get(k).getName())) {
+                        if (raktar.get(k).getPiece() < count_kaja(kajalistap.get(i).getName())){
+                            hiba = true;
                             a.show();
+                            break;
                         }
-                        else {
-                            raktar.get(k).setPiece(raktar.get(k).getPiece() - 1);
+                    }
+                }
+            }
+        }
+        if (hiba == false) {
+            for (int i = 0; i < kajalistap.size(); i++) {
+                for (int j = 0; j < kajalistap.get(i).getList().size(); j++) {
+                    for (int k = 0; k < raktar.size(); k++) {
+                        if (kajalistap.get(i).getList().get(j).contains(raktar.get(k).getName())) {
+
+
+                                raktar.get(k).setPiece(raktar.get(k).getPiece() - count_kaja(kajalistap.get(i).getName()));
+
+
 
                         }
                     }
                 }
             }
         }
+        boolean italhiba = false;
         for(int i = 0; i < itallista.size(); i++){
             for (int j = 0; j < raktar.size(); j++){
                 if (itallista.get(i).getName().contains(raktar.get(j).getName())) {
-                    if (raktar.get(j).getPiece() < 1){
+                    if (raktar.get(j).getPiece() < count_ital(itallistap.get(i).getName())){
+                        italhiba = true;
                         a.show();
+                        break;
                     }
-                    else {
-                        System.out.println("fasza");
-                        raktar.get(j).setPiece(raktar.get(j).getPiece() - 1);
+
+                }
+            }
+        }
+
+        if (italhiba == false){
+            for(int i = 0; i < itallistap.size(); i++){
+                for (int j = 0; j < raktar.size(); j++){
+                    if (itallistap.get(i).getName().contains(raktar.get(j).getName())) {
+
+                            raktar.get(j).setPiece(raktar.get(j).getPiece() - count_ital(itallistap.get(i).getName()));
+
 
                     }
                 }
