@@ -1,7 +1,6 @@
 package hu.unideb.inf;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import hu.unideb.inf.model.*;
 import org.h2.tools.Server;
@@ -17,7 +16,7 @@ public class Application {
             if (sDao.getStorage().size() == 0) {
                 Storage kifli = new Storage();
                 kifli.setName("Hot Dog kifli");
-                kifli.setPiece(2);
+                kifli.setPiece(10);
                 sDao.saveItems(kifli);
 
                 Storage virsli = new Storage();
@@ -154,6 +153,56 @@ public class Application {
                 wasabi.setName("Wasabi");
                 wasabi.setPiece(5);
                 sDao.saveItems(wasabi);
+
+                Storage cocacola = new Storage();
+                cocacola.setName("Coca cola");
+                cocacola.setPiece(5);
+                sDao.saveItems(cocacola);
+
+                Storage colalite = new Storage();
+                colalite.setName("Cola lite");
+                colalite.setPiece(5);
+                sDao.saveItems(colalite);
+
+                Storage fanta = new Storage();
+                fanta.setName("Fanta");
+                fanta.setPiece(5);
+                sDao.saveItems(fanta);
+
+                Storage cappy = new Storage();
+                cappy.setName("Cappy narancs");
+                cappy.setPiece(5);
+                sDao.saveItems(cappy);
+
+                Storage mentesviz = new Storage();
+                mentesviz.setName("Szénsavmentes víz");
+                mentesviz.setPiece(5);
+                sDao.saveItems(mentesviz);
+
+                Storage savasviz = new Storage();
+                savasviz.setName("Szénsavas víz");
+                savasviz.setPiece(5);
+                sDao.saveItems(savasviz);
+
+                Storage redbull = new Storage();
+                redbull.setName("Redbull");
+                redbull.setPiece(5);
+                sDao.saveItems(redbull);
+
+                Storage heineken = new Storage();
+                heineken.setName("Heineken");
+                heineken.setPiece(5);
+                sDao.saveItems(heineken);
+
+                Storage soproni = new Storage();
+                soproni.setName("Soproni");
+                soproni.setPiece(5);
+                sDao.saveItems(soproni);
+
+                Storage dreher = new Storage();
+                dreher.setName("Dreher");
+                dreher.setPiece(5);
+                sDao.saveItems(dreher);
             }
         }catch (Exception e) {
             e.printStackTrace();

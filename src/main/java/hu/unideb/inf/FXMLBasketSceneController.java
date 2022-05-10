@@ -1,18 +1,15 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.model.Food;
-import hu.unideb.inf.model.JpaStorageDAO;
-import hu.unideb.inf.model.Storage;
-import hu.unideb.inf.model.StorageDao;
+import hu.unideb.inf.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
-
 import java.io.IOException;
-import java.security.cert.PolicyNode;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -33,8 +30,7 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
 
     public static List<Food> lista = new ArrayList<>();
 
-    static void Rendeles(int kajaindex, int darab)
-    {
+    static void Rendeles(int kajaindex, int darab) throws SQLException {
         for (int i = 0; i < darab; i++)
         {
             lista.add(kajak.get(kajaindex));
@@ -62,9 +58,8 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         return db;
     }
 
-    static void Kiir()
+    static void Kiir() throws SQLException
     {
-
         int osszeg = 0;
         Set<Food> szurtlista = new HashSet<>(lista);
         String[] tartalom = new String[szurtlista.size()];
@@ -72,7 +67,36 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         for (int i = 0; i < kajalista.size(); i++)
         {
             int db = count_fun(kajalista.get(i).getName());
-            tartalom[i] = "" + kajalista.get(i).getName() + "\t\t\t" + db + "db" + "\t" + db * kajalista.get(i).getPrice() + " ft";
+            //////Napi forgalom /////////////////////////////EZT KELL ÁTNÉZNED SANYI///////////////////////////////////////////////////////////////
+            List<Dailysale> forgalom = new ArrayList<>();
+            try(DailysaleDAO dDao = new JpaDailysaleDAO();){
+                forgalom = dDao.getDailysale();
+                Dailysale dailysale = new Dailysale();
+                if (forgalom.size() == 0)
+                {
+                    dailysale.setName(kajalista.get(i).getName());
+                    dailysale.setCount(db);
+                    dDao.saveDailysale(dailysale);
+                }
+                else {
+                    for (int j = 0; j < forgalom.size(); j++) {
+                        if (forgalom.get(j).getName().contains(kajalista.get(i).getName())) {
+                            dailysale.setCount(forgalom.get(j).getCount() + db);
+                        }
+                        else
+                        {
+                            dailysale.setName(kajalista.get(i).getName());
+                            dailysale.setCount(db);
+                            dDao.saveDailysale(dailysale);
+                        }
+                    }
+                    dDao.updateDailysale(dailysale);
+                }
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+            ////////////////////////////////////////////////////////////////////////
+            tartalom[i] = kajalista.get(i).getName() + "\t\t\t" + db + "db" + "\t" + db * kajalista.get(i).getPrice() + " ft";
             osszeg += db * kajalista.get(i).getPrice();
         }
         vegosszeg_static.setText(osszeg + " Ft");
@@ -87,6 +111,9 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
 
     @FXML
     void rendelPushed(ActionEvent event) throws IOException{
+        Alert a = new Alert(Alert.AlertType.NONE);
+        a.setAlertType(Alert.AlertType.WARNING);
+        a.setContentText("Nincs elég alapanyag az étel elkészítéséhez!\n");
         List<Storage> raktar = new ArrayList<>();
         StorageDao storage = new JpaStorageDAO();
         raktar = storage.getStorage();
@@ -95,7 +122,7 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
                 for (int k = 0; k < raktar.size(); k++){
                     if (lista.get(i).getList().get(j).contains(raktar.get(k).getName())) {
                         if (raktar.get(k).getPiece() < 1){
-                            System.out.println("Nincs elég alapanyag az étel elkészítéséhez!\n");
+                            a.show();
                         }else {
                             raktar.get(k).setPiece(raktar.get(k).getPiece() - 1);
 
@@ -105,6 +132,9 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
             }
         }
         storage.updateStorage(raktar);
-
+        basket_static.clear();
+        FXMLScenes object = new FXMLScenes();
+        Pane view = object.getPage("FXMLKapcsolat");
+        mainPane_static.getChildren().setAll(view);
     }
 }

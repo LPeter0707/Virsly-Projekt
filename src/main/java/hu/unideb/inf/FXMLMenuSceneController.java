@@ -9,6 +9,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -294,8 +295,8 @@ public class FXMLMenuSceneController {
         dhdCB.setItems(valasztasok);
         cb.add(dhdCB);
 
-        ahdCB.setValue(0);
-        ahdCB.setItems(valasztasok);
+        athdCB.setValue(0);
+        athdCB.setItems(valasztasok);
         cb.add(athdCB);
 
         thdCB.setValue(0);
@@ -416,7 +417,7 @@ public class FXMLMenuSceneController {
     }
 
     @FXML
-    void orderPushed(ActionEvent event) throws IOException {
+    void orderPushed(ActionEvent event) throws IOException, SQLException {
         for (int i = 0; i < cb.size(); i++)
         {
             if ((int)(cb.get(i)).getValue() != 0)

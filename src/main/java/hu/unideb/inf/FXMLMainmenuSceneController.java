@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class FXMLMainmenuSceneController {
@@ -47,6 +46,7 @@ public class FXMLMainmenuSceneController {
         stage.setTitle("Daily Sales");
         stage.setScene(scene);
         stage.show();
+        DailysaleTextArea();
     }
 
     @FXML
@@ -73,5 +73,11 @@ public class FXMLMainmenuSceneController {
         stage.setTitle("Order");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void DailysaleTextArea()
+    {
+        String[] tartalom = new String[100];
+        FXMLDailySalesSceneController.dailysale_static.setText(String.join("\n", tartalom));
     }
 }
