@@ -127,52 +127,52 @@ public class FXMLUserSiteSceneController {
 
     private void GridpaneDrink()
     {
-        Drink cocacola = new Drink("Coca Cola 0.5l", 450);
+        Drink cocacola = new Drink("Coca cola", 450);
         italok.add(cocacola);
         FXMLMenuSceneController.cocacolaName_static.setText(cocacola.getName());
         FXMLMenuSceneController.cocacolaPrice_static.setText(cocacola.getPrice() + "Ft");
 
-        Drink colalite = new Drink("Cola lite 0.5l", 450);
+        Drink colalite = new Drink("Cola lite", 450);
         italok.add(colalite);
         FXMLMenuSceneController.colaliteName_static.setText(colalite.getName());
         FXMLMenuSceneController.colalitePrice_static.setText(colalite.getPrice() + "Ft");
 
-        Drink fanta = new Drink("Fanta 0.5l", 450);
+        Drink fanta = new Drink("Fanta", 450);
         italok.add(fanta);
         FXMLMenuSceneController.fantaName_static.setText(fanta.getName());
         FXMLMenuSceneController.fantaPrice_static.setText(fanta.getPrice() + "Ft");
 
-        Drink cappynarancs = new Drink("Cappy Narancs 0.5l", 450);
+        Drink cappynarancs = new Drink("Cappy narancs", 450);
         italok.add(cappynarancs);
         FXMLMenuSceneController.cappynName_static.setText(cappynarancs.getName());
         FXMLMenuSceneController.cappynPrice_static.setText(cappynarancs.getPrice() + "Ft");
 
-        Drink szensavmentesviz = new Drink("Szénsavmentes víz 0.5l", 300);
+        Drink szensavmentesviz = new Drink("Szénsavmentes víz", 300);
         italok.add(szensavmentesviz);
         FXMLMenuSceneController.mentesvizName_static.setText(szensavmentesviz.getName());
         FXMLMenuSceneController.mentesvizPrice_static.setText(szensavmentesviz.getPrice() + "Ft");
 
-        Drink szensavasviz = new Drink("Szénsavas víz 0.5l", 300);
+        Drink szensavasviz = new Drink("Szénsavas víz", 300);
         italok.add(szensavasviz);
         FXMLMenuSceneController.savasvizName_static.setText(szensavasviz.getName());
         FXMLMenuSceneController.savasvizPrice_static.setText(szensavasviz.getPrice() + "Ft");
 
-        Drink redbull = new Drink("Redbull 0.25l", 600);
+        Drink redbull = new Drink("Redbull", 600);
         italok.add(redbull);
         FXMLMenuSceneController.redbullName_static.setText(redbull.getName());
         FXMLMenuSceneController.redbullPrice_static.setText(redbull.getPrice() + "Ft");
 
-        Drink heineken = new Drink("Heineken 0.33l", 500);
+        Drink heineken = new Drink("Heineken", 500);
         italok.add(heineken);
         FXMLMenuSceneController.heinekenName_static.setText(heineken.getName());
         FXMLMenuSceneController.heinekenPrice_static.setText(heineken.getPrice() + "Ft");
 
-        Drink soproni = new Drink("Soproni 0.5l", 690);
+        Drink soproni = new Drink("Soproni", 690);
         italok.add(soproni);
         FXMLMenuSceneController.soproniName_static.setText(soproni.getName());
         FXMLMenuSceneController.soproniPrice_static.setText(soproni.getPrice() + "Ft");
 
-        Drink dreher = new Drink("Dreher 0.5l", 690);
+        Drink dreher = new Drink("Dreher", 690);
         italok.add(dreher);
         FXMLMenuSceneController.dreherName_static.setText(dreher.getName());
         FXMLMenuSceneController.dreherPrice_static.setText(dreher.getPrice() + "Ft");

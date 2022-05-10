@@ -28,29 +28,97 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
     @FXML
     private Button buttonRendel;
 
-    public static List<Food> lista = new ArrayList<>();
+    public static List<Food> kajalista = new ArrayList<>();
+    public static List<Drink> itallista = new ArrayList<>();
 
-    static void Rendeles(int kajaindex, int darab) throws SQLException {
-        for (int i = 0; i < darab; i++)
+    private static Integer italosszeg = 0;
+    private static Integer kajaosszeg = 0;
+
+    static void OsszegKiir()
+    {
+        vegosszeg_static.setText(italosszeg + kajaosszeg + "Ft");
+    }
+
+    static void Kiir()
+    {
+        String[] italtartalom = italKiir();
+        String[] kajatartalom = kajaKiir();
+
+        int meret = italtartalom.length + kajatartalom.length;
+        String[] teljes = new String[meret];
+
+        for (int i = 0; i < italtartalom.length; i++)
         {
-            lista.add(kajak.get(kajaindex));
+            teljes[i] = italtartalom[i];
         }
 
-        /*for (int j = 0; j < lista.size(); j++)
+        for (int j = 0; j < kajatartalom.length; j++)
         {
-            System.out.println(lista.get(j).getName());
-        }*/
+            teljes[j+italtartalom.length] = kajatartalom[j];
+        }
+
+        basket_static.setText(String.join("\n", teljes));
+    }
+
+    static void italRendeles(int italindex, int darab){
+        for (int i = 0; i < darab; i++)
+        {
+            itallista.add(italok.get(italindex));
+        }
 
         FXMLScenes object = new FXMLScenes();
         Pane view = object.getPage("FXMLKosar");
         mainPane_static.getChildren().setAll(view);
 
-        Kiir();
+        //italKiir();
+        for (int i = 0; i < itallista.size(); i++)
+        {
+            Napiforgalomital(itallista, count_ital(itallista.get(i).getName()), i);
+        }
     }
 
-    static int count_fun(String name){
+    static String[] italKiir()
+    {
+        //int italosszeg = 0;
+        Set<Drink> szurtlista = new HashSet<>(itallista);
+        String[] tartalom = new String[szurtlista.size()];
+        List<Drink> itallista = new ArrayList<>(szurtlista);
+        for (int i = 0; i < itallista.size(); i++)
+        {
+            int db = count_ital(itallista.get(i).getName());
+            tartalom[i] = itallista.get(i).getName() + "\t\t\t" + db + "db" + "\t" + db * itallista.get(i).getPrice() + " ft";
+            italosszeg += db * itallista.get(i).getPrice();
+        }
+        //vegosszeg_static.setText(italosszeg + " Ft");
+        //basket_static.setText(String.join("\n", tartalom));
+        return tartalom;
+    }
+
+    static void Napiforgalomital(List<Drink> itallista, int db, int i)
+    {
+        ///////
+    }
+
+    static void kajaRendeles(int kajaindex, int darab){
+        for (int i = 0; i < darab; i++)
+        {
+            kajalista.add(kajak.get(kajaindex));
+        }
+
+        FXMLScenes object = new FXMLScenes();
+        Pane view = object.getPage("FXMLKosar");
+        mainPane_static.getChildren().setAll(view);
+
+        //kajaKiir();
+        for (int i = 0; i < kajalista.size(); i++)
+        {
+            Napiforgalomkaja(kajalista, count_kaja(kajalista.get(i).getName()), i);
+        }
+    }
+
+    static int count_ital(String name){
         int db = 0;
-        for (Food item : lista) {
+        for (Drink item : itallista) {
             if (item.getName()==name){
                 db++;
             }
@@ -58,16 +126,37 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         return db;
     }
 
-    static void Kiir() throws SQLException
+    static int count_kaja(String name){
+        int db = 0;
+        for (Food item : kajalista) {
+            if (item.getName()==name){
+                db++;
+            }
+        }
+        return db;
+    }
+
+    static String[] kajaKiir()
     {
-        int osszeg = 0;
-        Set<Food> szurtlista = new HashSet<>(lista);
+        //int kajaosszeg = 0;
+        Set<Food> szurtlista = new HashSet<>(kajalista);
         String[] tartalom = new String[szurtlista.size()];
         List<Food> kajalista = new ArrayList<>(szurtlista);
         for (int i = 0; i < kajalista.size(); i++)
         {
-            int db = count_fun(kajalista.get(i).getName());
-            //////Napi forgalom /////////////////////////////EZT KELL ÁTNÉZNED SANYI///////////////////////////////////////////////////////////////
+            int db = count_kaja(kajalista.get(i).getName());
+            tartalom[i] = kajalista.get(i).getName() + "\t\t\t" + db + "db" + "\t" + db * kajalista.get(i).getPrice() + " ft";
+            kajaosszeg += db * kajalista.get(i).getPrice();
+        }
+        //vegosszeg_static.setText(osszeg + " Ft");
+        //basket_static.setText(String.join("\n", tartalom));
+        return tartalom;
+    }
+
+    static void Napiforgalomkaja(List<Food> kajalista, int db, int i)
+    {
+        //////Napi forgalom /////////////////////////////EZT KELL ÁTNÉZNED SANYI///////////////////////////////////////////////////////////////
+        //Fasza csak annyi a hiba hogy új sorrba menti és nem irja felül a régebbit
             List<Dailysale> forgalom = new ArrayList<>();
             try(DailysaleDAO dDao = new JpaDailysaleDAO();){
                 forgalom = dDao.getDailysale();
@@ -80,8 +169,14 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
                 }
                 else {
                     for (int j = 0; j < forgalom.size(); j++) {
+                        //System.out.println("forgalom: " + forgalom.get(j).getName());
+                        //System.out.println("kajalista: " + kajalista.get(i).getName());
                         if (forgalom.get(j).getName().contains(kajalista.get(i).getName())) {
+                            //System.out.println("ok");
                             dailysale.setCount(forgalom.get(j).getCount() + db);
+                            dailysale.setName(forgalom.get(j).getName());
+                            dDao.updateDailysale(dailysale);
+                            break;
                         }
                         else
                         {
@@ -90,17 +185,11 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
                             dDao.saveDailysale(dailysale);
                         }
                     }
-                    dDao.updateDailysale(dailysale);
                 }
             }catch (Exception e) {
                 e.printStackTrace();
             }
-            ////////////////////////////////////////////////////////////////////////
-            tartalom[i] = kajalista.get(i).getName() + "\t\t\t" + db + "db" + "\t" + db * kajalista.get(i).getPrice() + " ft";
-            osszeg += db * kajalista.get(i).getPrice();
-        }
-        vegosszeg_static.setText(osszeg + " Ft");
-        basket_static.setText(String.join("\n", tartalom));
+        ////////////////////////////////////////////////////////////////////////
     }
 
     @FXML
@@ -117,13 +206,14 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         List<Storage> raktar = new ArrayList<>();
         StorageDao storage = new JpaStorageDAO();
         raktar = storage.getStorage();
-        for(int i = 0; i < lista.size(); i++){
-            for (int j = 0; j < lista.get(i).getList().size(); j++){
+        for(int i = 0; i < kajalista.size(); i++){
+            for (int j = 0; j < kajalista.get(i).getList().size(); j++){
                 for (int k = 0; k < raktar.size(); k++){
-                    if (lista.get(i).getList().get(j).contains(raktar.get(k).getName())) {
+                    if (kajalista.get(i).getList().get(j).contains(raktar.get(k).getName())) {
                         if (raktar.get(k).getPiece() < 1){
                             a.show();
-                        }else {
+                        }
+                        else {
                             raktar.get(k).setPiece(raktar.get(k).getPiece() - 1);
 
                         }
@@ -131,8 +221,23 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
                 }
             }
         }
+        for(int i = 0; i < itallista.size(); i++){
+            for (int j = 0; j < raktar.size(); j++){
+                if (itallista.get(i).getName().contains(raktar.get(j).getName())) {
+                    if (raktar.get(j).getPiece() < 1){
+                        a.show();
+                    }
+                    else {
+                        System.out.println("fasza");
+                        raktar.get(j).setPiece(raktar.get(j).getPiece() - 1);
+
+                    }
+                }
+            }
+        }
         storage.updateStorage(raktar);
         basket_static.clear();
+        kajalista.clear();
         FXMLScenes object = new FXMLScenes();
         Pane view = object.getPage("FXMLKapcsolat");
         mainPane_static.getChildren().setAll(view);

@@ -17,7 +17,8 @@ import java.util.List;
 public class FXMLMenuSceneController {
 
     private ObservableList<Integer> valasztasok = FXCollections.observableArrayList(0,1,2,3,4,5);
-    public List<ChoiceBox> cb = new ArrayList<>();
+    public List<ChoiceBox> cbkaja = new ArrayList<>();
+    public List<ChoiceBox> cbital = new ArrayList<>();
 
     @FXML
     private Button buttonOrder;
@@ -281,75 +282,75 @@ public class FXMLMenuSceneController {
 
         nyhdCB.setValue(0);
         nyhdCB.setItems(valasztasok);
-        cb.add(nyhdCB);
+        cbkaja.add(nyhdCB);
 
         chdCB.setValue(0);
         chdCB.setItems(valasztasok);
-        cb.add(chdCB);
+        cbkaja.add(chdCB);
 
         ahdCB.setValue(0);
         ahdCB.setItems(valasztasok);
-        cb.add(ahdCB);
+        cbkaja.add(ahdCB);
 
         dhdCB.setValue(0);
         dhdCB.setItems(valasztasok);
-        cb.add(dhdCB);
+        cbkaja.add(dhdCB);
 
         athdCB.setValue(0);
         athdCB.setItems(valasztasok);
-        cb.add(athdCB);
+        cbkaja.add(athdCB);
 
         thdCB.setValue(0);
         thdCB.setItems(valasztasok);
-        cb.add(thdCB);
+        cbkaja.add(thdCB);
 
         mhdCB.setValue(0);
         mhdCB.setItems(valasztasok);
-        cb.add(mhdCB);
+        cbkaja.add(mhdCB);
 
         khdCB.setValue(0);
         khdCB.setItems(valasztasok);
-        cb.add(khdCB);
+        cbkaja.add(khdCB);
 
         cocacolaCB.setValue(0);
         cocacolaCB.setItems(valasztasok);
-        cb.add(cocacolaCB);
+        cbital.add(cocacolaCB);
 
         colalightCB.setValue(0);
         colalightCB.setItems(valasztasok);
-        cb.add(colalightCB);
+        cbital.add(colalightCB);
 
         fantaCB.setValue(0);
         fantaCB.setItems(valasztasok);
-        cb.add(fantaCB);
+        cbital.add(fantaCB);
 
         cappynCB.setValue(0);
         cappynCB.setItems(valasztasok);
-        cb.add(cappynCB);
+        cbital.add(cappynCB);
 
         mentesvizCB.setValue(0);
         mentesvizCB.setItems(valasztasok);
-        cb.add(mentesvizCB);
+        cbital.add(mentesvizCB);
 
         savasvizCB.setValue(0);
         savasvizCB.setItems(valasztasok);
-        cb.add(savasvizCB);
+        cbital.add(savasvizCB);
 
         redbullCB.setValue(0);
         redbullCB.setItems(valasztasok);
-        cb.add(redbullCB);
+        cbital.add(redbullCB);
 
         heinekenCB.setValue(0);
         heinekenCB.setItems(valasztasok);
-        cb.add(heinekenCB);
+        cbital.add(heinekenCB);
 
         soproniCB.setValue(0);
         soproniCB.setItems(valasztasok);
-        cb.add(soproniCB);
+        cbital.add(soproniCB);
 
         dreherCB.setValue(0);
         dreherCB.setItems(valasztasok);
-        cb.add(dreherCB);
+        cbital.add(dreherCB);
 
         //Food
         nyhdName_static = nyhdName;
@@ -418,14 +419,25 @@ public class FXMLMenuSceneController {
 
     @FXML
     void orderPushed(ActionEvent event) throws IOException, SQLException {
-        for (int i = 0; i < cb.size(); i++)
+        for (int i = 0; i < cbkaja.size(); i++)
         {
-            if ((int)(cb.get(i)).getValue() != 0)
+            if ((int)(cbkaja.get(i)).getValue() != 0)
             {
-                int darab = (int)(cb.get(i)).getValue();
-                FXMLBasketSceneController.Rendeles(i,darab);
+                int darab = (int)(cbkaja.get(i)).getValue();
+                FXMLBasketSceneController.kajaRendeles(i,darab);
+            }
+        }
+
+        for (int j = 0; j < cbital.size(); j++)
+        {
+            if ((int)(cbital.get(j)).getValue() != 0)
+            {
+                int darab = (int)(cbital.get(j)).getValue();
+                FXMLBasketSceneController.italRendeles(j,darab);
             }
 
         }
+        FXMLBasketSceneController.Kiir();
+        FXMLBasketSceneController.OsszegKiir();
     }
 }

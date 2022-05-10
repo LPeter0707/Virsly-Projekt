@@ -7,7 +7,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLMenuSceneController">
     <children>
-        <ScrollPane prefHeight="533.0" prefWidth="824.0">
+        <ScrollPane prefHeight="682.0" prefWidth="845.0">
             <content>
                 <AnchorPane prefHeight="868.0" prefWidth="807.0">
                     <children>

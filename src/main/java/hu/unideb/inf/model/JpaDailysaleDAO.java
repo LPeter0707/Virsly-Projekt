@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.sound.sampled.DataLine;
 import java.util.List;
 
 public class JpaDailysaleDAO implements DailysaleDAO{
@@ -20,7 +21,9 @@ public class JpaDailysaleDAO implements DailysaleDAO{
 
     @Override
     public void updateDailysale(Dailysale a) {
+
         saveDailysale(a);
+
     }
 
     @Override
