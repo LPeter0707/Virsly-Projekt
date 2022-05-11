@@ -113,7 +113,6 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
 
         //kajaKiir();
 
-            Napiforgalomkaja(kajalistap);
 
     }
 
@@ -155,25 +154,75 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         return tartalom;
     }
 
-    static void Napiforgalomkaja(List<Food> kajalista)
+    static void Napiforgalomkaja(List<Food> kajalistafoo)
     {
         //////Napi forgalom /////////////////////////////EZT KELL ÁTNÉZNED SANYI///////////////////////////////////////////////////////////////
         //Fasza csak annyi a hiba hogy új sorrba menti és nem irja felül a régebbit
             List<Dailysale> forgalom = new ArrayList<>();
             try(DailysaleDAO dDao = new JpaDailysaleDAO();){
                 forgalom = dDao.getDailysale();
-                Dailysale dailysale = new Dailysale();
+
                 if (forgalom.size() == 0)
                 {
-                    dailysale.setName(kajalista.get(0).getName());
-                    dailysale.setCount(count_kaja(kajalista.get(0).getName()));
-                    dDao.saveDailysale(dailysale);
-                    for (int i = 1; i < kajalista.size(); i++){
-                        dailysale.setName(kajalista.get(i).getName());
-                        dailysale.setCount(count_kaja(kajalista.get(i).getName()));
-                        dDao.saveDailysale(dailysale);
+                    Dailysale newyorkhotdogd = new Dailysale();
+                    newyorkhotdogd.setName("New York Hot Dog");
+                    newyorkhotdogd.setCount(0);
+                    forgalom.add(newyorkhotdogd);
+
+                    Dailysale chicagohotdogd = new Dailysale();
+                    chicagohotdogd.setName("Chicago Hot Dog");
+                    chicagohotdogd.setCount(0);
+                    forgalom.add(chicagohotdogd);
+
+
+                    Dailysale amsterdamhotdogd = new Dailysale();
+                    amsterdamhotdogd.setName("Amsterdam Hot Dog");
+                    amsterdamhotdogd.setCount(0);
+                    forgalom.add(amsterdamhotdogd);
+
+
+                    Dailysale debrecenihotdogd = new Dailysale();
+                    debrecenihotdogd.setName("Debreceni Hot Dog");
+                    debrecenihotdogd.setCount(0);
+                    forgalom.add(debrecenihotdogd);
+
+
+                    Dailysale athenhotdogd = new Dailysale();
+                    athenhotdogd.setName("Athén Hot Dog");
+                    athenhotdogd.setCount(0);
+                    forgalom.add(athenhotdogd);
+
+
+                    Dailysale tokiohotdogd = new Dailysale();
+                    tokiohotdogd.setName("Tokió Hot Dog");
+                    tokiohotdogd.setCount(0);
+                    forgalom.add(tokiohotdogd);
+
+
+                    Dailysale mexikohotdogd = new Dailysale();
+                    mexikohotdogd.setName("Mexikó Hot Dog");
+                    mexikohotdogd.setCount(0);
+                    forgalom.add(mexikohotdogd);
+
+
+                    Dailysale kijevhotdogd = new Dailysale();
+                    kijevhotdogd.setName("Kijev Hot Dog");
+                    kijevhotdogd.setCount(0);
+                    forgalom.add(kijevhotdogd);
+
+
+                }
+                for (int i = 0; i < kajalistafoo.size(); i++){
+                    for (int j = 0; j < forgalom.size(); j++){
+                        if (forgalom.get(j).getName().equals(kajalistafoo.get(i).getName())){
+                            forgalom.get(j).setCount(forgalom.get(j).getCount() + count_kaja(kajalistafoo.get(i).getName()));
+                        }
                     }
-                }/*
+                }
+                for (Dailysale item:forgalom) {
+                    dDao.updateDailysale(item);
+                }
+                /*
                 else {
                     for (int j = 0; j < forgalom.size(); j++) {
                         //System.out.println("forgalom: " + forgalom.get(j).getName());
@@ -269,6 +318,7 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
                 }
             }
         }
+        Napiforgalomkaja(kajalistap);
         storage.updateStorage(raktar);
         basket_static.clear();
         kajalista.clear();
