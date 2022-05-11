@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -69,18 +68,11 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         FXMLScenes object = new FXMLScenes();
         Pane view = object.getPage("FXMLKosar");
         mainPane_static.getChildren().setAll(view);
-
-        //italKiir();
-        for (int i = 0; i < itallista.size(); i++)
-        {
-            Napiforgalomital(itallista, count_ital(itallista.get(i).getName()), i);
-        }
     }
     public static List<Drink> itallistap = new ArrayList<>();
 
     static String[] italKiir()
     {
-        //int italosszeg = 0;
         Set<Drink> szurtlista = new HashSet<>(itallista);
         String[] tartalom = new String[szurtlista.size()];
         List<Drink> itallista = new ArrayList<>(szurtlista);
@@ -91,14 +83,79 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
             tartalom[i] = itallista.get(i).getName() + "\t\t\t" + db + "db" + "\t" + db * itallista.get(i).getPrice() + " ft";
             italosszeg += db * itallista.get(i).getPrice();
         }
-        //vegosszeg_static.setText(italosszeg + " Ft");
-        //basket_static.setText(String.join("\n", tartalom));
         return tartalom;
     }
 
-    static void Napiforgalomital(List<Drink> itallista, int db, int i)
+    static void Napiforgalomital(List<Drink> itallistafoo)
     {
-        ///////
+        List<Dailysale> forgalom = new ArrayList<>();
+        try(DailysaleDAO dDao = new JpaDailysaleDAO();) {
+            forgalom = dDao.getDailysale();
+            if (forgalom.size() == 8) {
+
+                Dailysale cocacola = new Dailysale();
+                cocacola.setName("Coca cola");
+                cocacola.setCount(0);
+                forgalom.add(cocacola);
+
+                Dailysale colalight = new Dailysale();
+                colalight.setName("Cola light");
+                colalight.setCount(0);
+                forgalom.add(colalight);
+
+                Dailysale fanta = new Dailysale();
+                fanta.setName("Fanta");
+                fanta.setCount(0);
+                forgalom.add(fanta);
+
+                Dailysale cappy = new Dailysale();
+                cappy.setName("Cappy narancs");
+                cappy.setCount(0);
+                forgalom.add(cappy);
+
+                Dailysale mentesviz = new Dailysale();
+                mentesviz.setName("Szénsavmentes víz");
+                mentesviz.setCount(0);
+                forgalom.add(mentesviz);
+
+                Dailysale savasviz = new Dailysale();
+                savasviz.setName("Szénsavas víz");
+                savasviz.setCount(0);
+                forgalom.add(savasviz);
+
+                Dailysale redbull = new Dailysale();
+                redbull.setName("Redbull");
+                redbull.setCount(0);
+                forgalom.add(redbull);
+
+                Dailysale heineken = new Dailysale();
+                heineken.setName("Heineken");
+                heineken.setCount(0);
+                forgalom.add(heineken);
+
+                Dailysale soproni = new Dailysale();
+                soproni.setName("Soproni");
+                soproni.setCount(0);
+                forgalom.add(soproni);
+
+                Dailysale dreher = new Dailysale();
+                dreher.setName("Dreher");
+                dreher.setCount(0);
+                forgalom.add(dreher);
+            }
+            for (int i = 0; i < itallistafoo.size(); i++){
+                for (int j = 0; j < forgalom.size(); j++){
+                    if (forgalom.get(j).getName().equals(itallistafoo.get(i).getName())){
+                        forgalom.get(j).setCount(forgalom.get(j).getCount() + count_ital(itallistafoo.get(i).getName()));
+                    }
+                }
+            }
+            for (Dailysale item:forgalom) {
+                dDao.updateDailysale(item);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     static void kajaRendeles(int kajaindex, int darab){
@@ -110,10 +167,6 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         FXMLScenes object = new FXMLScenes();
         Pane view = object.getPage("FXMLKosar");
         mainPane_static.getChildren().setAll(view);
-
-        //kajaKiir();
-
-
     }
 
     static int count_ital(String name){
@@ -138,7 +191,6 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
     public static List<Food> kajalistap = new ArrayList<>();
     static String[] kajaKiir()
     {
-        //int kajaosszeg = 0;
         Set<Food> szurtlista = new HashSet<>(kajalista);
         String[] tartalom = new String[szurtlista.size()];
         List<Food> kajalista = new ArrayList<>(szurtlista);
@@ -149,103 +201,71 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
             tartalom[i] = kajalista.get(i).getName() + "\t\t\t" + db + "db" + "\t" + db * kajalista.get(i).getPrice() + " ft";
             kajaosszeg += db * kajalista.get(i).getPrice();
         }
-        //vegosszeg_static.setText(osszeg + " Ft");
-        //basket_static.setText(String.join("\n", tartalom));
         return tartalom;
     }
 
     static void Napiforgalomkaja(List<Food> kajalistafoo)
     {
-        //////Napi forgalom /////////////////////////////EZT KELL ÁTNÉZNED SANYI///////////////////////////////////////////////////////////////
-        //Fasza csak annyi a hiba hogy új sorrba menti és nem irja felül a régebbit
-            List<Dailysale> forgalom = new ArrayList<>();
-            try(DailysaleDAO dDao = new JpaDailysaleDAO();){
-                forgalom = dDao.getDailysale();
+        List<Dailysale> forgalom = new ArrayList<>();
+        try(DailysaleDAO dDao = new JpaDailysaleDAO();){
+            forgalom = dDao.getDailysale();
 
-                if (forgalom.size() == 0)
-                {
-                    Dailysale newyorkhotdogd = new Dailysale();
-                    newyorkhotdogd.setName("New York Hot Dog");
-                    newyorkhotdogd.setCount(0);
-                    forgalom.add(newyorkhotdogd);
+            if (forgalom.size() == 0)
+            {
+                Dailysale newyorkhotdogd = new Dailysale();
+                newyorkhotdogd.setName("New York Hot Dog");
+                newyorkhotdogd.setCount(0);
+                forgalom.add(newyorkhotdogd);
 
-                    Dailysale chicagohotdogd = new Dailysale();
-                    chicagohotdogd.setName("Chicago Hot Dog");
-                    chicagohotdogd.setCount(0);
-                    forgalom.add(chicagohotdogd);
+                Dailysale chicagohotdogd = new Dailysale();
+                chicagohotdogd.setName("Chicago Hot Dog");
+                chicagohotdogd.setCount(0);
+                forgalom.add(chicagohotdogd);
 
+                Dailysale amsterdamhotdogd = new Dailysale();
+                amsterdamhotdogd.setName("Amsterdam Hot Dog");
+                amsterdamhotdogd.setCount(0);
+                forgalom.add(amsterdamhotdogd);
 
-                    Dailysale amsterdamhotdogd = new Dailysale();
-                    amsterdamhotdogd.setName("Amsterdam Hot Dog");
-                    amsterdamhotdogd.setCount(0);
-                    forgalom.add(amsterdamhotdogd);
+                Dailysale debrecenihotdogd = new Dailysale();
+                debrecenihotdogd.setName("Debreceni Hot Dog");
+                debrecenihotdogd.setCount(0);
+                forgalom.add(debrecenihotdogd);
 
+                Dailysale athenhotdogd = new Dailysale();
+                athenhotdogd.setName("Athén Hot Dog");
+                athenhotdogd.setCount(0);
+                forgalom.add(athenhotdogd);
 
-                    Dailysale debrecenihotdogd = new Dailysale();
-                    debrecenihotdogd.setName("Debreceni Hot Dog");
-                    debrecenihotdogd.setCount(0);
-                    forgalom.add(debrecenihotdogd);
+                Dailysale tokiohotdogd = new Dailysale();
+                tokiohotdogd.setName("Tokió Hot Dog");
+                tokiohotdogd.setCount(0);
+                forgalom.add(tokiohotdogd);
 
+                Dailysale mexikohotdogd = new Dailysale();
+                mexikohotdogd.setName("Mexikó Hot Dog");
+                mexikohotdogd.setCount(0);
+                forgalom.add(mexikohotdogd);
 
-                    Dailysale athenhotdogd = new Dailysale();
-                    athenhotdogd.setName("Athén Hot Dog");
-                    athenhotdogd.setCount(0);
-                    forgalom.add(athenhotdogd);
+                Dailysale kijevhotdogd = new Dailysale();
+                kijevhotdogd.setName("Kijev Hot Dog");
+                kijevhotdogd.setCount(0);
+                forgalom.add(kijevhotdogd);
 
-
-                    Dailysale tokiohotdogd = new Dailysale();
-                    tokiohotdogd.setName("Tokió Hot Dog");
-                    tokiohotdogd.setCount(0);
-                    forgalom.add(tokiohotdogd);
-
-
-                    Dailysale mexikohotdogd = new Dailysale();
-                    mexikohotdogd.setName("Mexikó Hot Dog");
-                    mexikohotdogd.setCount(0);
-                    forgalom.add(mexikohotdogd);
-
-
-                    Dailysale kijevhotdogd = new Dailysale();
-                    kijevhotdogd.setName("Kijev Hot Dog");
-                    kijevhotdogd.setCount(0);
-                    forgalom.add(kijevhotdogd);
-
-
-                }
-                for (int i = 0; i < kajalistafoo.size(); i++){
-                    for (int j = 0; j < forgalom.size(); j++){
-                        if (forgalom.get(j).getName().equals(kajalistafoo.get(i).getName())){
-                            forgalom.get(j).setCount(forgalom.get(j).getCount() + count_kaja(kajalistafoo.get(i).getName()));
-                        }
-                    }
-                }
-                for (Dailysale item:forgalom) {
-                    dDao.updateDailysale(item);
-                }
-                /*
-                else {
-                    for (int j = 0; j < forgalom.size(); j++) {
-                        //System.out.println("forgalom: " + forgalom.get(j).getName());
-                        //System.out.println("kajalista: " + kajalista.get(i).getName());
-                        if (forgalom.get(j).getName().contains(kajalista.get().getName())) {
-                            //System.out.println("ok");
-                            dailysale.setCount(forgalom.get(j).getCount() + db);
-                            dailysale.setName(forgalom.get(j).getName());
-                            dDao.updateDailysale(dailysale);
-                            break;
-                        }
-                        else
-                        {
-                            dailysale.setName(kajalista.get(i).getName());
-                            dailysale.setCount(db);
-                            dDao.saveDailysale(dailysale);
-                        }
-                    }
-                }*/
-            }catch (Exception e) {
-                e.printStackTrace();
             }
-        ////////////////////////////////////////////////////////////////////////
+            for (int i = 0; i < kajalistafoo.size(); i++){
+                for (int j = 0; j < forgalom.size(); j++){
+                    if (forgalom.get(j).getName().equals(kajalistafoo.get(i).getName())){
+                        forgalom.get(j).setCount(forgalom.get(j).getCount() + count_kaja(kajalistafoo.get(i).getName()));
+                    }
+                }
+            }
+            for (Dailysale item:forgalom) {
+                dDao.updateDailysale(item);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -319,9 +339,15 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
             }
         }
         Napiforgalomkaja(kajalistap);
+        Napiforgalomital(itallistap);
         storage.updateStorage(raktar);
         basket_static.clear();
         kajalista.clear();
+        kajalistap.clear();
+        itallista.clear();
+        itallistap.clear();
+        italosszeg = 0;
+        kajaosszeg = 0;
         FXMLScenes object = new FXMLScenes();
         Pane view = object.getPage("FXMLKapcsolat");
         mainPane_static.getChildren().setAll(view);

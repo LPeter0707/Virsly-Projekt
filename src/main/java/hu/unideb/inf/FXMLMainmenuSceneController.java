@@ -1,8 +1,6 @@
 package hu.unideb.inf;
 
-import hu.unideb.inf.model.JpaStorageDAO;
-import hu.unideb.inf.model.Storage;
-import hu.unideb.inf.model.StorageDao;
+import hu.unideb.inf.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,7 +49,6 @@ public class FXMLMainmenuSceneController {
         stage.setTitle("Daily Sales");
         stage.setScene(scene);
         stage.show();
-        DailysaleTextAreaFill();
     }
 
     @FXML
@@ -65,7 +62,6 @@ public class FXMLMainmenuSceneController {
         stage.setTitle("Daily Inventory");
         stage.setScene(scene);
         stage.show();
-        DailyinventoryTextAreaFill();
     }
 
     @FXML
@@ -79,27 +75,5 @@ public class FXMLMainmenuSceneController {
         stage.setTitle("Order");
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void DailysaleTextAreaFill()
-    {
-        String[] tartalom = new String[100];
-        FXMLDailySalesSceneController.dailysale_static.setText(String.join("\n", tartalom));
-    }
-
-    public void DailyinventoryTextAreaFill()
-    {
-
-        try(StorageDao sDao = new JpaStorageDAO();){
-            List<Storage> lista = sDao.getStorage();
-            String[] leltar = new String[lista.size()];
-            for (int i = 0; i < lista.size(); i++)
-            {
-                leltar[i] = lista.get(i).getName() + "\t\t" + lista.get(i).getPiece() + "db";
-            }
-            FXMLDailyInventorySceneController.dailyinventory_static.setText(String.join("\n", leltar));
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

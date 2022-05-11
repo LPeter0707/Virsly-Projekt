@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javassist.expr.NewExpr;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ public class FXMLLoginUserSceneController{
     }
 
     @FXML
-    void loginPushed(ActionEvent event) throws IOException {
+    void loginPushed(ActionEvent event) throws Exception {
 
         if (ValidateUser(GetUsername.getText(), GetPassword.getText())){
             FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLUserSite.fxml"));
@@ -69,7 +70,7 @@ public class FXMLLoginUserSceneController{
                     buttonLogin.getScene().getWindow();
             stage2.close();
             stage.setTitle("UserSite");
-            FXMLUserSiteSceneController.username_static.setText(GetUsername.getText()); //kiirja a user nevét
+            NevKiir();
             stage.setScene(scene);
             stage.show();
         }
@@ -88,5 +89,20 @@ public class FXMLLoginUserSceneController{
         }
 
         return false;
+    }
+
+    public void NevKiir() {
+        try(UsersDAO aDAO = new JpaUsersDao();) {
+            List<Users> userslist = new ArrayList<>(aDAO.getUser());
+            for (int i = 0; i < userslist.size(); i++)
+            {
+                if (userslist.get(i).getUsername().equals(GetUsername.getText()))
+                {
+                    FXMLUserSiteSceneController.name_static.setText(userslist.get(i).getFirstname() + " " + userslist.get(i).getLastname());
+                }
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

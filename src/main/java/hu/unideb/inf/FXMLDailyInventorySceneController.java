@@ -1,5 +1,8 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.JpaStorageDAO;
+import hu.unideb.inf.model.Storage;
+import hu.unideb.inf.model.StorageDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class FXMLDailyInventorySceneController {
 
@@ -24,8 +28,8 @@ public class FXMLDailyInventorySceneController {
 
     @FXML
     public void initialize(){
-
         dailyinventory_static = dailyinventory;
+        DailyinventoryTextAreaFill();
     }
 
     @FXML
@@ -52,5 +56,20 @@ public class FXMLDailyInventorySceneController {
         stage.setTitle("Close");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void DailyinventoryTextAreaFill()
+    {
+        try(StorageDao sDao = new JpaStorageDAO();){
+            List<Storage> leltarlista = sDao.getStorage();
+            String[] leltar = new String[leltarlista.size()];
+            for (int i = 0; i < leltarlista.size(); i++)
+            {
+                leltar[i] = leltarlista.get(i).getName() + "\t\t" + leltarlista.get(i).getPiece() + "db";
+            }
+            FXMLDailyInventorySceneController.dailyinventory_static.setText(String.join("\n", leltar));
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

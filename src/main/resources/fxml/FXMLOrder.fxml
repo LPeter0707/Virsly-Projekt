@@ -4,24 +4,147 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="574.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLOrderSceneController">
-  <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="3000.0" prefWidth="577.0">
-         <children>
-            <Text layoutX="219.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendelés" wrappingWidth="139.19189453125">
-               <font>
-                  <Font size="31.0" />
-               </font>
-            </Text>
-            <Button fx:id="buttonBack" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#backPushed" text="Vissza" />
-            <Button fx:id="buttonNext" layoutX="511.0" layoutY="14.0" mnemonicParsing="false" onAction="#nextPushed" text="Tovább" />
-            <Button fx:id="addElement" layoutX="484.0" layoutY="350.0" mnemonicParsing="false" onAction="#addElementPushed" text="Button" />
-            <AnchorPane fx:id="OrderScene" layoutX="36.0" layoutY="103.0" prefHeight="458.0" prefWidth="442.0">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLOrderSceneController">
+   <children>
+      <ScrollPane prefHeight="839.0" prefWidth="742.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="3005.0" prefWidth="740.0">
                <children>
-                  <ChoiceBox fx:id="nyhdp" layoutX="338.0" layoutY="26.0" prefHeight="26.0" prefWidth="90.0" />
+                  <Text layoutX="219.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendelés" wrappingWidth="139.19189453125">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="buttonBack" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#backPushed" text="Vissza" />
+                  <Button fx:id="buttonNext" layoutX="511.0" layoutY="14.0" mnemonicParsing="false" onAction="#nextPushed" text="Tovább" />
+                  <Button fx:id="addElement" layoutX="676.0" layoutY="525.0" mnemonicParsing="false" onAction="#addElementPushed" text="Add" />
+                  <GridPane layoutX="138.0" layoutY="89.0" prefHeight="691.0" prefWidth="440.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="220.0" text="Hot Dog kifli" />
+                        <Label text="Grillkolbász" GridPane.rowIndex="2" />
+                        <Label prefHeight="17.0" prefWidth="100.0" text="Debreceni páros" GridPane.rowIndex="3" />
+                        <Label prefHeight="17.0" prefWidth="84.0" text="Kacsa kolbász" GridPane.rowIndex="4" />
+                        <Label prefHeight="17.0" prefWidth="112.0" text="Mangalica hurka" GridPane.rowIndex="5" />
+                        <Label prefHeight="17.0" prefWidth="134.0" text="Bárány-marha kolbász" GridPane.rowIndex="6" />
+                        <Label prefHeight="17.0" prefWidth="109.0" text="Cheddar szósz" GridPane.rowIndex="7" />
+                        <Label prefHeight="17.0" prefWidth="104.0" text="Pirított hagyma" GridPane.rowIndex="8" />
+                        <Label prefHeight="17.0" prefWidth="84.0" text="Tortilla chips" GridPane.rowIndex="9" />
+                        <Label prefHeight="17.0" prefWidth="112.0" text="Bacon" GridPane.rowIndex="10" />
+                        <Label prefHeight="17.0" prefWidth="78.0" text="Uborka" GridPane.rowIndex="11" />
+                        <Label prefHeight="17.0" prefWidth="126.0" text="Sushi gyomber" GridPane.rowIndex="12" />
+                        <Label prefHeight="17.0" prefWidth="156.0" text="Jalapeno" GridPane.rowIndex="13" />
+                        <Label prefHeight="17.0" prefWidth="97.0" text="Paradicsom" GridPane.rowIndex="14" />
+                        <Label prefHeight="17.0" prefWidth="92.0" text="Feta" GridPane.rowIndex="15" />
+                        <Label text="Hagyma" GridPane.rowIndex="16" />
+                        <Label prefHeight="17.0" prefWidth="95.0" text="Kukorica" GridPane.rowIndex="17" />
+                        <Label text="Virsli" GridPane.rowIndex="1" />
+                        <Label text="Bab" GridPane.rowIndex="18" />
+                        <Label text="Mexikói salsa" GridPane.rowIndex="19" />
+                        <Label text="Házi zöldség mix" GridPane.rowIndex="20" />
+                        <Label text="Ketchup" GridPane.rowIndex="21" />
+                        <Label text="Majonéz" GridPane.rowIndex="22" />
+                        <Label text="Mustár" GridPane.rowIndex="23" />
+                        <Label text="Szója szósz" GridPane.rowIndex="24" />
+                        <Label text="Magyaros krém" GridPane.rowIndex="25" />
+                        <Label text="Padlizsánkrém" GridPane.rowIndex="26" />
+                        <Label text="Wasabi" GridPane.rowIndex="27" />
+                        <Label text="Coca cola" GridPane.rowIndex="28" />
+                        <Label text="Cola light" GridPane.rowIndex="29" />
+                        <Label text="Fanta" GridPane.rowIndex="30" />
+                        <Label text="Cappy narancs" GridPane.rowIndex="31" />
+                        <Label text="Szénsavmentes víz" GridPane.rowIndex="32" />
+                        <Label text="Szénsavas víz" GridPane.rowIndex="33" />
+                        <Label text="Redbull" GridPane.rowIndex="34" />
+                        <Label text="Heineken" GridPane.rowIndex="35" />
+                        <Label text="Soproni" GridPane.rowIndex="36" />
+                        <Label text="Dreher" GridPane.rowIndex="37" />
+                        <ChoiceBox fx:id="kifliCB" prefWidth="150.0" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="virsliCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ChoiceBox fx:id="grillkolbaszCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ChoiceBox fx:id="debreceniparosCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ChoiceBox fx:id="kacsakolbaszCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ChoiceBox fx:id="mangalicahurkaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ChoiceBox fx:id="baranymarhakolbaszCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <ChoiceBox fx:id="cheddarCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <ChoiceBox fx:id="piritotthagymaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <ChoiceBox fx:id="tortillachipsCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <ChoiceBox fx:id="baconCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <ChoiceBox fx:id="uborkaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <ChoiceBox fx:id="sushigyomberCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <ChoiceBox fx:id="jalapenoCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                        <ChoiceBox fx:id="paradicsomCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                        <ChoiceBox fx:id="fetaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                        <ChoiceBox fx:id="hagymaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                        <ChoiceBox fx:id="kukoricaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                        <ChoiceBox fx:id="babCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                        <ChoiceBox fx:id="mexikoisalsaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                        <ChoiceBox fx:id="zoldsegmixCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+                        <ChoiceBox fx:id="ketchupCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="21" />
+                        <ChoiceBox fx:id="majonezCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="22" />
+                        <ChoiceBox fx:id="mustarCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="23" />
+                        <ChoiceBox fx:id="szojaszoszCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="24" />
+                        <ChoiceBox fx:id="magyaroskremCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="25" />
+                        <ChoiceBox fx:id="padlizsankremCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="26" />
+                        <ChoiceBox fx:id="wasabiCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="27" />
+                        <ChoiceBox fx:id="cocaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="28" />
+                        <ChoiceBox fx:id="colaliteCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="29" />
+                        <ChoiceBox fx:id="fantaCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="30" />
+                        <ChoiceBox fx:id="cappyCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="31" />
+                        <ChoiceBox fx:id="mentesvizCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="32" />
+                        <ChoiceBox fx:id="savasvizCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="33" />
+                        <ChoiceBox fx:id="redbullCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="34" />
+                        <ChoiceBox fx:id="heinekenCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="35" />
+                        <ChoiceBox fx:id="soproniCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="36" />
+                        <ChoiceBox fx:id="dreherCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="37" />
+                     </children>
+                  </GridPane>
                </children>
             </AnchorPane>
-         </children>
-      </AnchorPane>
-  </content>
-</ScrollPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -22,13 +23,15 @@ public class FXMLSignInSceneController<usernameValue> {
 
     @FXML
     private Button buttonBack;
-/*
-    @FXML
-    private Label FirtName;
 
     @FXML
-    private Label LastName;
-*/
+    private TextField firstname;
+    public String firstnameValue;
+
+    @FXML
+    private TextField lastname;
+    public String lastnameValue;
+
     @FXML
     private TextField uname;
     public String usernameValue;
@@ -66,17 +69,21 @@ public class FXMLSignInSceneController<usernameValue> {
 
     }
     public void DataSave(){
-
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setAlertType(Alert.AlertType.ERROR);
+        alert.setContentText("Már létezik felhasználó ezzel a felhasználónévvel.");
+        firstnameValue = firstname.getText();
+        lastnameValue = lastname.getText();
         usernameValue = uname.getText();
         passwordValue = pass.getText();
-        System.out.println(usernameValue);
-        System.out.println(passwordValue);
         try(UsersDAO aDAO = new JpaUsersDao();) {
             Users a = new Users();
+            a.setFirstname(firstnameValue);
+            a.setLastname(lastnameValue);
             a.setUsername(usernameValue);
             a.setPassword(passwordValue);
             if (Duplicate(a, aDAO)){
-                System.out.println("Már létezik felhasználó ezzel a felhasználónévvel.");
+                alert.show();
             }else {
                 aDAO.saveUser(a);
 
@@ -90,7 +97,7 @@ public class FXMLSignInSceneController<usernameValue> {
     public boolean Duplicate(Users a, UsersDAO aDAO){
         List<Users> UsersList = new ArrayList<>(aDAO.getUser());
         for (Users user : UsersList) {
-            System.out.println(user.getUsername());
+            //System.out.println(user.getUsername());
             if (user.getUsername().equals(a.getUsername())){
                 return true;
             }

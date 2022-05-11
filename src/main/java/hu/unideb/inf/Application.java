@@ -3,6 +3,7 @@ package hu.unideb.inf;
 import java.sql.SQLException;
 
 import hu.unideb.inf.model.*;
+import org.h2.engine.User;
 import org.h2.tools.Server;
 
 public class Application {
@@ -10,7 +11,6 @@ public class Application {
 
     public static void main() throws SQLException {
         startDatabase();
-
 
         try(StorageDao sDao = new JpaStorageDAO();){
             if (sDao.getStorage().size() == 0) {
@@ -208,7 +208,6 @@ public class Application {
             e.printStackTrace();
         }
 
-
         try (AdminsDAO aDAO = new JpaAdminsDao();) {
             if (aDAO.getAdmin().size() == 0)
             {
@@ -232,6 +231,18 @@ public class Application {
                 admin4.setPassword("BEdina0702");
                 aDAO.saveAdmin(admin4);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try(UsersDAO aDAO = new JpaUsersDao();) {
+            Users user = new Users();
+            user.setFirstname("Proba");
+            user.setLastname("Péter");
+            user.setUsername("user");
+            user.setPassword("user");
+            aDAO.saveUser(user);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

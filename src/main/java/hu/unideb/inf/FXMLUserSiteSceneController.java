@@ -29,12 +29,12 @@ public class FXMLUserSiteSceneController {
     private Button buttonVissza;
 
     @FXML
-    private Label username;
-    public static Label username_static;
+    private Label name;
+    public static Label name_static;
 
     @FXML
     public void initialize(){
-        username_static = username;
+        name_static = name;
         mainPane_static = mainPane;
     }
 
@@ -132,10 +132,10 @@ public class FXMLUserSiteSceneController {
         FXMLMenuSceneController.cocacolaName_static.setText(cocacola.getName());
         FXMLMenuSceneController.cocacolaPrice_static.setText(cocacola.getPrice() + "Ft");
 
-        Drink colalite = new Drink("Cola lite", 450);
-        italok.add(colalite);
-        FXMLMenuSceneController.colaliteName_static.setText(colalite.getName());
-        FXMLMenuSceneController.colalitePrice_static.setText(colalite.getPrice() + "Ft");
+        Drink colalight = new Drink("Cola light", 450);
+        italok.add(colalight);
+        FXMLMenuSceneController.colaliteName_static.setText(colalight.getName());
+        FXMLMenuSceneController.colalitePrice_static.setText(colalight.getPrice() + "Ft");
 
         Drink fanta = new Drink("Fanta", 450);
         italok.add(fanta);
