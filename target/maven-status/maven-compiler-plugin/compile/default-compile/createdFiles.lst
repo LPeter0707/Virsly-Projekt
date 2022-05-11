@@ -1,13 +1,13 @@
 hu\unideb\inf\FXMLLoginSceneController.class
 hu\unideb\inf\FXMLDailySalesSceneController.class
-hu\unideb\inf\FXMLCloseSceneController.class
 hu\unideb\inf\Main.class
-hu\unideb\inf\FXMLUserSiteSceneController.class
 hu\unideb\inf\FXMLSignInSceneController.class
 hu\unideb\inf\FXMLScenes.class
 hu\unideb\inf\FXMLMainmenuSceneController.class
 hu\unideb\inf\FXMLDailyInventorySceneController.class
-hu\unideb\inf\FXMLLoginUserSceneController.class
-hu\unideb\inf\FXMLOrderSceneController.class
 hu\unideb\inf\MainApp.class
 hu\unideb\inf\FXMLLoginAdminSceneController.class
+hu\unideb\inf\FXMLCloseSceneController.class
+hu\unideb\inf\FXMLUserSiteSceneController.class
+hu\unideb\inf\FXMLLoginUserSceneController.class
+hu\unideb\inf\FXMLOrderSceneController.class

@@ -57,6 +57,6 @@
             <Image url="@NewUser.png" />
          </image>
       </ImageView>
-      <Button fx:id="buttonKerelem" layoutX="191.0" layoutY="363.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="202.0" />
+      <Button fx:id="buttonKerelem" layoutX="191.0" layoutY="363.0" mnemonicParsing="false" onAction="#kerelemPushed" prefHeight="211.0" prefWidth="202.0" />
    </children>
 </AnchorPane>
