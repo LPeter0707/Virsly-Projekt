@@ -1,5 +1,8 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.JpaStorageDAO;
+import hu.unideb.inf.model.Storage;
+import hu.unideb.inf.model.StorageDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,12 +15,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class FXMLOrderSceneController {
 
     private ObservableList<Integer> valasztasok = FXCollections.observableArrayList(0,1,2,3,4,5);
     public List<ChoiceBox> cborder = new ArrayList<>();
+    public HashMap<String, ChoiceBox<Integer>> Arufeltoltes = new HashMap<String, ChoiceBox<Integer>>();
 
     @FXML
     private ChoiceBox<Integer> kifliCB;
@@ -174,161 +179,212 @@ public class FXMLOrderSceneController {
 
         kifliCB.setValue(0);
         kifliCB.setItems(valasztasok);
-        cborder.add(kifliCB);
+        Arufeltoltes.put("Hot Dog kifli", kifliCB);
+        //cborder.add(kifliCB);
 
         virsliCB.setValue(0);
         virsliCB.setItems(valasztasok);
-        cborder.add(kifliCB);
+        Arufeltoltes.put("Virsli", virsliCB);
+        //cborder.add(virsliCB);
 
         grillkolbaszCB.setValue(0);
         grillkolbaszCB.setItems(valasztasok);
-        cborder.add(grillkolbaszCB);
+        Arufeltoltes.put("Grillkolbász", grillkolbaszCB);
+        //cborder.add(grillkolbaszCB);
 
         debreceniparosCB.setValue(0);
         debreceniparosCB.setItems(valasztasok);
-        cborder.add(debreceniparosCB);
+        Arufeltoltes.put("Debreceni páros", debreceniparosCB);
+        //cborder.add(debreceniparosCB);
 
         kacsakolbaszCB.setValue(0);
         kacsakolbaszCB.setItems(valasztasok);
-        cborder.add(kacsakolbaszCB);
+        Arufeltoltes.put("Kacsa kolbász", kacsakolbaszCB);
+        //cborder.add(kacsakolbaszCB);
 
         mangalicahurkaCB.setValue(0);
         mangalicahurkaCB.setItems(valasztasok);
-        cborder.add(mangalicahurkaCB);
+        Arufeltoltes.put("Mangalica hurka", mangalicahurkaCB);
+        //cborder.add(mangalicahurkaCB);
 
         baranymarhakolbaszCB.setValue(0);
         baranymarhakolbaszCB.setItems(valasztasok);
-        cborder.add(baranymarhakolbaszCB);
+        Arufeltoltes.put("Bárány-marha kolbász", baranymarhakolbaszCB);
+        //cborder.add(baranymarhakolbaszCB);
 
         cheddarCB.setValue(0);
         cheddarCB.setItems(valasztasok);
-        cborder.add(cheddarCB);
+        Arufeltoltes.put("Cheddar szósz", cheddarCB);
+        //cborder.add(cheddarCB);
 
         piritotthagymaCB.setValue(0);
         piritotthagymaCB.setItems(valasztasok);
-        cborder.add(piritotthagymaCB);
+        Arufeltoltes.put("Pirított hagyma", piritotthagymaCB);
+        //cborder.add(piritotthagymaCB);
 
         tortillachipsCB.setValue(0);
         tortillachipsCB.setItems(valasztasok);
-        cborder.add(tortillachipsCB);
+        Arufeltoltes.put("Tortilla chips", tortillachipsCB);
+        //cborder.add(tortillachipsCB);
 
         baconCB.setValue(0);
         baconCB.setItems(valasztasok);
-        cborder.add(baconCB);
+        Arufeltoltes.put("Bacon", baconCB);
+        //cborder.add(baconCB);
 
         uborkaCB.setValue(0);
         uborkaCB.setItems(valasztasok);
-        cborder.add(uborkaCB);
+        Arufeltoltes.put("Uborka", uborkaCB);
+        //cborder.add(uborkaCB);
 
         sushigyomberCB.setValue(0);
         sushigyomberCB.setItems(valasztasok);
-        cborder.add(sushigyomberCB);
+        Arufeltoltes.put("Sushi gyömbér", sushigyomberCB);
+        //cborder.add(sushigyomberCB);
 
         jalapenoCB.setValue(0);
         jalapenoCB.setItems(valasztasok);
-        cborder.add(jalapenoCB);
+        Arufeltoltes.put("Jalapeno", jalapenoCB);
+        //cborder.add(jalapenoCB);
 
         paradicsomCB.setValue(0);
         paradicsomCB.setItems(valasztasok);
-        cborder.add(paradicsomCB);
+        Arufeltoltes.put("Paradicsom", paradicsomCB);
+        //cborder.add(paradicsomCB);
 
         fetaCB.setValue(0);
         fetaCB.setItems(valasztasok);
-        cborder.add(fetaCB);
+        Arufeltoltes.put("Feta", fetaCB);
+        //cborder.add(fetaCB);
 
         hagymaCB.setValue(0);
         hagymaCB.setItems(valasztasok);
-        cborder.add(hagymaCB);
+        Arufeltoltes.put("Hagyma", hagymaCB);
+        //cborder.add(hagymaCB);
 
         kukoricaCB.setValue(0);
         kukoricaCB.setItems(valasztasok);
-        cborder.add(kukoricaCB);
+        Arufeltoltes.put("Kukorica", kukoricaCB);
+        //cborder.add(kukoricaCB);
 
         babCB.setValue(0);
         babCB.setItems(valasztasok);
-        cborder.add(babCB);
+        Arufeltoltes.put("Bab", babCB);
+        //cborder.add(babCB);
 
         mexikoisalsaCB.setValue(0);
         mexikoisalsaCB.setItems(valasztasok);
-        cborder.add(mexikoisalsaCB);
+        Arufeltoltes.put("Mexikói salsa", mexikoisalsaCB);
+        //cborder.add(mexikoisalsaCB);
 
         zoldsegmixCB.setValue(0);
         zoldsegmixCB.setItems(valasztasok);
-        cborder.add(zoldsegmixCB);
+        Arufeltoltes.put("Házi zöldség mix", zoldsegmixCB);
+        //cborder.add(zoldsegmixCB);
 
         ketchupCB.setValue(0);
         ketchupCB.setItems(valasztasok);
-        cborder.add(ketchupCB);
+        Arufeltoltes.put("Ketchup", ketchupCB);
+
+        //cborder.add(ketchupCB);
 
         majonezCB.setValue(0);
         majonezCB.setItems(valasztasok);
-        cborder.add(majonezCB);
+        Arufeltoltes.put("Majonéz", majonezCB);
+        //cborder.add(majonezCB);
 
         mustarCB.setValue(0);
         mustarCB.setItems(valasztasok);
-        cborder.add(mustarCB);
+        Arufeltoltes.put("Mustár", mustarCB);
+        //cborder.add(mustarCB);
 
         szojaszoszCB.setValue(0);
         szojaszoszCB.setItems(valasztasok);
-        cborder.add(szojaszoszCB);
+        Arufeltoltes.put("Szoja szósz", szojaszoszCB);
+        //cborder.add(szojaszoszCB);
 
         magyaroskremCB.setValue(0);
         magyaroskremCB.setItems(valasztasok);
-        cborder.add(magyaroskremCB);
+        Arufeltoltes.put("Magyaros krém", magyaroskremCB);
+        //cborder.add(magyaroskremCB);
 
         padlizsankremCB.setValue(0);
         padlizsankremCB.setItems(valasztasok);
-        cborder.add(padlizsankremCB);
+        Arufeltoltes.put("Padlizsankrém", padlizsankremCB);
+        //cborder.add(padlizsankremCB);
 
         wasabiCB.setValue(0);
         wasabiCB.setItems(valasztasok);
-        cborder.add(wasabiCB);
+        Arufeltoltes.put("Wasabi", wasabiCB);
+        //cborder.add(wasabiCB);
 
         cocaCB.setValue(0);
         cocaCB.setItems(valasztasok);
-        cborder.add(cocaCB);
+        Arufeltoltes.put("Coca cola", cocaCB);
+        //cborder.add(cocaCB);
 
         colaliteCB.setValue(0);
         colaliteCB.setItems(valasztasok);
-        cborder.add(colaliteCB);
+        Arufeltoltes.put("Cola light", colaliteCB);
+        //cborder.add(colaliteCB);
 
         fantaCB.setValue(0);
         fantaCB.setItems(valasztasok);
-        cborder.add(fantaCB);
+        Arufeltoltes.put("Fanta", fantaCB);
+        //cborder.add(fantaCB);
 
         cappyCB.setValue(0);
         cappyCB.setItems(valasztasok);
-        cborder.add(cappyCB);
+        Arufeltoltes.put("Cappy narancs", cappyCB);
+        //cborder.add(cappyCB);
 
         mentesvizCB.setValue(0);
         mentesvizCB.setItems(valasztasok);
-        cborder.add(mentesvizCB);
+        Arufeltoltes.put("Szénsavmentes víz", mentesvizCB);
+        //cborder.add(mentesvizCB);
 
         savasvizCB.setValue(0);
         savasvizCB.setItems(valasztasok);
-        cborder.add(savasvizCB);
+        Arufeltoltes.put("Szénsavas víz", savasvizCB);
+        //cborder.add(savasvizCB);
 
         redbullCB.setValue(0);
         redbullCB.setItems(valasztasok);
-        cborder.add(redbullCB);
+        Arufeltoltes.put("Redbull", redbullCB);
+        //cborder.add(redbullCB);
 
         heinekenCB.setValue(0);
         heinekenCB.setItems(valasztasok);
-        cborder.add(heinekenCB);
+        Arufeltoltes.put("Heineken", heinekenCB);
+        //cborder.add(heinekenCB);
 
         soproniCB.setValue(0);
         soproniCB.setItems(valasztasok);
-        cborder.add(soproniCB);
+        Arufeltoltes.put("Soproni", soproniCB);
+        //cborder.add(soproniCB);
 
         dreherCB.setValue(0);
         dreherCB.setItems(valasztasok);
-        cborder.add(dreherCB);
+        Arufeltoltes.put("Dreher", dreherCB);
+        //cborder.add(dreherCB);
 
     }
 
     @FXML
     void addElementPushed(ActionEvent event) throws IOException {
+        StorageDao sDao = new JpaStorageDAO();
+        List<Storage> aru = sDao.getStorage();
 
+        /*  Ezt nem értem miért nem működik
+        for (int i = 0; i < aru.size(); i++){
+
+            if (Arufeltoltes.get(aru.get(i).getName()).getValue() != 0){
+                aru.get(i).setPiece(aru.get(i).getPiece() + Arufeltoltes.get(aru.get(i).getName()).getValue());
+            }
+
+
+        }*/
+        sDao.updateStorage(aru);
     }
 
 
