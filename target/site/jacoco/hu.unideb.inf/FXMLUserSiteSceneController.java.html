@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FXMLUserSiteSceneController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaFX11_MILESTONE1</a> &gt; <a href="index.source.html" class="el_package">hu.unideb.inf</a> &gt; <span class="el_source">FXMLUserSiteSceneController.java</span></div><h1>FXMLUserSiteSceneController.java</h1><pre class="source lang-java linenums">package hu.unideb.inf;
+
+import hu.unideb.inf.model.Drink;
+import hu.unideb.inf.model.Food;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="nc" id="L19">public class FXMLUserSiteSceneController {</span>
+
+<span class="nc" id="L21">    public static List&lt;Food&gt; kajak = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L22">    public static List&lt;Drink&gt; italok = new ArrayList&lt;&gt;();</span>
+
+    @FXML
+    private AnchorPane mainPane;
+    public static AnchorPane mainPane_static;
+
+    @FXML
+    private Button buttonVissza;
+
+    @FXML
+    private Label name;
+    public static Label name_static;
+
+    @FXML
+    public void initialize(){
+<span class="nc" id="L37">        name_static = name;</span>
+<span class="nc" id="L38">        mainPane_static = mainPane;</span>
+<span class="nc" id="L39">    }</span>
+
+    @FXML
+    void menuPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L43">        FXMLScenes object = new FXMLScenes();</span>
+<span class="nc" id="L44">        Pane view = object.getPage(&quot;FXMLMenu&quot;);</span>
+<span class="nc" id="L45">        mainPane.getChildren().setAll(view);</span>
+<span class="nc" id="L46">        GridpaneFood();</span>
+<span class="nc" id="L47">        GridpaneDrink();</span>
+<span class="nc" id="L48">    }</span>
+
+    @FXML
+    void kosarPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L52">        FXMLScenes object = new FXMLScenes();</span>
+<span class="nc" id="L53">        Pane view = object.getPage(&quot;FXMLKosar&quot;);</span>
+<span class="nc" id="L54">        mainPane.getChildren().setAll(view);</span>
+<span class="nc" id="L55">    }</span>
+
+    @FXML
+    void kapcsolatPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L59">        FXMLScenes object = new FXMLScenes();</span>
+<span class="nc" id="L60">        Pane view = object.getPage(&quot;FXMLKapcsolat&quot;);</span>
+<span class="nc" id="L61">        mainPane.getChildren().setAll(view);</span>
+<span class="nc" id="L62">    }</span>
+
+    @FXML
+    void VisszaPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L66">        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(&quot;/fxml/FXMLLogin.fxml&quot;));</span>
+<span class="nc" id="L67">        Scene scene = new Scene(loader.load());</span>
+<span class="nc" id="L68">        Stage stage = new Stage();</span>
+<span class="nc" id="L69">        Stage stage2 = (Stage)</span>
+<span class="nc" id="L70">                buttonVissza.getScene().getWindow();</span>
+<span class="nc" id="L71">        stage2.close();</span>
+<span class="nc" id="L72">        stage.setTitle(&quot;LoginUser&quot;);</span>
+<span class="nc" id="L73">        stage.setScene(scene);</span>
+<span class="nc" id="L74">        stage.show();</span>
+<span class="nc" id="L75">    }</span>
+
+    public void GridpaneFood()
+    {
+<span class="nc" id="L79">        Food newyorkhotdog = new Food(&quot;New York Hot Dog&quot;, List.of(&quot;Hot Dog kifli, Virsli, Cheddar szósz, Pirított hagyma, Ketchup, Majonéz&quot;), 1100);</span>
+<span class="nc" id="L80">        kajak.add(newyorkhotdog);</span>
+<span class="nc" id="L81">        FXMLMenuSceneController.nyhdName_static.setText(newyorkhotdog.getName());</span>
+<span class="nc" id="L82">        FXMLMenuSceneController.nyhdPrice_static.setText(newyorkhotdog.getPrice() + &quot;Ft&quot;);</span>
+<span class="nc" id="L83">        FXMLMenuSceneController.nyhdList_static.setText((&quot;&quot; + newyorkhotdog.getList()).substring(1, (&quot;&quot; + newyorkhotdog.getList()).length() - 1));</span>
+
+<span class="nc" id="L85">        Food chicagohotdog = new Food(&quot;Chicago Hot Dog&quot;, List.of(&quot;Hot Dog kifli, Grillkolbász, Mustár, Pirított hagyma, Uborka, Jalapeno&quot;), 1300);</span>
+<span class="nc" id="L86">        kajak.add(chicagohotdog);</span>
+<span class="nc" id="L87">        FXMLMenuSceneController.chdName_static.setText(chicagohotdog.getName());</span>
+<span class="nc" id="L88">        FXMLMenuSceneController.chdPrice_static.setText(chicagohotdog.getPrice() + &quot;Ft&quot;);</span>
+<span class="nc" id="L89">        FXMLMenuSceneController.chdList_static.setText((&quot;&quot; + chicagohotdog.getList()).substring(1, (&quot;&quot; + chicagohotdog.getList()).length() - 1));</span>
+
+<span class="nc" id="L91">        Food amsterdamhotdog = new Food(&quot;Amsterdam Hot Dog&quot;, List.of(&quot;Hot Dog kifli, Virsli, Paradicsom, Házi zöldség mix, Majonez, Ketchup, Mustár&quot;), 1450);</span>
+<span class="nc" id="L92">        kajak.add(amsterdamhotdog);</span>
+<span class="nc" id="L93">        FXMLMenuSceneController.ahdName_static.setText(amsterdamhotdog.getName());</span>
+<span class="nc" id="L94">        FXMLMenuSceneController.ahdPrice_static.setText(amsterdamhotdog.getPrice() + &quot;Ft&quot;);</span>
+<span class="nc" id="L95">        FXMLMenuSceneController.ahdList_static.setText((&quot;&quot; + amsterdamhotdog.getList()).substring(1, (&quot;&quot; + amsterdamhotdog.getList()).length() - 1));</span>
+
+<span class="nc" id="L97">        Food debrecenihotdog = new Food(&quot;Debreceni Hot Dog&quot;, List.of(&quot;Hot Dog kifli, Debreceni páros, Bacon, Paradicsom, Pirított hagyma, Magyaros krém&quot;), 1300);</span>
+<span class="nc" id="L98">        kajak.add(debrecenihotdog);</span>
+<span class="nc" id="L99">        FXMLMenuSceneController.dhdName_static.setText(debrecenihotdog.getName());</span>
+<span class="nc" id="L100">        FXMLMenuSceneController.dhdPrice_static.setText(debrecenihotdog.getPrice() + &quot;Ft&quot;);</span>
+<span class="nc" id="L101">        FXMLMenuSceneController.dhdList_static.setText((&quot;&quot; + debrecenihotdog.getList()).substring(1, (&quot;&quot; + debrecenihotdog.getList()).length() - 1));</span>
+
+<span class="nc" id="L103">        Food athenhotdog = new Food(&quot;Athén Hot Dog&quot;, List.of(&quot;Hot Dog kifli, Bárány-marha kolbász, Padlizsankrém, Feta, Paradicsom, Hagyma, Uborka&quot;), 1100);</span>
+<span class="nc" id="L104">        kajak.add(athenhotdog);</span>
+<span class="nc" id="L105">        FXMLMenuSceneController.athdName_static.setText(athenhotdog.getName());</span>
+<span class="nc" id="L106">        FXMLMenuSceneController.athdPrice_static.setText(athenhotdog.getPrice() + &quot;Ft&quot;);</span>
+<span class="nc" id="L107">        FXMLMenuSceneController.athdList_static.setText((&quot;&quot; + athenhotdog.getList()).substring(1, (&quot;&quot; + athenhotdog.getList()).length() - 1));</span>
+
+<span class="nc" id="L109">        Food tokiohotdog = new Food(&quot;Tokió Hot Dog&quot;, List.of(&quot;Hot Dog kifli, Kacsa kolbász, Sushi gyömbér, Wasabi, Pirított hagyma, Szoja szósz&quot;), 1550);</span>
+<span class="nc" id="L110">        kajak.add(tokiohotdog);</span>
+<span class="nc" id="L111">        FXMLMenuSceneController.thdName_static.setText(tokiohotdog.getName());</span>
+<span class="nc" id="L112">        FXMLMenuSceneController.thdPrice_static.setText(tokiohotdog.getPrice() + &quot;Ft&quot;);</span>
+<span class="nc" id="L113">        FXMLMenuSceneController.thdList_static.setText((&quot;&quot; + tokiohotdog.getList()).substring(1, (&quot;&quot; + tokiohotdog.getList()).length() - 1));</span>
+
+<span class="nc" id="L115">        Food mexikohotdog = new Food(&quot;Mexikó Hot Dog&quot;, List.of(&quot;Hot Dog kifli, Virsli, Jalapeno, Kukorica, Bab, Mexikói salsa, Tortilla chips&quot;), 1550);</span>
+<span class="nc" id="L116">        kajak.add(mexikohotdog);</span>
+<span class="nc" id="L117">        FXMLMenuSceneController.mhdName_static.setText(mexikohotdog.getName());</span>
+<span class="nc" id="L118">        FXMLMenuSceneController.mhdPrice_static.setText(mexikohotdog.getPrice() + &quot;Ft&quot;);</span>
+<span class="nc" id="L119">        FXMLMenuSceneController.mhdList_static.setText((&quot;&quot; + mexikohotdog.getList()).substring(1, (&quot;&quot; + mexikohotdog.getList()).length() - 1));</span>
+
+<span class="nc" id="L121">        Food kijevhotdog = new Food(&quot;Kijev Hot Dog&quot;, List.of(&quot;Hot Dog kifli, Mangalica hurka, Majonéz, Mustár, Jalapeno, Uborka &quot;), 1100);</span>
+<span class="nc" id="L122">        kajak.add(kijevhotdog);</span>
+<span class="nc" id="L123">        FXMLMenuSceneController.khdName_static.setText(kijevhotdog.getName());</span>
+<span class="nc" id="L124">        FXMLMenuSceneController.khdPrice_static.setText(kijevhotdog.getPrice() + &quot;Ft&quot;);</span>
+<span class="nc" id="L125">        FXMLMenuSceneController.khdList_static.setText((&quot;&quot; + kijevhotdog.getList()).substring(1, (&quot;&quot; + kijevhotdog.getList()).length() - 1));</span>
+<span class="nc" id="L126">    }</span>
+
+    private void GridpaneDrink()
+    {
+<span class="nc" id="L130">        Drink cocacola = new Drink(&quot;Coca cola&quot;, 450);</span>
+<span class="nc" id="L131">        italok.add(cocacola);</span>
+<span class="nc" id="L132">        FXMLMenuSceneController.cocacolaName_static.setText(cocacola.getName());</span>
+<span class="nc" id="L133">        FXMLMenuSceneController.cocacolaPrice_static.setText(cocacola.getPrice() + &quot;Ft&quot;);</span>
+
+<span class="nc" id="L135">        Drink colalight = new Drink(&quot;Cola light&quot;, 450);</span>
+<span class="nc" id="L136">        italok.add(colalight);</span>
+<span class="nc" id="L137">        FXMLMenuSceneController.colaliteName_static.setText(colalight.getName());</span>
+<span class="nc" id="L138">        FXMLMenuSceneController.colalitePrice_static.setText(colalight.getPrice() + &quot;Ft&quot;);</span>
+
+<span class="nc" id="L140">        Drink fanta = new Drink(&quot;Fanta&quot;, 450);</span>
+<span class="nc" id="L141">        italok.add(fanta);</span>
+<span class="nc" id="L142">        FXMLMenuSceneController.fantaName_static.setText(fanta.getName());</span>
+<span class="nc" id="L143">        FXMLMenuSceneController.fantaPrice_static.setText(fanta.getPrice() + &quot;Ft&quot;);</span>
+
+<span class="nc" id="L145">        Drink cappynarancs = new Drink(&quot;Cappy narancs&quot;, 450);</span>
+<span class="nc" id="L146">        italok.add(cappynarancs);</span>
+<span class="nc" id="L147">        FXMLMenuSceneController.cappynName_static.setText(cappynarancs.getName());</span>
+<span class="nc" id="L148">        FXMLMenuSceneController.cappynPrice_static.setText(cappynarancs.getPrice() + &quot;Ft&quot;);</span>
+
+<span class="nc" id="L150">        Drink szensavmentesviz = new Drink(&quot;Szénsavmentes víz&quot;, 300);</span>
+<span class="nc" id="L151">        italok.add(szensavmentesviz);</span>
+<span class="nc" id="L152">        FXMLMenuSceneController.mentesvizName_static.setText(szensavmentesviz.getName());</span>
+<span class="nc" id="L153">        FXMLMenuSceneController.mentesvizPrice_static.setText(szensavmentesviz.getPrice() + &quot;Ft&quot;);</span>
+
+<span class="nc" id="L155">        Drink szensavasviz = new Drink(&quot;Szénsavas víz&quot;, 300);</span>
+<span class="nc" id="L156">        italok.add(szensavasviz);</span>
+<span class="nc" id="L157">        FXMLMenuSceneController.savasvizName_static.setText(szensavasviz.getName());</span>
+<span class="nc" id="L158">        FXMLMenuSceneController.savasvizPrice_static.setText(szensavasviz.getPrice() + &quot;Ft&quot;);</span>
+
+<span class="nc" id="L160">        Drink redbull = new Drink(&quot;Redbull&quot;, 600);</span>
+<span class="nc" id="L161">        italok.add(redbull);</span>
+<span class="nc" id="L162">        FXMLMenuSceneController.redbullName_static.setText(redbull.getName());</span>
+<span class="nc" id="L163">        FXMLMenuSceneController.redbullPrice_static.setText(redbull.getPrice() + &quot;Ft&quot;);</span>
+
+<span class="nc" id="L165">        Drink heineken = new Drink(&quot;Heineken&quot;, 500);</span>
+<span class="nc" id="L166">        italok.add(heineken);</span>
+<span class="nc" id="L167">        FXMLMenuSceneController.heinekenName_static.setText(heineken.getName());</span>
+<span class="nc" id="L168">        FXMLMenuSceneController.heinekenPrice_static.setText(heineken.getPrice() + &quot;Ft&quot;);</span>
+
+<span class="nc" id="L170">        Drink soproni = new Drink(&quot;Soproni&quot;, 690);</span>
+<span class="nc" id="L171">        italok.add(soproni);</span>
+<span class="nc" id="L172">        FXMLMenuSceneController.soproniName_static.setText(soproni.getName());</span>
+<span class="nc" id="L173">        FXMLMenuSceneController.soproniPrice_static.setText(soproni.getPrice() + &quot;Ft&quot;);</span>
+
+<span class="nc" id="L175">        Drink dreher = new Drink(&quot;Dreher&quot;, 690);</span>
+<span class="nc" id="L176">        italok.add(dreher);</span>
+<span class="nc" id="L177">        FXMLMenuSceneController.dreherName_static.setText(dreher.getName());</span>
+<span class="nc" id="L178">        FXMLMenuSceneController.dreherPrice_static.setText(dreher.getPrice() + &quot;Ft&quot;);</span>
+<span class="nc" id="L179">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

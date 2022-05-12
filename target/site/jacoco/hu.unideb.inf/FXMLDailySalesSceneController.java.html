@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FXMLDailySalesSceneController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaFX11_MILESTONE1</a> &gt; <a href="index.source.html" class="el_package">hu.unideb.inf</a> &gt; <span class="el_source">FXMLDailySalesSceneController.java</span></div><h1>FXMLDailySalesSceneController.java</h1><pre class="source lang-java linenums">package hu.unideb.inf;
+
+import hu.unideb.inf.model.Dailysale;
+import hu.unideb.inf.model.DailysaleDAO;
+import hu.unideb.inf.model.JpaDailysaleDAO;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="nc" id="L20">public class FXMLDailySalesSceneController {</span>
+
+    @FXML
+    private TextArea dailysale;
+    public static TextArea dailysale_static;
+
+    @FXML
+    private Button buttonBack;
+
+    @FXML
+    private Button buttonNext;
+
+    @FXML
+    void backPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L34">        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(&quot;/fxml/FXMLMainmenu.fxml&quot;));</span>
+<span class="nc" id="L35">        Scene scene = new Scene(loader.load());</span>
+<span class="nc" id="L36">        Stage stage = new Stage();</span>
+<span class="nc" id="L37">        Stage stage2 = (Stage)</span>
+<span class="nc" id="L38">                buttonBack.getScene().getWindow();</span>
+<span class="nc" id="L39">        stage2.close();</span>
+<span class="nc" id="L40">        stage.setTitle(&quot;Main Menu&quot;);</span>
+<span class="nc" id="L41">        stage.setScene(scene);</span>
+<span class="nc" id="L42">        stage.show();</span>
+<span class="nc" id="L43">    }</span>
+
+    @FXML
+    void nextPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L47">        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(&quot;/fxml/FXMLDailyInventory.fxml&quot;));</span>
+<span class="nc" id="L48">        Scene scene = new Scene(loader.load());</span>
+<span class="nc" id="L49">        Stage stage = new Stage();</span>
+<span class="nc" id="L50">        Stage stage2 = (Stage)</span>
+<span class="nc" id="L51">                buttonNext.getScene().getWindow();</span>
+<span class="nc" id="L52">        stage2.close();</span>
+<span class="nc" id="L53">        stage.setTitle(&quot;Daily Inventory&quot;);</span>
+<span class="nc" id="L54">        stage.setScene(scene);</span>
+<span class="nc" id="L55">        stage.show();</span>
+<span class="nc" id="L56">    }</span>
+
+    public void DailysaleTextAreaFill()
+    {
+<span class="nc" id="L60">        try(DailysaleDAO dDao = new JpaDailysaleDAO();){</span>
+<span class="nc" id="L61">            List&lt;Dailysale&gt; lista = dDao.getDailysale();</span>
+<span class="nc" id="L62">            List&lt;Dailysale&gt; napiforgalomlista = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">            for (int j = 0; j &lt; lista.size(); j++)</span>
+            {
+<span class="nc" id="L65">                System.out.println(lista.get(j).getName() + &quot;\t\t&quot; + lista.get(j).getCount() + &quot;db&quot;);</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">                if (lista.get(j).getCount() &gt; 0)</span>
+                {
+<span class="nc" id="L68">                    napiforgalomlista.add(lista.get(j));</span>
+                }
+            }
+<span class="nc" id="L71">            String[] forgalom = new String[napiforgalomlista.size()];</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">            for (int i = 0; i &lt; napiforgalomlista.size(); i++)</span>
+            {
+<span class="nc bnc" id="L74" title="All 2 branches missed.">                if (napiforgalomlista.get(i).getCount() &gt; 0)</span>
+                {
+<span class="nc" id="L76">                    forgalom[i] = napiforgalomlista.get(i).getName() + &quot;\t\t&quot; + napiforgalomlista.get(i).getCount() + &quot;db&quot;;</span>
+                }
+            }
+<span class="nc" id="L79">            FXMLDailySalesSceneController.dailysale_static.setText(String.join(&quot;\n&quot;, forgalom));</span>
+<span class="nc" id="L80">        }catch (Exception e) {</span>
+<span class="nc" id="L81">            e.printStackTrace();</span>
+<span class="nc" id="L82">        }</span>
+<span class="nc" id="L83">    }</span>
+
+    @FXML
+    public void initialize(){
+<span class="nc" id="L87">        dailysale_static = dailysale;</span>
+<span class="nc" id="L88">        DailysaleTextAreaFill();</span>
+<span class="nc" id="L89">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

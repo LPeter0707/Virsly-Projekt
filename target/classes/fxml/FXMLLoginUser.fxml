@@ -17,7 +17,7 @@
             <Image url="@Bg.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="buttonSignin" layoutX="85.0" layoutY="370.0" mnemonicParsing="false" onAction="#signinPushed" prefHeight="42.0" prefWidth="229.0" text="Regisztráció" />
+      <Button fx:id="buttonSignin" layoutX="85.0" layoutY="370.0" mnemonicParsing="false" onAction="#signinPushed" prefHeight="42.0" prefWidth="229.0" text="Regisztráció" textFill="WHITE" />
       <ImageView fitHeight="55.0" fitWidth="39.0" layoutX="40.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@back.png" />
@@ -37,7 +37,7 @@
                   <Image url="@Virslyk.png" />
                </image>
             </ImageView>
-            <Button fx:id="buttonLogin" layoutX="91.0" layoutY="462.0" mnemonicParsing="false" onAction="#loginPushed" prefHeight="42.0" prefWidth="298.0" text="Bejelentkezés" />
+            <Button fx:id="buttonLogin" layoutX="91.0" layoutY="462.0" mnemonicParsing="false" onAction="#loginPushed" prefHeight="42.0" prefWidth="298.0" text="Bejelentkezés" textFill="WHITE" />
             <Label layoutX="165.0" layoutY="221.0" prefHeight="67.0" prefWidth="150.0" text="Bejelentkezés" textFill="WHITE">
                <font>
                   <Font size="24.0" />

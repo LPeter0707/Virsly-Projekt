@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainApp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaFX11_MILESTONE1</a> &gt; <a href="index.source.html" class="el_package">hu.unideb.inf</a> &gt; <span class="el_source">MainApp.java</span></div><h1>MainApp.java</h1><pre class="source lang-java linenums">package hu.unideb.inf;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import java.sql.SQLException;
+
+<span class="nc" id="L10">public class MainApp extends Application {</span>
+
+    @Override
+    public void start(Stage stage) throws Exception {
+<span class="nc" id="L14">        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(&quot;/fxml/FXMLLogin.fxml&quot;));</span>
+<span class="nc" id="L15">        Scene scene = new Scene(loader.load());</span>
+<span class="nc" id="L16">        stage.setTitle(&quot;Virsly&quot;);</span>
+<span class="nc" id="L17">        javafx.scene.image.Image image = new Image(&quot;/icon/icon_user.png&quot;);</span>
+<span class="nc" id="L18">        stage.getIcons().add(image);</span>
+<span class="nc" id="L19">        stage.setScene(scene);</span>
+<span class="nc" id="L20">        stage.show();</span>
+        /*Parent root = FXMLLoader.load(getClass().getResource(&quot;/fxml/Scene.fxml&quot;));
+        
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(&quot;/styles/Styles.css&quot;);
+        
+        stage.setTitle(&quot;JavaFX and Maven&quot;);
+        stage.setScene(scene);
+        stage.show();*/
+<span class="nc" id="L29">    }</span>
+
+    /**
+     * The main() method is ignored in correctly deployed JavaFX application.
+     * main() serves only as fallback in case the application can not be
+     * launched through deployment artifacts, e.g., in IDEs with limited FX
+     * support. NetBeans ignores main().
+     *
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        try {
+<span class="nc" id="L41">            hu.unideb.inf.Application.main();</span>
+<span class="nc" id="L42">        } catch (SQLException e) {</span>
+<span class="nc" id="L43">            e.printStackTrace();</span>
+<span class="nc" id="L44">        }</span>
+
+<span class="nc" id="L46">        launch(args);</span>
+<span class="nc" id="L47">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

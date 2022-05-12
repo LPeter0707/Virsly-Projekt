@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FXMLBasketSceneController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaFX11_MILESTONE1</a> &gt; <a href="index.source.html" class="el_package">hu.unideb.inf</a> &gt; <span class="el_source">FXMLBasketSceneController.java</span></div><h1>FXMLBasketSceneController.java</h1><pre class="source lang-java linenums">package hu.unideb.inf;
+
+import hu.unideb.inf.model.*;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.Pane;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+<span class="nc" id="L17">public class FXMLBasketSceneController extends FXMLUserSiteSceneController{</span>
+
+    @FXML
+    private TextArea basket;
+    public static TextArea basket_static;
+
+    @FXML
+    private Label vegosszeg;
+    private static Label vegosszeg_static;
+
+    @FXML
+    private Button buttonRendel;
+
+<span class="nc" id="L30">    public static List&lt;Food&gt; kajalista = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L31">    public static List&lt;Drink&gt; itallista = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L33">    private static Integer italosszeg = 0;</span>
+<span class="nc" id="L34">    private static Integer kajaosszeg = 0;</span>
+
+    static void OsszegKiir()
+    {
+<span class="nc" id="L38">        vegosszeg_static.setText(italosszeg + kajaosszeg + &quot;Ft&quot;);</span>
+<span class="nc" id="L39">    }</span>
+
+    static void Kiir()
+    {
+<span class="nc" id="L43">        String[] italtartalom = italKiir();</span>
+<span class="nc" id="L44">        String[] kajatartalom = kajaKiir();</span>
+
+<span class="nc" id="L46">        int meret = italtartalom.length + kajatartalom.length;</span>
+<span class="nc" id="L47">        String[] teljes = new String[meret];</span>
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        for (int i = 0; i &lt; italtartalom.length; i++)</span>
+        {
+<span class="nc" id="L51">            teljes[i] = italtartalom[i];</span>
+        }
+
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        for (int j = 0; j &lt; kajatartalom.length; j++)</span>
+        {
+<span class="nc" id="L56">            teljes[j+italtartalom.length] = kajatartalom[j];</span>
+        }
+
+<span class="nc" id="L59">        basket_static.setText(String.join(&quot;\n&quot;, teljes));</span>
+<span class="nc" id="L60">    }</span>
+
+    static void italRendeles(int italindex, int darab){
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        for (int i = 0; i &lt; darab; i++)</span>
+        {
+<span class="nc" id="L65">            itallista.add(italok.get(italindex));</span>
+        }
+
+<span class="nc" id="L68">        FXMLScenes object = new FXMLScenes();</span>
+<span class="nc" id="L69">        Pane view = object.getPage(&quot;FXMLKosar&quot;);</span>
+<span class="nc" id="L70">        mainPane_static.getChildren().setAll(view);</span>
+<span class="nc" id="L71">    }</span>
+<span class="nc" id="L72">    public static List&lt;Drink&gt; itallistap = new ArrayList&lt;&gt;();</span>
+
+    static String[] italKiir()
+    {
+<span class="nc" id="L76">        Set&lt;Drink&gt; szurtlista = new HashSet&lt;&gt;(itallista);</span>
+<span class="nc" id="L77">        String[] tartalom = new String[szurtlista.size()];</span>
+<span class="nc" id="L78">        List&lt;Drink&gt; itallista = new ArrayList&lt;&gt;(szurtlista);</span>
+<span class="nc" id="L79">        itallistap.addAll(itallista);</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        for (int i = 0; i &lt; itallista.size(); i++)</span>
+        {
+<span class="nc" id="L82">            int db = count_ital(itallista.get(i).getName());</span>
+<span class="nc" id="L83">            tartalom[i] = itallista.get(i).getName() + &quot;\t\t\t&quot; + db + &quot;db&quot; + &quot;\t&quot; + db * itallista.get(i).getPrice() + &quot; ft&quot;;</span>
+<span class="nc" id="L84">            italosszeg += db * itallista.get(i).getPrice();</span>
+        }
+<span class="nc" id="L86">        return tartalom;</span>
+    }
+
+    static void Napiforgalomital(List&lt;Drink&gt; itallistafoo)
+    {
+<span class="nc" id="L91">        List&lt;Dailysale&gt; forgalom = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L92">        try(DailysaleDAO dDao = new JpaDailysaleDAO();) {</span>
+<span class="nc" id="L93">            forgalom = dDao.getDailysale();</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">            if (forgalom.size() == 8) {</span>
+
+<span class="nc" id="L96">                Dailysale cocacola = new Dailysale();</span>
+<span class="nc" id="L97">                cocacola.setName(&quot;Coca cola&quot;);</span>
+<span class="nc" id="L98">                cocacola.setCount(0);</span>
+<span class="nc" id="L99">                forgalom.add(cocacola);</span>
+
+<span class="nc" id="L101">                Dailysale colalight = new Dailysale();</span>
+<span class="nc" id="L102">                colalight.setName(&quot;Cola light&quot;);</span>
+<span class="nc" id="L103">                colalight.setCount(0);</span>
+<span class="nc" id="L104">                forgalom.add(colalight);</span>
+
+<span class="nc" id="L106">                Dailysale fanta = new Dailysale();</span>
+<span class="nc" id="L107">                fanta.setName(&quot;Fanta&quot;);</span>
+<span class="nc" id="L108">                fanta.setCount(0);</span>
+<span class="nc" id="L109">                forgalom.add(fanta);</span>
+
+<span class="nc" id="L111">                Dailysale cappy = new Dailysale();</span>
+<span class="nc" id="L112">                cappy.setName(&quot;Cappy narancs&quot;);</span>
+<span class="nc" id="L113">                cappy.setCount(0);</span>
+<span class="nc" id="L114">                forgalom.add(cappy);</span>
+
+<span class="nc" id="L116">                Dailysale mentesviz = new Dailysale();</span>
+<span class="nc" id="L117">                mentesviz.setName(&quot;Szénsavmentes víz&quot;);</span>
+<span class="nc" id="L118">                mentesviz.setCount(0);</span>
+<span class="nc" id="L119">                forgalom.add(mentesviz);</span>
+
+<span class="nc" id="L121">                Dailysale savasviz = new Dailysale();</span>
+<span class="nc" id="L122">                savasviz.setName(&quot;Szénsavas víz&quot;);</span>
+<span class="nc" id="L123">                savasviz.setCount(0);</span>
+<span class="nc" id="L124">                forgalom.add(savasviz);</span>
+
+<span class="nc" id="L126">                Dailysale redbull = new Dailysale();</span>
+<span class="nc" id="L127">                redbull.setName(&quot;Redbull&quot;);</span>
+<span class="nc" id="L128">                redbull.setCount(0);</span>
+<span class="nc" id="L129">                forgalom.add(redbull);</span>
+
+<span class="nc" id="L131">                Dailysale heineken = new Dailysale();</span>
+<span class="nc" id="L132">                heineken.setName(&quot;Heineken&quot;);</span>
+<span class="nc" id="L133">                heineken.setCount(0);</span>
+<span class="nc" id="L134">                forgalom.add(heineken);</span>
+
+<span class="nc" id="L136">                Dailysale soproni = new Dailysale();</span>
+<span class="nc" id="L137">                soproni.setName(&quot;Soproni&quot;);</span>
+<span class="nc" id="L138">                soproni.setCount(0);</span>
+<span class="nc" id="L139">                forgalom.add(soproni);</span>
+
+<span class="nc" id="L141">                Dailysale dreher = new Dailysale();</span>
+<span class="nc" id="L142">                dreher.setName(&quot;Dreher&quot;);</span>
+<span class="nc" id="L143">                dreher.setCount(0);</span>
+<span class="nc" id="L144">                forgalom.add(dreher);</span>
+            }
+<span class="nc bnc" id="L146" title="All 2 branches missed.">            for (int i = 0; i &lt; itallistafoo.size(); i++){</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">                for (int j = 0; j &lt; forgalom.size(); j++){</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">                    if (forgalom.get(j).getName().equals(itallistafoo.get(i).getName())){</span>
+<span class="nc" id="L149">                        forgalom.get(j).setCount(forgalom.get(j).getCount() + count_ital(itallistafoo.get(i).getName()));</span>
+                    }
+                }
+            }
+<span class="nc bnc" id="L153" title="All 2 branches missed.">            for (Dailysale item:forgalom) {</span>
+<span class="nc" id="L154">                dDao.updateDailysale(item);</span>
+<span class="nc" id="L155">            }</span>
+<span class="nc" id="L156">        }catch (Exception e) {</span>
+<span class="nc" id="L157">            e.printStackTrace();</span>
+<span class="nc" id="L158">        }</span>
+<span class="nc" id="L159">    }</span>
+
+    static void kajaRendeles(int kajaindex, int darab){
+<span class="nc bnc" id="L162" title="All 2 branches missed.">        for (int i = 0; i &lt; darab; i++)</span>
+        {
+<span class="nc" id="L164">            kajalista.add(kajak.get(kajaindex));</span>
+        }
+
+<span class="nc" id="L167">        FXMLScenes object = new FXMLScenes();</span>
+<span class="nc" id="L168">        Pane view = object.getPage(&quot;FXMLKosar&quot;);</span>
+<span class="nc" id="L169">        mainPane_static.getChildren().setAll(view);</span>
+<span class="nc" id="L170">    }</span>
+
+    static int count_ital(String name){
+<span class="nc" id="L173">        int db = 0;</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">        for (Drink item : itallista) {</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">            if (item.getName()==name){</span>
+<span class="nc" id="L176">                db++;</span>
+            }
+<span class="nc" id="L178">        }</span>
+<span class="nc" id="L179">        return db;</span>
+    }
+
+    static int count_kaja(String name){
+<span class="nc" id="L183">        int db = 0;</span>
+<span class="nc bnc" id="L184" title="All 2 branches missed.">        for (Food item : kajalista) {</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">            if (item.getName()==name){</span>
+<span class="nc" id="L186">                db++;</span>
+            }
+<span class="nc" id="L188">        }</span>
+<span class="nc" id="L189">        return db;</span>
+    }
+<span class="nc" id="L191">    public static List&lt;Food&gt; kajalistap = new ArrayList&lt;&gt;();</span>
+    static String[] kajaKiir()
+    {
+<span class="nc" id="L194">        Set&lt;Food&gt; szurtlista = new HashSet&lt;&gt;(kajalista);</span>
+<span class="nc" id="L195">        String[] tartalom = new String[szurtlista.size()];</span>
+<span class="nc" id="L196">        List&lt;Food&gt; kajalista = new ArrayList&lt;&gt;(szurtlista);</span>
+<span class="nc" id="L197">        kajalistap.addAll(kajalista);</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">        for (int i = 0; i &lt; kajalista.size(); i++)</span>
+        {
+<span class="nc" id="L200">            int db = count_kaja(kajalista.get(i).getName());</span>
+<span class="nc" id="L201">            tartalom[i] = kajalista.get(i).getName() + &quot;\t\t\t&quot; + db + &quot;db&quot; + &quot;\t&quot; + db * kajalista.get(i).getPrice() + &quot; ft&quot;;</span>
+<span class="nc" id="L202">            kajaosszeg += db * kajalista.get(i).getPrice();</span>
+        }
+<span class="nc" id="L204">        return tartalom;</span>
+    }
+
+    static void Napiforgalomkaja(List&lt;Food&gt; kajalistafoo)
+    {
+<span class="nc" id="L209">        List&lt;Dailysale&gt; forgalom = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L210">        try(DailysaleDAO dDao = new JpaDailysaleDAO();){</span>
+<span class="nc" id="L211">            forgalom = dDao.getDailysale();</span>
+
+<span class="nc bnc" id="L213" title="All 2 branches missed.">            if (forgalom.size() == 0)</span>
+            {
+<span class="nc" id="L215">                Dailysale newyorkhotdogd = new Dailysale();</span>
+<span class="nc" id="L216">                newyorkhotdogd.setName(&quot;New York Hot Dog&quot;);</span>
+<span class="nc" id="L217">                newyorkhotdogd.setCount(0);</span>
+<span class="nc" id="L218">                forgalom.add(newyorkhotdogd);</span>
+
+<span class="nc" id="L220">                Dailysale chicagohotdogd = new Dailysale();</span>
+<span class="nc" id="L221">                chicagohotdogd.setName(&quot;Chicago Hot Dog&quot;);</span>
+<span class="nc" id="L222">                chicagohotdogd.setCount(0);</span>
+<span class="nc" id="L223">                forgalom.add(chicagohotdogd);</span>
+
+<span class="nc" id="L225">                Dailysale amsterdamhotdogd = new Dailysale();</span>
+<span class="nc" id="L226">                amsterdamhotdogd.setName(&quot;Amsterdam Hot Dog&quot;);</span>
+<span class="nc" id="L227">                amsterdamhotdogd.setCount(0);</span>
+<span class="nc" id="L228">                forgalom.add(amsterdamhotdogd);</span>
+
+<span class="nc" id="L230">                Dailysale debrecenihotdogd = new Dailysale();</span>
+<span class="nc" id="L231">                debrecenihotdogd.setName(&quot;Debreceni Hot Dog&quot;);</span>
+<span class="nc" id="L232">                debrecenihotdogd.setCount(0);</span>
+<span class="nc" id="L233">                forgalom.add(debrecenihotdogd);</span>
+
+<span class="nc" id="L235">                Dailysale athenhotdogd = new Dailysale();</span>
+<span class="nc" id="L236">                athenhotdogd.setName(&quot;Athén Hot Dog&quot;);</span>
+<span class="nc" id="L237">                athenhotdogd.setCount(0);</span>
+<span class="nc" id="L238">                forgalom.add(athenhotdogd);</span>
+
+<span class="nc" id="L240">                Dailysale tokiohotdogd = new Dailysale();</span>
+<span class="nc" id="L241">                tokiohotdogd.setName(&quot;Tokió Hot Dog&quot;);</span>
+<span class="nc" id="L242">                tokiohotdogd.setCount(0);</span>
+<span class="nc" id="L243">                forgalom.add(tokiohotdogd);</span>
+
+<span class="nc" id="L245">                Dailysale mexikohotdogd = new Dailysale();</span>
+<span class="nc" id="L246">                mexikohotdogd.setName(&quot;Mexikó Hot Dog&quot;);</span>
+<span class="nc" id="L247">                mexikohotdogd.setCount(0);</span>
+<span class="nc" id="L248">                forgalom.add(mexikohotdogd);</span>
+
+<span class="nc" id="L250">                Dailysale kijevhotdogd = new Dailysale();</span>
+<span class="nc" id="L251">                kijevhotdogd.setName(&quot;Kijev Hot Dog&quot;);</span>
+<span class="nc" id="L252">                kijevhotdogd.setCount(0);</span>
+<span class="nc" id="L253">                forgalom.add(kijevhotdogd);</span>
+
+            }
+<span class="nc bnc" id="L256" title="All 2 branches missed.">            for (int i = 0; i &lt; kajalistafoo.size(); i++){</span>
+<span class="nc bnc" id="L257" title="All 2 branches missed.">                for (int j = 0; j &lt; forgalom.size(); j++){</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">                    if (forgalom.get(j).getName().equals(kajalistafoo.get(i).getName())){</span>
+<span class="nc" id="L259">                        forgalom.get(j).setCount(forgalom.get(j).getCount() + count_kaja(kajalistafoo.get(i).getName()));</span>
+                    }
+                }
+            }
+<span class="nc bnc" id="L263" title="All 2 branches missed.">            for (Dailysale item:forgalom) {</span>
+<span class="nc" id="L264">                dDao.updateDailysale(item);</span>
+<span class="nc" id="L265">            }</span>
+<span class="nc" id="L266">        }catch (Exception e) {</span>
+<span class="nc" id="L267">            e.printStackTrace();</span>
+<span class="nc" id="L268">        }</span>
+<span class="nc" id="L269">    }</span>
+
+    @FXML
+    public void initialize(){
+<span class="nc" id="L273">        basket_static = basket;</span>
+<span class="nc" id="L274">        vegosszeg_static = vegosszeg;</span>
+<span class="nc" id="L275">    }</span>
+
+    @FXML
+    void rendelPushed(ActionEvent event) throws IOException{
+<span class="nc" id="L279">        Alert a = new Alert(Alert.AlertType.NONE);</span>
+<span class="nc" id="L280">        a.setAlertType(Alert.AlertType.WARNING);</span>
+<span class="nc" id="L281">        a.setContentText(&quot;Nincs elég alapanyag az étel elkészítéséhez!\n&quot;);</span>
+<span class="nc" id="L282">        List&lt;Storage&gt; raktar = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L283">        StorageDao storage = new JpaStorageDAO();</span>
+<span class="nc" id="L284">        raktar = storage.getStorage();</span>
+<span class="nc" id="L285">        boolean hiba = false;</span>
+<span class="nc bnc" id="L286" title="All 2 branches missed.">        for(int i = 0; i &lt; kajalistap.size(); i++){</span>
+<span class="nc bnc" id="L287" title="All 2 branches missed.">            for (int j = 0; j &lt; kajalistap.get(i).getList().size(); j++){</span>
+<span class="nc bnc" id="L288" title="All 2 branches missed.">                for (int k = 0; k &lt; raktar.size(); k++){</span>
+<span class="nc bnc" id="L289" title="All 2 branches missed.">                    if (kajalistap.get(i).getList().get(j).contains(raktar.get(k).getName())) {</span>
+<span class="nc bnc" id="L290" title="All 2 branches missed.">                        if (raktar.get(k).getPiece() &lt; count_kaja(kajalistap.get(i).getName())){</span>
+<span class="nc" id="L291">                            hiba = true;</span>
+<span class="nc" id="L292">                            a.show();</span>
+<span class="nc" id="L293">                            break;</span>
+                        }
+                    }
+                }
+            }
+        }
+<span class="nc bnc" id="L299" title="All 2 branches missed.">        if (hiba == false) {</span>
+<span class="nc bnc" id="L300" title="All 2 branches missed.">            for (int i = 0; i &lt; kajalistap.size(); i++) {</span>
+<span class="nc bnc" id="L301" title="All 2 branches missed.">                for (int j = 0; j &lt; kajalistap.get(i).getList().size(); j++) {</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">                    for (int k = 0; k &lt; raktar.size(); k++) {</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">                        if (kajalistap.get(i).getList().get(j).contains(raktar.get(k).getName())) {</span>
+
+
+<span class="nc" id="L306">                                raktar.get(k).setPiece(raktar.get(k).getPiece() - count_kaja(kajalistap.get(i).getName()));</span>
+
+
+
+                        }
+                    }
+                }
+            }
+        }
+<span class="nc" id="L315">        boolean italhiba = false;</span>
+<span class="nc bnc" id="L316" title="All 2 branches missed.">        for(int i = 0; i &lt; itallista.size(); i++){</span>
+<span class="nc bnc" id="L317" title="All 2 branches missed.">            for (int j = 0; j &lt; raktar.size(); j++){</span>
+<span class="nc bnc" id="L318" title="All 2 branches missed.">                if (itallista.get(i).getName().contains(raktar.get(j).getName())) {</span>
+<span class="nc bnc" id="L319" title="All 2 branches missed.">                    if (raktar.get(j).getPiece() &lt; count_ital(itallistap.get(i).getName())){</span>
+<span class="nc" id="L320">                        italhiba = true;</span>
+<span class="nc" id="L321">                        a.show();</span>
+<span class="nc" id="L322">                        break;</span>
+                    }
+
+                }
+            }
+        }
+
+<span class="nc bnc" id="L329" title="All 2 branches missed.">        if (italhiba == false){</span>
+<span class="nc bnc" id="L330" title="All 2 branches missed.">            for(int i = 0; i &lt; itallistap.size(); i++){</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">                for (int j = 0; j &lt; raktar.size(); j++){</span>
+<span class="nc bnc" id="L332" title="All 2 branches missed.">                    if (itallistap.get(i).getName().contains(raktar.get(j).getName())) {</span>
+
+<span class="nc" id="L334">                            raktar.get(j).setPiece(raktar.get(j).getPiece() - count_ital(itallistap.get(i).getName()));</span>
+
+
+                    }
+                }
+            }
+        }
+<span class="nc" id="L341">        Napiforgalomkaja(kajalistap);</span>
+<span class="nc" id="L342">        Napiforgalomital(itallistap);</span>
+<span class="nc" id="L343">        storage.updateStorage(raktar);</span>
+<span class="nc" id="L344">        basket_static.clear();</span>
+<span class="nc" id="L345">        kajalista.clear();</span>
+<span class="nc" id="L346">        kajalistap.clear();</span>
+<span class="nc" id="L347">        itallista.clear();</span>
+<span class="nc" id="L348">        itallistap.clear();</span>
+<span class="nc" id="L349">        italosszeg = 0;</span>
+<span class="nc" id="L350">        kajaosszeg = 0;</span>
+<span class="nc" id="L351">        FXMLScenes object = new FXMLScenes();</span>
+<span class="nc" id="L352">        Pane view = object.getPage(&quot;FXMLKapcsolat&quot;);</span>
+<span class="nc" id="L353">        mainPane_static.getChildren().setAll(view);</span>
+<span class="nc" id="L354">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
