@@ -28,11 +28,11 @@
                   <Label />
                   <Label text="Vezetéknév:" />
                   <Label text="E-mail:" GridPane.rowIndex="2" />
-                  <TextField promptText="Lakatos" GridPane.columnIndex="1" />
-                  <TextField promptText="Szotírisz" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField promptText="valami@elhiszem.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="firstname" promptText="Lakatos" GridPane.columnIndex="1" />
+                  <TextField fx:id="lastname" promptText="Szotírisz" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="uname" promptText="valami@elhiszem.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Jelszó:" GridPane.rowIndex="3" />
-                  <TextField promptText="********" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="pass" promptText="********" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Keresztnév:" GridPane.rowIndex="1" />
                </children>
             </GridPane>

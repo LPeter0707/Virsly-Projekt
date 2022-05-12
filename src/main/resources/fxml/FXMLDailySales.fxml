@@ -4,40 +4,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLDailySalesSceneController">
+<AnchorPane prefHeight="553.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLDailySalesSceneController">
    <children>
-      <ScrollPane>
+      <ScrollPane layoutY="6.0" prefHeight="533.0" prefWidth="824.0">
          <content>
-            <AnchorPane accessibleRole="SCROLL_PANE" prefHeight="2999.0" prefWidth="569.0">
+            <AnchorPane accessibleRole="SCROLL_PANE" prefHeight="868.0" prefWidth="824.0">
                <children>
-                  <Text layoutX="226.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgalom">
+                  <Text layoutX="338.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgalom">
                      <font>
                         <Font size="35.0" />
                      </font>
                   </Text>
-                  <Label layoutX="14.0" layoutY="104.0" text="Hot Dog">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="187.0" text="Ketchupos virslis kifli">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="146.0" text="Corn Dog">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <ChoiceBox layoutX="224.0" layoutY="105.0" prefHeight="25.0" prefWidth="55.0" />
-                  <ChoiceBox layoutX="224.0" layoutY="147.0" prefHeight="25.0" prefWidth="55.0" />
-                  <ChoiceBox layoutX="224.0" layoutY="188.0" prefHeight="25.0" prefWidth="55.0" />
                   <Button fx:id="buttonBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backPushed" text="Vissza" />
-                  <Button fx:id="buttonNext" layoutX="503.0" layoutY="14.0" mnemonicParsing="false" onAction="#nextPushed" text="Tovább" />
+                  <Button fx:id="buttonNext" layoutX="748.0" layoutY="14.0" mnemonicParsing="false" onAction="#nextPushed" text="Tovább" />
+                  <TextArea fx:id="dailysale" editable="false" layoutX="131.0" layoutY="89.0" prefHeight="364.0" prefWidth="470.0" />
                </children>
             </AnchorPane>
          </content>
       </ScrollPane>
    </children>
-</VBox>
+</AnchorPane>
