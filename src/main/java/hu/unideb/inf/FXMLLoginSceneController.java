@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 import java.io.IOException;
 
@@ -25,7 +26,9 @@ public class FXMLLoginSceneController {
         Stage stage2 = (Stage)
                  buttonUser.getScene().getWindow();
         stage2.close();
-        stage.setTitle("LoginUser");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }
@@ -38,7 +41,9 @@ public class FXMLLoginSceneController {
         Stage stage2 = (Stage)
                 buttonAdmin.getScene().getWindow();
         stage2.close();
-        stage.setTitle("LoginAdmin");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_admin.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }

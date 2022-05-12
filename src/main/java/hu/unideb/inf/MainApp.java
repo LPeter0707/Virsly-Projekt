@@ -3,6 +3,7 @@ package hu.unideb.inf;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.sql.SQLException;
 
@@ -12,7 +13,9 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLLogin.fxml"));
         Scene scene = new Scene(loader.load());
-        stage.setTitle("Login");
+        stage.setTitle("Virsly");
+        javafx.scene.image.Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
         /*Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));

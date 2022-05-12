@@ -1,0 +1,26 @@
+#buttonUser {
+    -fx-background-color :  #b98496;
+}
+
+#buttonUser:hover{
+    -fx-background-color :  #812142;
+}
+
+#buttonUser:pressed{
+    -fx-background-color :  #e3cdd5;
+    -fx-text-fill: black;
+}
+
+#buttonAdmin{
+    -fx-background-color :  #b98496;
+}
+
+#buttonAdmin:hover{
+    -fx-background-color :  #812142;
+}
+
+#buttonAdmin:pressed{
+    -fx-background-color :  #e3cdd5;
+    -fx-text-fill: black;
+}
+

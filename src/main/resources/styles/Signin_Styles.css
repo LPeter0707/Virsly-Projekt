@@ -1,0 +1,36 @@
+#buttonSave{
+    -fx-background-color :  #b98496;
+    -fx-text-fill: white;
+}
+
+#buttonSave:hover{
+    -fx-background-color :  #812142;
+    -fx-text-fill: white;
+}
+
+#buttonSave:pressed{
+    -fx-background-color :  #e3cdd5;
+    -fx-text-fill: black;
+}
+
+.bemenet{
+    -fx-background-color : transparent;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+#buttonBack{
+    -fx-opacity : 0;
+}
+
+#buttonBack:hover{
+    -fx-border: 2px solid white;
+
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonBack:pushed{
+    -fx-background-color: #C79CAB;
+}

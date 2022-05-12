@@ -1,0 +1,55 @@
+#buttonLogin{
+    -fx-background-color :  #112B3C;
+    -fx-text-fill: white;
+}
+
+#buttonLogin:hover{
+    -fx-background-color :  #0a1924;
+    -fx-text-fill: white;
+}
+
+#buttonLogin:pressed{
+    -fx-background-color :  #cfd4d8;
+    -fx-text-fill: black;
+}
+
+#buttonKerelem{
+    -fx-opacity : 0;
+}
+
+#buttonKerelem:hover{
+    -fx-opacity : 0.3;
+}
+
+#buttonKerelem:pressed{
+    -fx-opacity : 0.3;
+    -fx-background-color :  #9faab1;
+}
+
+#GetUsername{
+    -fx-background-color : transparent;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+#GetPassword{
+    -fx-background-color : transparent;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+#buttonBack{
+    -fx-opacity : 0;
+}
+
+#buttonBack:hover{
+    -fx-border: 2px solid white;
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonBack:pushed{
+    -fx-background-color: #C79CAB;
+}
