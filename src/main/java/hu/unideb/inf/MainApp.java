@@ -1,16 +1,11 @@
 package hu.unideb.inf;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
-
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import java.awt.*;
-
+import java.sql.SQLException;
 
 public class MainApp extends Application {
 
@@ -23,7 +18,6 @@ public class MainApp extends Application {
         stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
-
         /*Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
         
         Scene scene = new Scene(root);
@@ -43,6 +37,12 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try {
+            hu.unideb.inf.Application.main();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         launch(args);
     }
 

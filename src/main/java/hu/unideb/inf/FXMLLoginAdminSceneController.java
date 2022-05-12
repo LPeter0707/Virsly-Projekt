@@ -1,16 +1,17 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FXMLLoginAdminSceneController {
 
@@ -21,7 +22,11 @@ public class FXMLLoginAdminSceneController {
     private Button buttonLogin;
 
     @FXML
-    private Button buttonKerelem;
+    private TextField GetUsername;
+
+
+    @FXML
+    private TextField GetPassword;
 
     @FXML
     void backPushed(ActionEvent event) throws IOException {
@@ -31,45 +36,38 @@ public class FXMLLoginAdminSceneController {
         Stage stage2 = (Stage)
                 buttonBack.getScene().getWindow();
         stage2.close();
-        stage.setTitle("Virsly");
-        Image image = new Image("/icon/icon_admin.png");
-        stage.getIcons().add(image);
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
     void loginPushed(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLMainmenu.fxml"));
-        Scene scene = new Scene(loader.load());
-        Stage stage = new Stage();
-        Stage stage2 = (Stage)
-                buttonLogin.getScene().getWindow();
-        stage2.close();
-        stage.setTitle("Virsly");
-        Image image = new Image("/icon/icon_admin.png");
-        stage.getIcons().add(image);
-        stage.setScene(scene);
-        stage.show();
+        if (ValidateUser(GetUsername.getText(), GetPassword.getText())) {
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLMainmenu.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage();
+            Stage stage2 = (Stage)
+                    buttonLogin.getScene().getWindow();
+            stage2.close();
+            stage.setTitle("Main Menu");
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
-    @FXML
-    void kerelemPushed(ActionEvent event) {
-        TextInputDialog textInput = new TextInputDialog();
-        textInput.setTitle("Kérelem");
-        textInput.setHeaderText("Kérelem küldéséhez, adja meg a felhasználónevét");
-        textInput.getDialogPane().setContentText("Felhasználónév:");
-        Optional<String> result = textInput.showAndWait();
-        TextField input = textInput.getEditor();
-
-        if(input.getText() != null && input.getText().toString().length() != 0)
-        {
-            System.out.println("Bemeneti: " + input.getText().toString().length());
-        }
-        else
-        {
-            System.out.println("Nem írt be semmit");
+    private boolean ValidateUser(String username, String password){
+        try(AdminsDAO aDAO = new JpaAdminsDao();) {
+            List<Admins> AdminsList = new ArrayList<>(aDAO.getAdmin());
+            for (Admins admin : AdminsList) {
+                if (admin.getUsername().equals(username) && admin.getPassword().equals(password)){
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
+        return false;
     }
 }
