@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javassist.expr.NewExpr;
@@ -31,7 +32,7 @@ public class FXMLLoginUserSceneController{
     private TextField GetUsername;
 
     @FXML
-    private TextField GetPassword;
+    private PasswordField GetPassword;
 
     @FXML
     void backPushed(ActionEvent event) throws IOException {

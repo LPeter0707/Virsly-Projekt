@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -24,9 +25,8 @@ public class FXMLLoginAdminSceneController {
     @FXML
     private TextField GetUsername;
 
-
     @FXML
-    private TextField GetPassword;
+    private PasswordField GetPassword;
 
     @FXML
     void backPushed(ActionEvent event) throws IOException {
@@ -54,6 +54,11 @@ public class FXMLLoginAdminSceneController {
             stage.setScene(scene);
             stage.show();
         }
+    }
+
+    @FXML
+    void kerelemPushed(ActionEvent event) throws IOException {
+
     }
 
     private boolean ValidateUser(String username, String password){
