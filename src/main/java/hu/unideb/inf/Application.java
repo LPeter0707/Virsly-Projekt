@@ -236,12 +236,15 @@ public class Application {
         }
 
         try(UsersDAO aDAO = new JpaUsersDao();) {
-            Users user = new Users();
-            user.setFirstname("Proba");
-            user.setLastname("Péter");
-            user.setUsername("user");
-            user.setPassword("user");
-            aDAO.saveUser(user);
+            if (aDAO.getUser().size() == 0){
+                Users user = new Users();
+                user.setFirstname("Proba");
+                user.setLastname("Péter");
+                user.setUsername("user");
+                user.setPassword("user");
+                aDAO.saveUser(user);
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -301,6 +301,14 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
                         if (raktar.get(k).getPiece() < count_kaja(kajalistap.get(i).getName())){
                             hiba = true;
                             a.show();
+                            basket_static.clear();
+                            kajalista.clear();
+                            kajalistap.clear();
+                            itallista.clear();
+                            itallistap.clear();
+                            italosszeg = 0;
+                            kajaosszeg = 0;
+
                             break;
                         }
                     }
@@ -330,6 +338,13 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
                     if (raktar.get(j).getPiece() < count_ital(itallistap.get(i).getName())){
                         italhiba = true;
                         a.show();
+                        basket_static.clear();
+                        kajalista.clear();
+                        kajalistap.clear();
+                        itallista.clear();
+                        itallistap.clear();
+                        italosszeg = 0;
+                        kajaosszeg = 0;
                         break;
                     }
 
