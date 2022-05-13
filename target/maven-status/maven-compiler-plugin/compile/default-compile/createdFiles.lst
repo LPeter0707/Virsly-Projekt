@@ -16,11 +16,13 @@ hu\unideb\inf\model\AdminsDAO.class
 hu\unideb\inf\MainApp.class
 hu\unideb\inf\FXMLLoginAdminSceneController.class
 hu\unideb\inf\model\AdminsDataReader.class
+hu\unideb\inf\model\DrinkDataReader.class
 hu\unideb\inf\model\JpaStorageDAO.class
 hu\unideb\inf\model\UsersDataReader.class
 hu\unideb\inf\FXMLMenuSceneController.class
 hu\unideb\inf\FXMLCloseSceneController.class
 hu\unideb\inf\FXMLUserSiteSceneController.class
+hu\unideb\inf\model\DailysaleDataReader.class
 hu\unideb\inf\model\Dailysale.class
 hu\unideb\inf\model\JpaDailysaleDAO.class
 hu\unideb\inf\model\UsersDAO.class
