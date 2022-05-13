@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Drink.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaFX11_MILESTONE1</a> &gt; <a href="index.source.html" class="el_package">hu.unideb.inf.model</a> &gt; <span class="el_source">Drink.java</span></div><h1>Drink.java</h1><pre class="source lang-java linenums">package hu.unideb.inf.model;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Drink {
@@ -10,57 +9,57 @@ public class Drink {
     public static Drink scannedDrink(DrinkDataReader drink){
         String name;
         int price;
-<span class="fc" id="L13">        name = drink.getName();</span>
-<span class="fc" id="L14">        price = drink.getPrice();</span>
-<span class="fc" id="L15">        return new Drink(name, price);</span>
+<span class="fc" id="L12">        name = drink.getName();</span>
+<span class="fc" id="L13">        price = drink.getPrice();</span>
+<span class="fc" id="L14">        return new Drink(name, price);</span>
     }
 
     @Override
     public boolean equals(Object obj) {
-<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if (this == obj) {</span>
-<span class="nc" id="L21">            return true;</span>
+<span class="pc bpc" id="L19" title="1 of 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L20">            return true;</span>
         }
-<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        if (obj == null) {</span>
-<span class="nc" id="L24">            return false;</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L23">            return false;</span>
         }
-<span class="pc bpc" id="L26" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
-<span class="nc" id="L27">            return false;</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L26">            return false;</span>
         }
-<span class="fc" id="L29">        final Drink other = (Drink) obj;</span>
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if (!Objects.equals(this.name, other.name)) {</span>
-<span class="nc" id="L31">            return false;</span>
+<span class="fc" id="L28">        final Drink other = (Drink) obj;</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (!Objects.equals(this.name, other.name)) {</span>
+<span class="nc" id="L30">            return false;</span>
         }
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (!Objects.equals(this.price, other.price)) {</span>
-<span class="nc" id="L34">            return false;</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        if (!Objects.equals(this.price, other.price)) {</span>
+<span class="nc" id="L33">            return false;</span>
         }
-<span class="fc" id="L36">        return true;</span>
+<span class="fc" id="L35">        return true;</span>
     }
 
-<span class="fc" id="L39">    public Drink(String name, int price) {</span>
-<span class="fc" id="L40">        this.name = name;</span>
-<span class="fc" id="L41">        this.price = price;</span>
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L38">    public Drink(String name, int price) {</span>
+<span class="fc" id="L39">        this.name = name;</span>
+<span class="fc" id="L40">        this.price = price;</span>
+<span class="fc" id="L41">    }</span>
 
 
     public String getName() {
-<span class="nc" id="L46">        return name;</span>
+<span class="nc" id="L45">        return name;</span>
     }
 
     public void setName(String name) {
-<span class="nc" id="L50">        this.name = name;</span>
-<span class="nc" id="L51">    }</span>
+<span class="nc" id="L49">        this.name = name;</span>
+<span class="nc" id="L50">    }</span>
 
     public int getPrice() {
-<span class="fc" id="L54">        return price;</span>
+<span class="fc" id="L53">        return price;</span>
     }
 
     public void setPrice(int price) {
-<span class="nc" id="L58">        this.price = price;</span>
-<span class="nc" id="L59">    }</span>
+<span class="nc" id="L57">        this.price = price;</span>
+<span class="nc" id="L58">    }</span>
 
     @Override
     public String toString() {
-<span class="fc" id="L63">        return &quot;Drink{&quot; + &quot;name=&quot; + name + &quot;, price=&quot; + price + '}';</span>
+<span class="fc" id="L62">        return &quot;Drink{&quot; + &quot;name=&quot; + name + &quot;, price=&quot; + price + '}';</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

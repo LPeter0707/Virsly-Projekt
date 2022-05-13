@@ -16,6 +16,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UsersTest {
 
     @Mock
@@ -38,7 +41,7 @@ public class UsersTest {
         given(usr.getFirstname()).willReturn("Balogh", "Lakatos");
         given(usr.getLastname()).willReturn("Pista", "Szotirisz");
         given(usr.getUsername()).willReturn("pistaba@gmail.com", "ciganyvagyokgmail.com");
-        given(usr.getPassword()).willReturn("alma", "farhát");
+        given(usr.getPassword()).willReturn("alma%", "farhát*");
 
         underTest1 = Users.scannedUser(usr);
         underTest2 = Users.scannedUser(usr);
@@ -58,10 +61,10 @@ public class UsersTest {
     public void scannedUserTest() {
         UsersDataReader usr = mock(UsersDataReader.class);
 
-        Users pExpected = new Users(4, "Balogh", "Pista", "pistaba@gmail.com", "alma");
+        Users pExpected = new Users(4, "Balogh", "Pista", "pistaba@gmail.com", "alma%");
         assertEquals(pExpected, underTest1);
 
-        pExpected = new Users(6, "Lakatos", "Szotirisz", "ciganyvagyokgmail.com", "farhát" );
+        pExpected = new Users(6, "Lakatos", "Szotirisz", "ciganyvagyokgmail.com", "farhát*" );
         assertEquals(pExpected, underTest2);
     }
 
@@ -75,7 +78,7 @@ public class UsersTest {
     @Test
     public void toStringShouldReturnThisString()
     {
-        String expected  = "User{" + "id=" + 6 + ", firstname=" + "Lakatos" + ", lastname=" + "Szotirisz" + ", username=" + "ciganyvagyokgmail.com" + ", password=" + "farhát" + '}';
+        String expected  = "User{" + "id=" + 6 + ", firstname=" + "Lakatos" + ", lastname=" + "Szotirisz" + ", username=" + "ciganyvagyokgmail.com" + ", password=" + "farhát*" + '}';
         Assertions.assertEquals(expected, underTest2.toString());
     }
 
@@ -98,5 +101,19 @@ public class UsersTest {
         Assertions.assertThrows(Exception.class, () -> {
             new Users(-10, "Jóska", "Pista", "jóskapista@gmail.com", "jóskavagyok");
         });
+    }
+
+    @Test
+    public void PasswordShouldContainSpecialCharacter()
+    {
+        String[] spec = {"!", "%", "@", "#", "$", "*"};
+        boolean contains = false;
+        for (String s : spec) {
+            if (underTest1.getPassword().contains(s)) {
+                contains = true;
+                break;
+            }
+        }
+        assertTrue(contains);
     }
 }

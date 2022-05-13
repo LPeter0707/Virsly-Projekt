@@ -59,7 +59,6 @@ public class Admins implements Serializable {
 
     public Admins()
     {
-
     }
 
     public String getUsername() {

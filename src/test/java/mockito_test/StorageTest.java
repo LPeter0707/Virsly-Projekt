@@ -80,6 +80,12 @@ public class StorageTest {
     @Test
     public void getIdShouldReturnTrueForPositiveNumber()
     {
-        assertTrue(underTest1.getPiece() > 0);
+        assertTrue(underTest1.getId() > 0);
+    }
+
+    @Test
+    public void getPieceShouldReturnTrueForPositiveNumber()
+    {
+        assertTrue(underTest1.getPiece() >= 0);
     }
 }

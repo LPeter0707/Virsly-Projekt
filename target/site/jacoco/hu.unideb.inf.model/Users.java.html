@@ -56,8 +56,8 @@ public class Users implements Serializable {
 <span class="pc bpc" id="L56" title="1 of 2 branches missed.">        if (!Objects.equals(this.Username, other.Username)) {</span>
 <span class="nc" id="L57">            return false;</span>
         }
-<span class="pc bpc" id="L59" title="1 of 2 branches missed.">        if (!Objects.equals(this.Password, other.Password)) {</span>
-<span class="nc" id="L60">            return false;</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (!Objects.equals(this.Password, other.Password)) {</span>
+<span class="fc" id="L60">            return false;</span>
         }
 <span class="fc" id="L62">        return true;</span>
     }
@@ -101,7 +101,7 @@ public class Users implements Serializable {
 <span class="nc" id="L101">    }</span>
 
     public String getPassword() {
-<span class="nc" id="L104">        return Password;</span>
+<span class="fc" id="L104">        return Password;</span>
     }
 
     public void setPassword(String password) {

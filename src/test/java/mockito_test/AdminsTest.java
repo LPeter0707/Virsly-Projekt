@@ -31,7 +31,7 @@ public class AdminsTest {
         //PersonDataReader pdr = mock(PersonDataReader.class);
         given(admin.getId()).willReturn(4, 6);
         given(admin.getUsername()).willReturn("admin123@gmail.com", "admingmail.com");
-        given(admin.getPassword()).willReturn("admin", "123456789");
+        given(admin.getPassword()).willReturn("admin@", "123456789$");
 
         underTest1 = Admins.scannedAdmin(admin);
         underTest2 = Admins.scannedAdmin(admin);
@@ -49,10 +49,10 @@ public class AdminsTest {
     public void scannedAdminTest() {
         AdminsDataReader admin = mock(AdminsDataReader.class);
 
-        Admins pExpected = new Admins(4,"admin123@gmail.com", "admin");
+        Admins pExpected = new Admins(4,"admin123@gmail.com", "admin@");
         assertEquals(pExpected, underTest1);
 
-        pExpected = new Admins(6, "admingmail.com", "123456789" );
+        pExpected = new Admins(6, "admingmail.com", "123456789$" );
         assertEquals(pExpected, underTest2);
     }
 
@@ -73,7 +73,21 @@ public class AdminsTest {
     @Test
     public void toStringShouldReturnThisString()
     {
-        String expected  = "Admin{" + "id=" + 6 + ", username=" + "admingmail.com" + ", password=" + "123456789" + '}';
+        String expected  = "Admin{" + "id=" + 6 + ", username=" + "admingmail.com" + ", password=" + "123456789$" + '}';
         Assertions.assertEquals(expected, underTest2.toString());
+    }
+
+    @Test
+    public void PasswordShouldContainSpecialCharacter()
+    {
+        String[] spec = {"!", "%", "@", "#", "$", "*"};
+        boolean contains = false;
+        for (String s : spec) {
+            if (underTest1.getPassword().contains(s)) {
+                contains = true;
+                break;
+            }
+        }
+        assertTrue(contains);
     }
 }

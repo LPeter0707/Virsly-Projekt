@@ -83,8 +83,6 @@ public class FXMLSignInSceneController<usernameValue> {
                 alert.show();
             }else {
                 aDAO.saveUser(a);
-
-
             }
         } catch (Exception e) {
             e.printStackTrace();

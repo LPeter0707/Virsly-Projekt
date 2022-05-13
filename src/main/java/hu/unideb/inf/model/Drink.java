@@ -1,6 +1,5 @@
 package hu.unideb.inf.model;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Drink {

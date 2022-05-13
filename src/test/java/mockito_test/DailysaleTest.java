@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
@@ -56,5 +57,16 @@ public class DailysaleTest {
     public void toStringShouldReturnThisString() {
         String expected = "Dailysale{" + "id=" + 12 + ", name=" + "Kaga" + ", count=" + 69 + '}';
         Assertions.assertEquals(expected, underTest1.toString());
+    }
+
+    @Test
+    public void getCountShouldReturnTrueForPositiveNumber() {
+        assertTrue(underTest1.getCount() >= 0);
+    }
+
+    @Test
+    public void getIdShouldReturnTrueForPositiveNumber()
+    {
+        assertTrue(underTest1.getId() > 0);
     }
 }
