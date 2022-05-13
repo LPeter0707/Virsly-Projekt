@@ -1,0 +1,69 @@
+.box  {
+    -fx-background-color: #c4cacd;
+    -fx-opacity: 0.4;
+ }
+
+ .box:hover  {
+     -fx-background-color: #c4cacd;
+     -fx-border: 1px solid #acb4b9;
+     -fx-opacity: 0.8;
+ }
+
+ .box .context-menu {
+    -fx-background-color: #aab7bf;
+ }
+
+ .box .context-menu:focused{
+    -fx-background-color: #dbdfe1;
+ }
+
+.box .menu-item > .label {
+    -fx-text-fill: white;
+    }
+
+.box .menu-item:focused > .label {
+    -fx-text-fill: black;
+    }
+
+#addElement{
+    -fx-background-color :  #112B3C;
+    -fx-text-fill: white;
+}
+
+#addElement:hover{
+    -fx-background-color :  #0a1924;
+    -fx-text-fill: white;
+}
+
+#addElement:pressed{
+    -fx-background-color :  #cfd4d8;
+    -fx-text-fill: black;
+}
+
+#buttonNext{
+    -fx-opacity : 0;
+}
+
+#buttonNext:hover{
+    -fx-border: 2px solid white;
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonNext:pushed{
+    -fx-background-color: #C79CAB;
+}
+
+#buttonBack{
+    -fx-opacity : 0;
+}
+
+#buttonBack:hover{
+    -fx-border: 2px solid white;
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonBack:pushed{
+    -fx-background-color: #C79CAB;
+}

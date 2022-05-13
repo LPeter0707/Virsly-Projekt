@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javassist.expr.NewExpr;
 
@@ -42,7 +43,9 @@ public class FXMLLoginUserSceneController{
         Stage stage2 = (Stage)
                 buttonBack.getScene().getWindow();
         stage2.close();
-        stage.setTitle("Login");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }
@@ -55,7 +58,9 @@ public class FXMLLoginUserSceneController{
         Stage stage2 = (Stage)
                 buttonSignin.getScene().getWindow();
         stage2.close();
-        stage.setTitle("Sign in");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }
@@ -70,7 +75,9 @@ public class FXMLLoginUserSceneController{
             Stage stage2 = (Stage)
                     buttonLogin.getScene().getWindow();
             stage2.close();
-            stage.setTitle("UserSite");
+            stage.setTitle("Virsly");
+            Image image = new Image("/icon/icon_user.png");
+            stage.getIcons().add(image);
             NevKiir();
             stage.setScene(scene);
             stage.show();

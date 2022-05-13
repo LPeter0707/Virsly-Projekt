@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -41,6 +42,10 @@ public class FXMLUserSiteSceneController {
     @FXML
     void menuPushed(ActionEvent event) throws IOException {
         FXMLScenes object = new FXMLScenes();
+        Stage stage = new Stage();
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         Pane view = object.getPage("FXMLMenu");
         mainPane.getChildren().setAll(view);
         GridpaneFood();
@@ -52,6 +57,10 @@ public class FXMLUserSiteSceneController {
         FXMLScenes object = new FXMLScenes();
         Pane view = object.getPage("FXMLKosar");
         mainPane.getChildren().setAll(view);
+        Stage stage = new Stage();
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
     }
 
     @FXML
@@ -59,6 +68,10 @@ public class FXMLUserSiteSceneController {
         FXMLScenes object = new FXMLScenes();
         Pane view = object.getPage("FXMLKapcsolat");
         mainPane.getChildren().setAll(view);
+        Stage stage = new Stage();
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
     }
 
     @FXML
@@ -69,7 +82,9 @@ public class FXMLUserSiteSceneController {
         Stage stage2 = (Stage)
                 buttonVissza.getScene().getWindow();
         stage2.close();
-        stage.setTitle("LoginUser");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }

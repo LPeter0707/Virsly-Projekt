@@ -8,11 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class FXMLLoginAdminSceneController {
 
@@ -36,7 +39,9 @@ public class FXMLLoginAdminSceneController {
         Stage stage2 = (Stage)
                 buttonBack.getScene().getWindow();
         stage2.close();
-        stage.setTitle("Login");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }
@@ -50,14 +55,31 @@ public class FXMLLoginAdminSceneController {
             Stage stage2 = (Stage)
                     buttonLogin.getScene().getWindow();
             stage2.close();
-            stage.setTitle("Main Menu");
+            stage.setTitle("Virsly");
+            Image image = new Image("/icon/icon_admin.png");
+            stage.getIcons().add(image);
             stage.setScene(scene);
             stage.show();
         }
     }
 
     @FXML
-    void kerelemPushed(ActionEvent event) throws IOException {
+    void kerelemPushed(ActionEvent event) {
+        TextInputDialog textInput = new TextInputDialog();
+        textInput.setTitle("Kérelem");
+        textInput.setHeaderText("Kérelem küldéséhez, adja meg a felhasználónevét");
+        textInput.getDialogPane().setContentText("Felhasználónév:");
+        Optional<String> result = textInput.showAndWait();
+        TextField input = textInput.getEditor();
+
+        if(input.getText() != null && input.getText().toString().length() != 0)
+        {
+            System.out.println("Bemeneti: " + input.getText().toString().length());
+        }
+        else
+        {
+            System.out.println("Nem írt be semmit");
+        }
 
     }
 

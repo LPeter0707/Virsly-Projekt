@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,7 +38,9 @@ public class FXMLDailySalesSceneController {
         Stage stage2 = (Stage)
                 buttonBack.getScene().getWindow();
         stage2.close();
-        stage.setTitle("Main Menu");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_admin.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }
@@ -50,7 +53,9 @@ public class FXMLDailySalesSceneController {
         Stage stage2 = (Stage)
                 buttonNext.getScene().getWindow();
         stage2.close();
-        stage.setTitle("Daily Inventory");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_admin.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }

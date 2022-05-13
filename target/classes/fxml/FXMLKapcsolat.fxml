@@ -6,17 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="556.0" prefWidth="797.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="620.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="336.0" layoutY="23.0" prefHeight="61.0" prefWidth="125.0" text="Kapcsolat" textAlignment="CENTER">
+      <Label layoutX="388.0" layoutY="35.0" prefHeight="61.0" prefWidth="125.0" text="Kapcsolat" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <TextArea layoutX="35.0" layoutY="93.0" prefHeight="362.0" prefWidth="728.0" text="Köszönjük hogy meglátogattad oldalunkat!&#10;&#10;A projekért felelősek:&#10;&#10;Lobotka Péter Pál&#9;Neptun kód: HZ41EF&#10;Nagy Csaba Norbert&#9;Neptun kód: L9KNSE&#10;Rácz Nándor&#9;Neptun kód: YOFPWH&#10;Szabó Sándor&#9;Neptun kód: GIQ96H&#10;&#10;Az oldalon található probléma esetén értesítendő: &#10;www.police.hu&#10;911 / 112">
+      <TextArea layoutX="64.0" layoutY="114.0" prefHeight="393.0" prefWidth="730.0" text="Köszönjük hogy meglátogattad oldalunkat!&#10;&#10;A projekért felelősek:&#10;&#10;Lobotka Péter Pál&#9;                          Neptun kód: HZ41EF&#10;Nagy Csaba Norbert&#9;                  Neptun kód: L9KNSE&#10;Rácz Nándor&#9;                                  Neptun kód: YOFPWH&#10;Szabó Sándor&#9;                                  Neptun kód: GIQ96H&#10;&#10;Az oldalon található probléma esetén &#10;-értesítendők: &#10;www.police.hu&#10;911 / 112&#10;&#10;-semmiképp sem értesítendők:&#10;a projektért felelősek">
          <font>
-            <Font size="16.0" />
+            <Font name="Arial" size="16.0" />
          </font>
          <padding>
             <Insets left="50.0" />

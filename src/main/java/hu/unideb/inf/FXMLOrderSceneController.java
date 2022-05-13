@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import javafx.collections.FXCollections;
@@ -156,7 +157,9 @@ public class FXMLOrderSceneController {
         Stage stage2 = (Stage)
                 buttonBack.getScene().getWindow();
         stage2.close();
-        stage.setTitle("Main menu");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_admin.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }
@@ -169,7 +172,9 @@ public class FXMLOrderSceneController {
         Stage stage2 = (Stage)
                 buttonNext.getScene().getWindow();
         stage2.close();
-        stage.setTitle("Daily Inventory");
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_admin.png");
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }
@@ -378,7 +383,10 @@ public class FXMLOrderSceneController {
                 aru.get(i).setPiece(aru.get(i).getPiece() + (int)cborder.get(i).getValue());
             }
         }
-
+        Stage stage = new Stage();
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_admin.png");
+        stage.getIcons().add(image);
         sDao.updateStorage(aru);
     }
 

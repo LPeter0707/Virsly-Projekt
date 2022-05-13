@@ -1,0 +1,40 @@
+#buttonNext{
+    -fx-opacity : 0;
+}
+
+#buttonNext:hover{
+    -fx-border: 2px solid white;
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonNext:pushed{
+    -fx-background-color: #C79CAB;
+}
+
+#buttonBack{
+    -fx-opacity : 0;
+}
+
+#buttonBack:hover{
+    -fx-border: 2px solid white;
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonBack:pushed{
+    -fx-background-color: #C79CAB;
+}
+
+#dailyinventory{
+    -fx-font-family: FreeMono;
+        -fx-font-size: 15;
+        -fx-text-fill: black;
+        -fx-display-caret:true;
+        -fx-opaque-insets: 30px;
+}
+
+#dailyinventory .content {
+    -fx-background-color: #c8d5de;
+
+}

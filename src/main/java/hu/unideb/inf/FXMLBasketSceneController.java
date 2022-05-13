@@ -7,7 +7,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -166,6 +169,10 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
 
         FXMLScenes object = new FXMLScenes();
         Pane view = object.getPage("FXMLKosar");
+        Stage stage = new Stage();
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         mainPane_static.getChildren().setAll(view);
     }
 
@@ -282,6 +289,10 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         List<Storage> raktar = new ArrayList<>();
         StorageDao storage = new JpaStorageDAO();
         raktar = storage.getStorage();
+        Stage stage = new Stage();
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         boolean hiba = false;
         for(int i = 0; i < kajalistap.size(); i++){
             for (int j = 0; j < kajalistap.get(i).getList().size(); j++){
@@ -350,6 +361,7 @@ public class FXMLBasketSceneController extends FXMLUserSiteSceneController{
         kajaosszeg = 0;
         FXMLScenes object = new FXMLScenes();
         Pane view = object.getPage("FXMLKapcsolat");
+        stage.getIcons().add(image);
         mainPane_static.getChildren().setAll(view);
     }
 }

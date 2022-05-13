@@ -35,7 +35,7 @@ public class FXMLMainmenuSceneController {
                 buttonBack.getScene().getWindow();
         stage2.close();
         stage.setTitle("Virsly");
-        Image image = new Image("/icon/icon_admin.png");
+        Image image = new Image("/icon/icon_user.png");
         stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();

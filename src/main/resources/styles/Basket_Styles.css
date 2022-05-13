@@ -1,0 +1,13 @@
+#buttonRendel{
+    -fx-opacity : 0;
+}
+
+#buttonRendel:hover{
+    -fx-border: 2px solid white;
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonRendel:pushed{
+    -fx-background-color: #C79CAB;
+}

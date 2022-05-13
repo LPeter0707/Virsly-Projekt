@@ -1,0 +1,40 @@
+.box  {
+    -fx-background-color: #c4cacd;
+    -fx-opacity: 0.4;
+ }
+
+ .box:hover  {
+     -fx-background-color: #c4cacd;
+     -fx-border: 1px solid #acb4b9;
+     -fx-opacity: 0.8;
+ }
+
+ .box .context-menu {
+    -fx-background-color: #444a4e;
+ }
+
+ .box .context-menu:focused{
+    -fx-background-color: #dbdfe1;
+ }
+
+.box .menu-item > .label {
+    -fx-text-fill: white;
+    }
+
+.box .menu-item:focused > .label {
+    -fx-text-fill: black;
+    }
+
+#buttonOrder{
+    -fx-opacity : 0;
+}
+
+#buttonOrder:hover{
+    -fx-border: 2px solid white;
+    -fx-border-radius: 5px;
+    -fx-opacity : 0.3;
+}
+
+#buttonOrder:pushed{
+    -fx-background-color: #C79CAB;
+}

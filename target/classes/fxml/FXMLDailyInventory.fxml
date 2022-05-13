@@ -1,26 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLDailyInventorySceneController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="955.0" stylesheets="@../styles/Daily_Inventory_Sales_Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.FXMLDailyInventorySceneController">
    <children>
-      <ScrollPane prefHeight="574.0" prefWidth="742.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="3000.0" prefWidth="577.0">
-               <children>
-                  <Text layoutX="244.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leltár" wrappingWidth="89.19189453125">
-                     <font>
-                        <Font size="31.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="buttonBack" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#backPushed" text="Vissza" />
-                  <Button fx:id="buttonNext" layoutX="511.0" layoutY="14.0" mnemonicParsing="false" onAction="#nextPushed" text="Tovább" />
-                  <TextArea fx:id="dailyinventory" editable="false" layoutX="79.0" layoutY="81.0" prefHeight="274.0" prefWidth="432.0" />
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="949.0">
+         <children>
+            <ImageView fitHeight="1005.0" fitWidth="620.0" layoutX="164.0" layoutY="-201.0" opacity="0.85" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+               <image>
+                  <Image url="@Bg4.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="39.0" layoutX="47.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="39.0" layoutX="868.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Next.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonBack" layoutX="29.0" layoutY="33.0" mnemonicParsing="false" onAction="#backPushed" prefHeight="67.0" prefWidth="74.0" />
+            <Button fx:id="buttonNext" layoutX="850.0" layoutY="34.0" mnemonicParsing="false" onAction="#nextPushed" prefHeight="67.0" prefWidth="74.0" />
+            <TextArea fx:id="dailyinventory" editable="false" layoutX="169.0" layoutY="137.0" prefHeight="349.0" prefWidth="611.0" />
+            <Text layoutX="428.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leltár" wrappingWidth="92.19189453125">
+               <font>
+                  <Font name="Arial Bold" size="31.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.2985781990521327" endY="1.0" startX="0.15639810426540285">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.7105262875556946" green="0.6611841917037964" blue="0.6611841917037964" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+         </children>
+      </AnchorPane>
    </children>
 </VBox>

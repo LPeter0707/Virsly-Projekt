@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -427,7 +429,10 @@ public class FXMLMenuSceneController {
                 FXMLBasketSceneController.kajaRendeles(i,darab);
             }
         }
-
+        Stage stage = new Stage();
+        stage.setTitle("Virsly");
+        Image image = new Image("/icon/icon_user.png");
+        stage.getIcons().add(image);
         for (int j = 0; j < cbital.size(); j++)
         {
             if ((int)(cbital.get(j)).getValue() != 0)
