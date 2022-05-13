@@ -62,17 +62,6 @@ public class Users implements Serializable {
         return true;
     }
 
-    /*@Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 11 * hash + this.id;
-        hash = 11 * hash + Objects.hashCode(this.Firstname);
-        hash = 11 * hash + Objects.hashCode(this.Lastname);
-        hash = 11 * hash + Objects.hashCode(this.Username);
-        hash = 11 * hash + Objects.hashCode(this.Password);
-        return hash;
-    }*/
-
     public Users(int id, String firstname, String lastname, String username, String password) {
         if (id<0) throw new RuntimeException();
         this.id = id;

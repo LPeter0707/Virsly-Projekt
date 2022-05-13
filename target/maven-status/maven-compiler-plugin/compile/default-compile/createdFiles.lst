@@ -15,6 +15,7 @@ hu\unideb\inf\FXMLDailyInventorySceneController.class
 hu\unideb\inf\model\AdminsDAO.class
 hu\unideb\inf\MainApp.class
 hu\unideb\inf\FXMLLoginAdminSceneController.class
+hu\unideb\inf\model\AdminsDataReader.class
 hu\unideb\inf\model\JpaStorageDAO.class
 hu\unideb\inf\model\UsersDataReader.class
 hu\unideb\inf\FXMLMenuSceneController.class

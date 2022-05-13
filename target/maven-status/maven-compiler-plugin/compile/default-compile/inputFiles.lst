@@ -1,5 +1,6 @@
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\model\Food.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\FXMLOrderSceneController.java
+D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\model\AdminsDataReader.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\model\Dailysale.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\model\JpaUsersDao.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\model\AdminsDAO.java
@@ -8,7 +9,9 @@ D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\model\DailysaleDAO.
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\Application.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\FXMLMainmenuSceneController.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\model\StorageDao.java
+D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\model\StorageDataReader.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\FXMLScenes.java
+D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\model\FoodDataReader.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\FXMLMenuSceneController.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\FXMLDailyInventorySceneController.java
 D:\Virsly-Projekt\Virsly-Projekt\src\main\java\hu\unideb\inf\Main.java

@@ -5,38 +5,91 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-<span class="nc" id="L10">public class Admins implements Serializable {</span>
+public class Admins implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String Username;
     private String Password;
+
+    public static Admins scannedAdmin(AdminsDataReader admin){
+        int id;
+        String username;
+        String password;
+<span class="fc" id="L23">        id = admin.getId();</span>
+<span class="fc" id="L24">        username = admin.getUsername();</span>
+<span class="fc" id="L25">        password = admin.getPassword();</span>
+<span class="fc" id="L26">        return new Admins(id, username, password);</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L32">            return true;</span>
+        }
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L35">            return false;</span>
+        }
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L38">            return false;</span>
+        }
+<span class="fc" id="L40">        final Admins other = (Admins) obj;</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (this.id != other.id) {</span>
+<span class="nc" id="L42">            return false;</span>
+        }
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        if (!Objects.equals(this.Username, other.Username)) {</span>
+<span class="nc" id="L45">            return false;</span>
+        }
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (!Objects.equals(this.Password, other.Password)) {</span>
+<span class="nc" id="L48">            return false;</span>
+        }
+<span class="fc" id="L50">        return true;</span>
+    }
+
+<span class="fc" id="L53">    public Admins(int id, String username, String password) {</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (id&lt;0) throw new RuntimeException();</span>
+<span class="fc" id="L55">        this.id = id;</span>
+<span class="fc" id="L56">        this.Username = username;</span>
+<span class="fc" id="L57">        this.Password = password;</span>
+<span class="fc" id="L58">    }</span>
+
+    public Admins()
+<span class="nc" id="L61">    {</span>
+
+<span class="nc" id="L63">    }</span>
+
     public String getUsername() {
-<span class="nc" id="L18">        return Username;</span>
+<span class="fc" id="L66">        return Username;</span>
     }
 
     public void setUsername(String username) {
-<span class="nc" id="L22">        Username = username;</span>
-<span class="nc" id="L23">    }</span>
+<span class="nc" id="L70">        Username = username;</span>
+<span class="nc" id="L71">    }</span>
 
     public String getPassword() {
-<span class="nc" id="L26">        return Password;</span>
+<span class="nc" id="L74">        return Password;</span>
     }
 
     public void setPassword(String password) {
-<span class="nc" id="L30">        Password = password;</span>
-<span class="nc" id="L31">    }</span>
+<span class="nc" id="L78">        Password = password;</span>
+<span class="nc" id="L79">    }</span>
 
 
     public Integer getId() {
-<span class="nc" id="L35">        return id;</span>
+<span class="nc" id="L83">        return id;</span>
     }
 
     public void setId(Integer id) {
-<span class="nc" id="L39">        this.id = id;</span>
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L87">        this.id = id;</span>
+<span class="nc" id="L88">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L92">        return &quot;Admin{&quot; + &quot;id=&quot; + id + &quot;, username=&quot; + Username + &quot;, password=&quot; + Password + '}';</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

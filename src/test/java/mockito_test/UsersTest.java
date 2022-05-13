@@ -89,7 +89,7 @@ public class UsersTest {
     @Test
     public void startWithCapitalLetterShouldReturnTrueForLastname()
     {
-        String firstname = underTest2.getFirstname();
+        String firstname = underTest2.getLastname();
         assertTrue(Character.isUpperCase(firstname.charAt(0)));
     }
 

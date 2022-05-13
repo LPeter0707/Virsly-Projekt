@@ -5,39 +5,90 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-<span class="nc" id="L10">public class Storage implements Serializable {</span>
+public class Storage implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String Name;
-    private Integer piece;
+    private Integer Piece;
 
-    public String getName() {
-<span class="nc" id="L19">        return Name;</span>
+    public static Storage scannedMaterial(StorageDataReader str){
+        int id;
+        String name;
+        int piece;
+<span class="fc" id="L23">        id = str.getId();</span>
+<span class="fc" id="L24">        name = str.getName();</span>
+<span class="fc" id="L25">        piece = str.getPiece();</span>
+<span class="fc" id="L26">        return new Storage(id, name, piece);</span>
     }
 
-<span class="nc" id="L22">    public void setName(String name) { Name = name; }</span>
+    @Override
+    public boolean equals(Object obj) {
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L32">            return true;</span>
+        }
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L35">            return false;</span>
+        }
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L38">            return false;</span>
+        }
+<span class="fc" id="L40">        final Storage other = (Storage) obj;</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (this.id != other.id) {</span>
+<span class="nc" id="L42">            return false;</span>
+        }
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        if (!Objects.equals(this.Name, other.Name)) {</span>
+<span class="nc" id="L45">            return false;</span>
+        }
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (!Objects.equals(this.Piece, other.Piece)) {</span>
+<span class="nc" id="L48">            return false;</span>
+        }
+<span class="fc" id="L50">        return true;</span>
+    }
+
+<span class="fc" id="L53">    public Storage(int id, String name, int piece) {</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (id&lt;0) throw new RuntimeException();</span>
+<span class="fc" id="L55">        this.id = id;</span>
+<span class="fc" id="L56">        this.Name = name;</span>
+<span class="fc" id="L57">        this.Piece = piece;</span>
+<span class="fc" id="L58">    }</span>
+
+    public Storage()
+<span class="nc" id="L61">    {</span>
+
+<span class="nc" id="L63">    }</span>
+
+    public String getName() {
+<span class="fc" id="L66">        return Name;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L70">        Name = name;</span>
+<span class="nc" id="L71">    }</span>
 
     public int getPiece() {
-<span class="nc" id="L25">        return piece;</span>
+<span class="fc" id="L74">        return Piece;</span>
     }
 
     public void setPiece(int piece) {
-<span class="nc" id="L29">        this.piece = piece;</span>
-<span class="nc" id="L30">    }</span>
+<span class="nc" id="L78">        this.Piece = piece;</span>
+<span class="nc" id="L79">    }</span>
 
     public Integer getId() {
-<span class="nc" id="L33">        return id;</span>
+<span class="nc" id="L82">        return id;</span>
     }
 
     public void setId(Integer id) {
-<span class="nc" id="L37">        this.id = id;</span>
-<span class="nc" id="L38">    }</span>
+<span class="nc" id="L86">        this.id = id;</span>
+<span class="nc" id="L87">    }</span>
 
-
-
+    @Override
+    public String toString() {
+<span class="fc" id="L91">        return &quot;Storage{&quot; + &quot;id=&quot; + id + &quot;, name=&quot; + Name + &quot;, piece=&quot; + Piece + '}';</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
