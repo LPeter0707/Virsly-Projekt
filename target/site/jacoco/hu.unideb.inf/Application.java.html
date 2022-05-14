@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Application.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaFX11_MILESTONE1</a> &gt; <a href="index.source.html" class="el_package">hu.unideb.inf</a> &gt; <span class="el_source">Application.java</span></div><h1>Application.java</h1><pre class="source lang-java linenums">package hu.unideb.inf;
+
+import java.sql.SQLException;
+
+import hu.unideb.inf.model.*;
+import org.h2.engine.User;
+import org.h2.tools.Server;
+
+<span class="nc" id="L9">public class Application {</span>
+
+
+    public static void main() throws SQLException {
+<span class="nc" id="L13">        startDatabase();</span>
+
+<span class="nc" id="L15">        try(StorageDao sDao = new JpaStorageDAO();){</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">            if (sDao.getStorage().size() == 0) {</span>
+<span class="nc" id="L17">                Storage kifli = new Storage();</span>
+<span class="nc" id="L18">                kifli.setName(&quot;Hot Dog kifli&quot;);</span>
+<span class="nc" id="L19">                kifli.setPiece(10);</span>
+<span class="nc" id="L20">                sDao.saveItems(kifli);</span>
+
+<span class="nc" id="L22">                Storage virsli = new Storage();</span>
+<span class="nc" id="L23">                virsli.setName(&quot;Virsli&quot;);</span>
+<span class="nc" id="L24">                virsli.setPiece(5);</span>
+<span class="nc" id="L25">                sDao.saveItems(virsli);</span>
+
+<span class="nc" id="L27">                Storage grill_kolbasz = new Storage();</span>
+<span class="nc" id="L28">                grill_kolbasz.setName(&quot;Grillkolbász&quot;);</span>
+<span class="nc" id="L29">                grill_kolbasz.setPiece(5);</span>
+<span class="nc" id="L30">                sDao.saveItems(grill_kolbasz);</span>
+
+<span class="nc" id="L32">                Storage debreceni_paros = new Storage();</span>
+<span class="nc" id="L33">                debreceni_paros.setName(&quot;Debreceni páros&quot;);</span>
+<span class="nc" id="L34">                debreceni_paros.setPiece(5);</span>
+<span class="nc" id="L35">                sDao.saveItems(debreceni_paros);</span>
+
+<span class="nc" id="L37">                Storage kacsa_kolbasz = new Storage();</span>
+<span class="nc" id="L38">                kacsa_kolbasz.setName(&quot;Kacsa kolbász&quot;);</span>
+<span class="nc" id="L39">                kacsa_kolbasz.setPiece(5);</span>
+<span class="nc" id="L40">                sDao.saveItems(kacsa_kolbasz);</span>
+
+<span class="nc" id="L42">                Storage mangalica_hurka = new Storage();</span>
+<span class="nc" id="L43">                mangalica_hurka.setName(&quot;Mangalica hurka&quot;);</span>
+<span class="nc" id="L44">                mangalica_hurka.setPiece(5);</span>
+<span class="nc" id="L45">                sDao.saveItems(mangalica_hurka);</span>
+
+<span class="nc" id="L47">                Storage barany_marha_kolbasz = new Storage();</span>
+<span class="nc" id="L48">                barany_marha_kolbasz.setName(&quot;Bárány-marha kolbász&quot;);</span>
+<span class="nc" id="L49">                barany_marha_kolbasz.setPiece(5);</span>
+<span class="nc" id="L50">                sDao.saveItems(barany_marha_kolbasz);</span>
+
+<span class="nc" id="L52">                Storage cheddar_szosz = new Storage();</span>
+<span class="nc" id="L53">                cheddar_szosz.setName(&quot;Cheddar szósz&quot;);</span>
+<span class="nc" id="L54">                cheddar_szosz.setPiece(5);</span>
+<span class="nc" id="L55">                sDao.saveItems(cheddar_szosz);</span>
+
+<span class="nc" id="L57">                Storage piritott_hagyma = new Storage();</span>
+<span class="nc" id="L58">                piritott_hagyma.setName(&quot;Pirított hagyma&quot;);</span>
+<span class="nc" id="L59">                piritott_hagyma.setPiece(5);</span>
+<span class="nc" id="L60">                sDao.saveItems(piritott_hagyma);</span>
+
+<span class="nc" id="L62">                Storage torilla_chips = new Storage();</span>
+<span class="nc" id="L63">                torilla_chips.setName(&quot;Tortilla chips&quot;);</span>
+<span class="nc" id="L64">                torilla_chips.setPiece(5);</span>
+<span class="nc" id="L65">                sDao.saveItems(torilla_chips);</span>
+
+<span class="nc" id="L67">                Storage bacon = new Storage();</span>
+<span class="nc" id="L68">                bacon.setName(&quot;Bacon&quot;);</span>
+<span class="nc" id="L69">                bacon.setPiece(5);</span>
+<span class="nc" id="L70">                sDao.saveItems(bacon);</span>
+
+<span class="nc" id="L72">                Storage uborka = new Storage();</span>
+<span class="nc" id="L73">                uborka.setName(&quot;Uborka&quot;);</span>
+<span class="nc" id="L74">                uborka.setPiece(5);</span>
+<span class="nc" id="L75">                sDao.saveItems(uborka);</span>
+
+<span class="nc" id="L77">                Storage sushi_gyomber = new Storage();</span>
+<span class="nc" id="L78">                sushi_gyomber.setName(&quot;Sushi gyomber&quot;);</span>
+<span class="nc" id="L79">                sushi_gyomber.setPiece(5);</span>
+<span class="nc" id="L80">                sDao.saveItems(sushi_gyomber);</span>
+
+<span class="nc" id="L82">                Storage jalapeno = new Storage();</span>
+<span class="nc" id="L83">                jalapeno.setName(&quot;Jalapeno&quot;);</span>
+<span class="nc" id="L84">                jalapeno.setPiece(5);</span>
+<span class="nc" id="L85">                sDao.saveItems(jalapeno);</span>
+
+<span class="nc" id="L87">                Storage paradicsom = new Storage();</span>
+<span class="nc" id="L88">                paradicsom.setName(&quot;Paradicsom&quot;);</span>
+<span class="nc" id="L89">                paradicsom.setPiece(5);</span>
+<span class="nc" id="L90">                sDao.saveItems(paradicsom);</span>
+
+<span class="nc" id="L92">                Storage feta = new Storage();</span>
+<span class="nc" id="L93">                feta.setName(&quot;Feta&quot;);</span>
+<span class="nc" id="L94">                feta.setPiece(5);</span>
+<span class="nc" id="L95">                sDao.saveItems(feta);</span>
+
+<span class="nc" id="L97">                Storage hagyma = new Storage();</span>
+<span class="nc" id="L98">                hagyma.setName(&quot;Hagyma&quot;);</span>
+<span class="nc" id="L99">                hagyma.setPiece(5);</span>
+<span class="nc" id="L100">                sDao.saveItems(hagyma);</span>
+
+<span class="nc" id="L102">                Storage kukorica = new Storage();</span>
+<span class="nc" id="L103">                kukorica.setName(&quot;Kukorica&quot;);</span>
+<span class="nc" id="L104">                kukorica.setPiece(5);</span>
+<span class="nc" id="L105">                sDao.saveItems(kukorica);</span>
+
+<span class="nc" id="L107">                Storage bab = new Storage();</span>
+<span class="nc" id="L108">                bab.setName(&quot;Bab&quot;);</span>
+<span class="nc" id="L109">                bab.setPiece(5);</span>
+<span class="nc" id="L110">                sDao.saveItems(bab);</span>
+
+<span class="nc" id="L112">                Storage mexikoi_salsa = new Storage();</span>
+<span class="nc" id="L113">                mexikoi_salsa.setName(&quot;Mexikói salsa&quot;);</span>
+<span class="nc" id="L114">                mexikoi_salsa.setPiece(5);</span>
+<span class="nc" id="L115">                sDao.saveItems(mexikoi_salsa);</span>
+
+<span class="nc" id="L117">                Storage zolsegmix = new Storage();</span>
+<span class="nc" id="L118">                zolsegmix.setName(&quot;Házi zöldség mix&quot;);</span>
+<span class="nc" id="L119">                zolsegmix.setPiece(5);</span>
+<span class="nc" id="L120">                sDao.saveItems(zolsegmix);</span>
+
+<span class="nc" id="L122">                Storage ketchup = new Storage();</span>
+<span class="nc" id="L123">                ketchup.setName(&quot;Ketchup&quot;);</span>
+<span class="nc" id="L124">                ketchup.setPiece(5);</span>
+<span class="nc" id="L125">                sDao.saveItems(ketchup);</span>
+
+<span class="nc" id="L127">                Storage majonez = new Storage();</span>
+<span class="nc" id="L128">                majonez.setName(&quot;Majonéz&quot;);</span>
+<span class="nc" id="L129">                majonez.setPiece(5);</span>
+<span class="nc" id="L130">                sDao.saveItems(majonez);</span>
+
+<span class="nc" id="L132">                Storage mustar = new Storage();</span>
+<span class="nc" id="L133">                mustar.setName(&quot;Mustár&quot;);</span>
+<span class="nc" id="L134">                mustar.setPiece(5);</span>
+<span class="nc" id="L135">                sDao.saveItems(mustar);</span>
+
+<span class="nc" id="L137">                Storage szoja_szosz = new Storage();</span>
+<span class="nc" id="L138">                szoja_szosz.setName(&quot;Szója szósz&quot;);</span>
+<span class="nc" id="L139">                szoja_szosz.setPiece(5);</span>
+<span class="nc" id="L140">                sDao.saveItems(szoja_szosz);</span>
+
+<span class="nc" id="L142">                Storage magyaroskrem = new Storage();</span>
+<span class="nc" id="L143">                magyaroskrem.setName(&quot;Magyaros krém&quot;);</span>
+<span class="nc" id="L144">                magyaroskrem.setPiece(5);</span>
+<span class="nc" id="L145">                sDao.saveItems(magyaroskrem);</span>
+
+<span class="nc" id="L147">                Storage padlizsankrem = new Storage();</span>
+<span class="nc" id="L148">                padlizsankrem.setName(&quot;Padlizsánkrém&quot;);</span>
+<span class="nc" id="L149">                padlizsankrem.setPiece(5);</span>
+<span class="nc" id="L150">                sDao.saveItems(padlizsankrem);</span>
+
+<span class="nc" id="L152">                Storage wasabi = new Storage();</span>
+<span class="nc" id="L153">                wasabi.setName(&quot;Wasabi&quot;);</span>
+<span class="nc" id="L154">                wasabi.setPiece(5);</span>
+<span class="nc" id="L155">                sDao.saveItems(wasabi);</span>
+
+<span class="nc" id="L157">                Storage cocacola = new Storage();</span>
+<span class="nc" id="L158">                cocacola.setName(&quot;Coca cola&quot;);</span>
+<span class="nc" id="L159">                cocacola.setPiece(5);</span>
+<span class="nc" id="L160">                sDao.saveItems(cocacola);</span>
+
+<span class="nc" id="L162">                Storage colalite = new Storage();</span>
+<span class="nc" id="L163">                colalite.setName(&quot;Cola lite&quot;);</span>
+<span class="nc" id="L164">                colalite.setPiece(5);</span>
+<span class="nc" id="L165">                sDao.saveItems(colalite);</span>
+
+<span class="nc" id="L167">                Storage fanta = new Storage();</span>
+<span class="nc" id="L168">                fanta.setName(&quot;Fanta&quot;);</span>
+<span class="nc" id="L169">                fanta.setPiece(5);</span>
+<span class="nc" id="L170">                sDao.saveItems(fanta);</span>
+
+<span class="nc" id="L172">                Storage cappy = new Storage();</span>
+<span class="nc" id="L173">                cappy.setName(&quot;Cappy narancs&quot;);</span>
+<span class="nc" id="L174">                cappy.setPiece(5);</span>
+<span class="nc" id="L175">                sDao.saveItems(cappy);</span>
+
+<span class="nc" id="L177">                Storage mentesviz = new Storage();</span>
+<span class="nc" id="L178">                mentesviz.setName(&quot;Szénsavmentes víz&quot;);</span>
+<span class="nc" id="L179">                mentesviz.setPiece(5);</span>
+<span class="nc" id="L180">                sDao.saveItems(mentesviz);</span>
+
+<span class="nc" id="L182">                Storage savasviz = new Storage();</span>
+<span class="nc" id="L183">                savasviz.setName(&quot;Szénsavas víz&quot;);</span>
+<span class="nc" id="L184">                savasviz.setPiece(5);</span>
+<span class="nc" id="L185">                sDao.saveItems(savasviz);</span>
+
+<span class="nc" id="L187">                Storage redbull = new Storage();</span>
+<span class="nc" id="L188">                redbull.setName(&quot;Redbull&quot;);</span>
+<span class="nc" id="L189">                redbull.setPiece(5);</span>
+<span class="nc" id="L190">                sDao.saveItems(redbull);</span>
+
+<span class="nc" id="L192">                Storage heineken = new Storage();</span>
+<span class="nc" id="L193">                heineken.setName(&quot;Heineken&quot;);</span>
+<span class="nc" id="L194">                heineken.setPiece(5);</span>
+<span class="nc" id="L195">                sDao.saveItems(heineken);</span>
+
+<span class="nc" id="L197">                Storage soproni = new Storage();</span>
+<span class="nc" id="L198">                soproni.setName(&quot;Soproni&quot;);</span>
+<span class="nc" id="L199">                soproni.setPiece(5);</span>
+<span class="nc" id="L200">                sDao.saveItems(soproni);</span>
+
+<span class="nc" id="L202">                Storage dreher = new Storage();</span>
+<span class="nc" id="L203">                dreher.setName(&quot;Dreher&quot;);</span>
+<span class="nc" id="L204">                dreher.setPiece(5);</span>
+<span class="nc" id="L205">                sDao.saveItems(dreher);</span>
+            }
+<span class="nc" id="L207">        }catch (Exception e) {</span>
+<span class="nc" id="L208">            e.printStackTrace();</span>
+<span class="nc" id="L209">        }</span>
+
+<span class="nc" id="L211">        try (AdminsDAO aDAO = new JpaAdminsDao();) {</span>
+<span class="nc bnc" id="L212" title="All 2 branches missed.">            if (aDAO.getAdmin().size() == 0)</span>
+            {
+<span class="nc" id="L214">                Admins admin1 = new Admins();</span>
+<span class="nc" id="L215">                admin1.setUsername(&quot;Csabi&quot;);</span>
+<span class="nc" id="L216">                admin1.setPassword(&quot;Agora123&quot;);</span>
+<span class="nc" id="L217">                aDAO.saveAdmin(admin1);</span>
+
+<span class="nc" id="L219">                Admins admin2 = new Admins();</span>
+<span class="nc" id="L220">                admin2.setUsername(&quot;Nándi&quot;);</span>
+<span class="nc" id="L221">                admin2.setPassword(&quot;Faszaaprojekt&quot;);</span>
+<span class="nc" id="L222">                aDAO.saveAdmin(admin2);</span>
+
+<span class="nc" id="L224">                Admins admin3 = new Admins();</span>
+<span class="nc" id="L225">                admin3.setUsername(&quot;Sanyi&quot;);</span>
+<span class="nc" id="L226">                admin3.setPassword(&quot;Sanko0910&quot;);</span>
+<span class="nc" id="L227">                aDAO.saveAdmin(admin3);</span>
+
+<span class="nc" id="L229">                Admins admin4 = new Admins();</span>
+<span class="nc" id="L230">                admin4.setUsername(&quot;Peti&quot;);</span>
+<span class="nc" id="L231">                admin4.setPassword(&quot;BEdina0702&quot;);</span>
+<span class="nc" id="L232">                aDAO.saveAdmin(admin4);</span>
+            }
+<span class="nc" id="L234">        } catch (Exception e) {</span>
+<span class="nc" id="L235">            e.printStackTrace();</span>
+<span class="nc" id="L236">        }</span>
+
+<span class="nc" id="L238">        try(UsersDAO aDAO = new JpaUsersDao();) {</span>
+<span class="nc" id="L239">            Users user = new Users();</span>
+<span class="nc" id="L240">            user.setFirstname(&quot;Proba&quot;);</span>
+<span class="nc" id="L241">            user.setLastname(&quot;Péter&quot;);</span>
+<span class="nc" id="L242">            user.setUsername(&quot;user&quot;);</span>
+<span class="nc" id="L243">            user.setPassword(&quot;user&quot;);</span>
+<span class="nc" id="L244">            aDAO.saveUser(user);</span>
+
+<span class="nc" id="L246">        } catch (Exception e) {</span>
+<span class="nc" id="L247">            e.printStackTrace();</span>
+<span class="nc" id="L248">        }</span>
+
+<span class="nc" id="L250">        System.out.println(&quot;Open your browser and navigate to http://localhost:8082/&quot;);</span>
+<span class="nc" id="L251">        System.out.println(&quot;JDBC URL: jdbc:h2:mem:my_database&quot;);</span>
+<span class="nc" id="L252">        System.out.println(&quot;User Name: sa&quot;);</span>
+<span class="nc" id="L253">        System.out.println(&quot;Password: &quot;);</span>
+<span class="nc" id="L254">    }</span>
+
+    private static void startDatabase() throws SQLException {
+<span class="nc" id="L257">        new Server().runTool(&quot;-tcp&quot;, &quot;-web&quot;, &quot;-ifNotExists&quot;);</span>
+<span class="nc" id="L258">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

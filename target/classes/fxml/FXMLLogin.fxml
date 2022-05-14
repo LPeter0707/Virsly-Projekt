@@ -13,22 +13,22 @@
             <Image url="@Bg.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="buttonUser" layoutX="148.0" layoutY="240.0" mnemonicParsing="false" onAction="#userPushed" prefHeight="44.0" prefWidth="165.0" text="Felhasználó" textFill="WHITE">
+      <Button fx:id="buttonUser" layoutX="167.0" layoutY="267.0" mnemonicParsing="false" onAction="#userPushed" prefHeight="44.0" prefWidth="165.0" text="Felhasználó" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="buttonAdmin" layoutX="393.0" layoutY="240.0" mnemonicParsing="false" onAction="#adminPushed" prefHeight="44.0" prefWidth="165.0" text="Adminisztrátor" textFill="WHITE">
+      <Button fx:id="buttonAdmin" layoutX="412.0" layoutY="267.0" mnemonicParsing="false" onAction="#adminPushed" prefHeight="44.0" prefWidth="165.0" text="Adminisztrátor" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="156.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="175.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@User.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="123.0" fitWidth="123.0" layoutX="414.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="123.0" fitWidth="123.0" layoutX="433.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Admin.png" />
          </image>

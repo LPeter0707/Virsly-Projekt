@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class Users implements Serializable {
@@ -16,6 +17,64 @@ public class Users implements Serializable {
     private String Lastname;
     private String Username;
     private String Password;
+
+    public static Users scannedUser(UsersDataReader usr){
+        int id;
+        String firstname;
+        String lastname;
+        String username;
+        String password;
+        id = usr.getId();
+        firstname = usr.getFirstname();
+        lastname = usr.getLastname();
+        username = usr.getUsername();
+        password = usr.getPassword();
+        return new Users(id, firstname, lastname, username, password);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Users other = (Users) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.Firstname, other.Firstname)) {
+            return false;
+        }
+        if (!Objects.equals(this.Lastname, other.Lastname)) {
+            return false;
+        }
+        if (!Objects.equals(this.Username, other.Username)) {
+            return false;
+        }
+        if (!Objects.equals(this.Password, other.Password)) {
+            return false;
+        }
+        return true;
+    }
+
+    public Users(int id, String firstname, String lastname, String username, String password) {
+        if (id<0) throw new RuntimeException();
+        this.id = id;
+        this.Firstname = firstname;
+        this.Lastname = lastname;
+        this.Username = username;
+        this.Password = password;
+    }
+
+    public Users()
+    {
+
+    }
 
     public String getFirstname() {
         return Firstname;
@@ -56,5 +115,10 @@ public class Users implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", firstname=" + Firstname + ", lastname=" + Lastname + ", username=" + Username + ", password=" + Password + '}';
     }
 }

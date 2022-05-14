@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FXMLSignInSceneController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaFX11_MILESTONE1</a> &gt; <a href="index.source.html" class="el_package">hu.unideb.inf</a> &gt; <span class="el_source">FXMLSignInSceneController.java</span></div><h1>FXMLSignInSceneController.java</h1><pre class="source lang-java linenums">package hu.unideb.inf;
+
+import hu.unideb.inf.model.*;
+import hu.unideb.inf.model.JpaUsersDao;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="nc" id="L16">public class FXMLSignInSceneController&lt;usernameValue&gt; {</span>
+
+    @FXML
+    private Button buttonSave;
+
+    @FXML
+    private Button buttonBack;
+
+    @FXML
+    private TextField firstname;
+    public String firstnameValue;
+
+    @FXML
+    private TextField lastname;
+    public String lastnameValue;
+
+    @FXML
+    private TextField uname;
+    public String usernameValue;
+
+    @FXML
+    private PasswordField pass;
+    public String passwordValue;
+
+    @FXML
+    void backPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L42">        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(&quot;/fxml/FXMLLoginUser.fxml&quot;));</span>
+<span class="nc" id="L43">        Scene scene = new Scene(loader.load());</span>
+<span class="nc" id="L44">        Stage stage = new Stage();</span>
+<span class="nc" id="L45">        Stage stage2 = (Stage)</span>
+<span class="nc" id="L46">                buttonBack.getScene().getWindow();</span>
+<span class="nc" id="L47">        stage2.close();</span>
+<span class="nc" id="L48">        stage.setTitle(&quot;LoginUser&quot;);</span>
+<span class="nc" id="L49">        stage.setScene(scene);</span>
+<span class="nc" id="L50">        stage.show();</span>
+<span class="nc" id="L51">    }</span>
+
+    @FXML
+    void savePushed(ActionEvent event) throws IOException {
+<span class="nc" id="L55">        DataSave();</span>
+<span class="nc" id="L56">        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(&quot;/fxml/FXMLLoginUser.fxml&quot;));</span>
+<span class="nc" id="L57">        Scene scene = new Scene(loader.load());</span>
+<span class="nc" id="L58">        Stage stage = new Stage();</span>
+<span class="nc" id="L59">        Stage stage2 = (Stage)</span>
+<span class="nc" id="L60">                buttonSave.getScene().getWindow();</span>
+<span class="nc" id="L61">        stage2.close();</span>
+<span class="nc" id="L62">        stage.setTitle(&quot;LoginUser&quot;);</span>
+<span class="nc" id="L63">        stage.setScene(scene);</span>
+<span class="nc" id="L64">        stage.show();</span>
+
+
+<span class="nc" id="L67">    }</span>
+    public void DataSave(){
+<span class="nc" id="L69">        Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L70">        alert.setAlertType(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L71">        alert.setContentText(&quot;Már létezik felhasználó ezzel a felhasználónévvel.&quot;);</span>
+<span class="nc" id="L72">        firstnameValue = firstname.getText();</span>
+<span class="nc" id="L73">        lastnameValue = lastname.getText();</span>
+<span class="nc" id="L74">        usernameValue = uname.getText();</span>
+<span class="nc" id="L75">        passwordValue = pass.getText();</span>
+<span class="nc" id="L76">        try(UsersDAO aDAO = new JpaUsersDao();) {</span>
+<span class="nc" id="L77">            Users a = new Users();</span>
+<span class="nc" id="L78">            a.setFirstname(firstnameValue);</span>
+<span class="nc" id="L79">            a.setLastname(lastnameValue);</span>
+<span class="nc" id="L80">            a.setUsername(usernameValue);</span>
+<span class="nc" id="L81">            a.setPassword(passwordValue);</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">            if (Duplicate(a, aDAO)){</span>
+<span class="nc" id="L83">                alert.show();</span>
+            }else {
+<span class="nc" id="L85">                aDAO.saveUser(a);</span>
+            }
+<span class="nc" id="L87">        } catch (Exception e) {</span>
+<span class="nc" id="L88">            e.printStackTrace();</span>
+<span class="nc" id="L89">        }</span>
+<span class="nc" id="L90">    }</span>
+
+    public boolean Duplicate(Users a, UsersDAO aDAO){
+<span class="nc" id="L93">        List&lt;Users&gt; UsersList = new ArrayList&lt;&gt;(aDAO.getUser());</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        for (Users user : UsersList) {</span>
+            //System.out.println(user.getUsername());
+<span class="nc bnc" id="L96" title="All 2 branches missed.">            if (user.getUsername().equals(a.getUsername())){</span>
+<span class="nc" id="L97">                return true;</span>
+            }
+<span class="nc" id="L99">        }</span>
+<span class="nc" id="L100">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

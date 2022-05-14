@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FXMLOrderSceneController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JavaFX11_MILESTONE1</a> &gt; <a href="index.source.html" class="el_package">hu.unideb.inf</a> &gt; <span class="el_source">FXMLOrderSceneController.java</span></div><h1>FXMLOrderSceneController.java</h1><pre class="source lang-java linenums">package hu.unideb.inf;
+
+import hu.unideb.inf.model.JpaStorageDAO;
+import hu.unideb.inf.model.Storage;
+import hu.unideb.inf.model.StorageDao;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.stage.Stage;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+<span class="nc" id="L21">public class FXMLOrderSceneController {</span>
+
+<span class="nc" id="L23">    private ObservableList&lt;Integer&gt; valasztasok = FXCollections.observableArrayList(0,1,2,3,4,5);</span>
+<span class="nc" id="L24">    public List&lt;ChoiceBox&gt; cborder = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L25">    public HashMap&lt;String, ChoiceBox&lt;Integer&gt;&gt; Arufeltoltes = new HashMap&lt;String, ChoiceBox&lt;Integer&gt;&gt;();</span>
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; kifliCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; virsliCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; grillkolbaszCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; debreceniparosCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; kacsakolbaszCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; mangalicahurkaCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; baranymarhakolbaszCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; cheddarCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; piritotthagymaCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; tortillachipsCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; baconCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; uborkaCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; sushigyomberCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; jalapenoCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; paradicsomCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; fetaCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; hagymaCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; kukoricaCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; babCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; mexikoisalsaCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; zoldsegmixCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; ketchupCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; majonezCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; mustarCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; szojaszoszCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; magyaroskremCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; padlizsankremCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; wasabiCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; cocaCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; colaliteCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; fantaCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; cappyCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; mentesvizCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; savasvizCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; redbullCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; heinekenCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; soproniCB;
+
+    @FXML
+    private ChoiceBox&lt;Integer&gt; dreherCB;
+
+
+    @FXML
+    private Button buttonBack;
+
+    @FXML
+    private Button addElement;
+
+    @FXML
+    private Button buttonNext;
+
+    @FXML
+    void backPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L153">        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(&quot;/fxml/FXMLMainmenu.fxml&quot;));</span>
+<span class="nc" id="L154">        Scene scene = new Scene(loader.load());</span>
+<span class="nc" id="L155">        Stage stage = new Stage();</span>
+<span class="nc" id="L156">        Stage stage2 = (Stage)</span>
+<span class="nc" id="L157">                buttonBack.getScene().getWindow();</span>
+<span class="nc" id="L158">        stage2.close();</span>
+<span class="nc" id="L159">        stage.setTitle(&quot;Main menu&quot;);</span>
+<span class="nc" id="L160">        stage.setScene(scene);</span>
+<span class="nc" id="L161">        stage.show();</span>
+<span class="nc" id="L162">    }</span>
+
+    @FXML
+    void nextPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L166">        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(&quot;/fxml/FXMLDailyInventory.fxml&quot;));</span>
+<span class="nc" id="L167">        Scene scene = new Scene(loader.load());</span>
+<span class="nc" id="L168">        Stage stage = new Stage();</span>
+<span class="nc" id="L169">        Stage stage2 = (Stage)</span>
+<span class="nc" id="L170">                buttonNext.getScene().getWindow();</span>
+<span class="nc" id="L171">        stage2.close();</span>
+<span class="nc" id="L172">        stage.setTitle(&quot;Daily Inventory&quot;);</span>
+<span class="nc" id="L173">        stage.setScene(scene);</span>
+<span class="nc" id="L174">        stage.show();</span>
+<span class="nc" id="L175">    }</span>
+
+    @FXML
+    public void initialize(){
+
+<span class="nc" id="L180">        kifliCB.setValue(0);</span>
+<span class="nc" id="L181">        kifliCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Hot Dog kifli&quot;, kifliCB);
+<span class="nc" id="L183">        cborder.add(kifliCB);</span>
+
+<span class="nc" id="L185">        virsliCB.setValue(0);</span>
+<span class="nc" id="L186">        virsliCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Virsli&quot;, virsliCB);
+<span class="nc" id="L188">        cborder.add(virsliCB);</span>
+
+<span class="nc" id="L190">        grillkolbaszCB.setValue(0);</span>
+<span class="nc" id="L191">        grillkolbaszCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Grillkolbász&quot;, grillkolbaszCB);
+<span class="nc" id="L193">        cborder.add(grillkolbaszCB);</span>
+
+<span class="nc" id="L195">        debreceniparosCB.setValue(0);</span>
+<span class="nc" id="L196">        debreceniparosCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Debreceni páros&quot;, debreceniparosCB);
+<span class="nc" id="L198">        cborder.add(debreceniparosCB);</span>
+
+<span class="nc" id="L200">        kacsakolbaszCB.setValue(0);</span>
+<span class="nc" id="L201">        kacsakolbaszCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Kacsa kolbász&quot;, kacsakolbaszCB);
+<span class="nc" id="L203">        cborder.add(kacsakolbaszCB);</span>
+
+<span class="nc" id="L205">        mangalicahurkaCB.setValue(0);</span>
+<span class="nc" id="L206">        mangalicahurkaCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Mangalica hurka&quot;, mangalicahurkaCB);
+<span class="nc" id="L208">        cborder.add(mangalicahurkaCB);</span>
+
+<span class="nc" id="L210">        baranymarhakolbaszCB.setValue(0);</span>
+<span class="nc" id="L211">        baranymarhakolbaszCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Bárány-marha kolbász&quot;, baranymarhakolbaszCB);
+<span class="nc" id="L213">        cborder.add(baranymarhakolbaszCB);</span>
+
+<span class="nc" id="L215">        cheddarCB.setValue(0);</span>
+<span class="nc" id="L216">        cheddarCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Cheddar szósz&quot;, cheddarCB);
+<span class="nc" id="L218">        cborder.add(cheddarCB);</span>
+
+<span class="nc" id="L220">        piritotthagymaCB.setValue(0);</span>
+<span class="nc" id="L221">        piritotthagymaCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Pirított hagyma&quot;, piritotthagymaCB);
+<span class="nc" id="L223">        cborder.add(piritotthagymaCB);</span>
+
+<span class="nc" id="L225">        tortillachipsCB.setValue(0);</span>
+<span class="nc" id="L226">        tortillachipsCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Tortilla chips&quot;, tortillachipsCB);
+<span class="nc" id="L228">        cborder.add(tortillachipsCB);</span>
+
+<span class="nc" id="L230">        baconCB.setValue(0);</span>
+<span class="nc" id="L231">        baconCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Bacon&quot;, baconCB);
+<span class="nc" id="L233">        cborder.add(baconCB);</span>
+
+<span class="nc" id="L235">        uborkaCB.setValue(0);</span>
+<span class="nc" id="L236">        uborkaCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Uborka&quot;, uborkaCB);
+<span class="nc" id="L238">        cborder.add(uborkaCB);</span>
+
+<span class="nc" id="L240">        sushigyomberCB.setValue(0);</span>
+<span class="nc" id="L241">        sushigyomberCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Sushi gyömbér&quot;, sushigyomberCB);
+<span class="nc" id="L243">        cborder.add(sushigyomberCB);</span>
+
+<span class="nc" id="L245">        jalapenoCB.setValue(0);</span>
+<span class="nc" id="L246">        jalapenoCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Jalapeno&quot;, jalapenoCB);
+<span class="nc" id="L248">        cborder.add(jalapenoCB);</span>
+
+<span class="nc" id="L250">        paradicsomCB.setValue(0);</span>
+<span class="nc" id="L251">        paradicsomCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Paradicsom&quot;, paradicsomCB);
+<span class="nc" id="L253">        cborder.add(paradicsomCB);</span>
+
+<span class="nc" id="L255">        fetaCB.setValue(0);</span>
+<span class="nc" id="L256">        fetaCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Feta&quot;, fetaCB);
+<span class="nc" id="L258">        cborder.add(fetaCB);</span>
+
+<span class="nc" id="L260">        hagymaCB.setValue(0);</span>
+<span class="nc" id="L261">        hagymaCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Hagyma&quot;, hagymaCB);
+<span class="nc" id="L263">        cborder.add(hagymaCB);</span>
+
+<span class="nc" id="L265">        kukoricaCB.setValue(0);</span>
+<span class="nc" id="L266">        kukoricaCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Kukorica&quot;, kukoricaCB);
+<span class="nc" id="L268">        cborder.add(kukoricaCB);</span>
+
+<span class="nc" id="L270">        babCB.setValue(0);</span>
+<span class="nc" id="L271">        babCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Bab&quot;, babCB);
+<span class="nc" id="L273">        cborder.add(babCB);</span>
+
+<span class="nc" id="L275">        mexikoisalsaCB.setValue(0);</span>
+<span class="nc" id="L276">        mexikoisalsaCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Mexikói salsa&quot;, mexikoisalsaCB);
+<span class="nc" id="L278">        cborder.add(mexikoisalsaCB);</span>
+
+<span class="nc" id="L280">        zoldsegmixCB.setValue(0);</span>
+<span class="nc" id="L281">        zoldsegmixCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Házi zöldség mix&quot;, zoldsegmixCB);
+<span class="nc" id="L283">        cborder.add(zoldsegmixCB);</span>
+
+<span class="nc" id="L285">        ketchupCB.setValue(0);</span>
+<span class="nc" id="L286">        ketchupCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Ketchup&quot;, ketchupCB);
+<span class="nc" id="L288">        cborder.add(ketchupCB);</span>
+
+<span class="nc" id="L290">        majonezCB.setValue(0);</span>
+<span class="nc" id="L291">        majonezCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Majonéz&quot;, majonezCB);
+<span class="nc" id="L293">        cborder.add(majonezCB);</span>
+
+<span class="nc" id="L295">        mustarCB.setValue(0);</span>
+<span class="nc" id="L296">        mustarCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Mustár&quot;, mustarCB);
+<span class="nc" id="L298">        cborder.add(mustarCB);</span>
+
+<span class="nc" id="L300">        szojaszoszCB.setValue(0);</span>
+<span class="nc" id="L301">        szojaszoszCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Szoja szósz&quot;, szojaszoszCB);
+<span class="nc" id="L303">        cborder.add(szojaszoszCB);</span>
+
+<span class="nc" id="L305">        magyaroskremCB.setValue(0);</span>
+<span class="nc" id="L306">        magyaroskremCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Magyaros krém&quot;, magyaroskremCB);
+<span class="nc" id="L308">        cborder.add(magyaroskremCB);</span>
+
+<span class="nc" id="L310">        padlizsankremCB.setValue(0);</span>
+<span class="nc" id="L311">        padlizsankremCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Padlizsankrém&quot;, padlizsankremCB);
+<span class="nc" id="L313">        cborder.add(padlizsankremCB);</span>
+
+<span class="nc" id="L315">        wasabiCB.setValue(0);</span>
+<span class="nc" id="L316">        wasabiCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Wasabi&quot;, wasabiCB);
+<span class="nc" id="L318">        cborder.add(wasabiCB);</span>
+
+<span class="nc" id="L320">        cocaCB.setValue(0);</span>
+<span class="nc" id="L321">        cocaCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Coca cola&quot;, cocaCB);
+<span class="nc" id="L323">        cborder.add(cocaCB);</span>
+
+<span class="nc" id="L325">        colaliteCB.setValue(0);</span>
+<span class="nc" id="L326">        colaliteCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Cola light&quot;, colaliteCB);
+<span class="nc" id="L328">        cborder.add(colaliteCB);</span>
+
+<span class="nc" id="L330">        fantaCB.setValue(0);</span>
+<span class="nc" id="L331">        fantaCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Fanta&quot;, fantaCB);
+<span class="nc" id="L333">        cborder.add(fantaCB);</span>
+
+<span class="nc" id="L335">        cappyCB.setValue(0);</span>
+<span class="nc" id="L336">        cappyCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Cappy narancs&quot;, cappyCB);
+<span class="nc" id="L338">        cborder.add(cappyCB);</span>
+
+<span class="nc" id="L340">        mentesvizCB.setValue(0);</span>
+<span class="nc" id="L341">        mentesvizCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Szénsavmentes víz&quot;, mentesvizCB);
+<span class="nc" id="L343">        cborder.add(mentesvizCB);</span>
+
+<span class="nc" id="L345">        savasvizCB.setValue(0);</span>
+<span class="nc" id="L346">        savasvizCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Szénsavas víz&quot;, savasvizCB);
+<span class="nc" id="L348">        cborder.add(savasvizCB);</span>
+
+<span class="nc" id="L350">        redbullCB.setValue(0);</span>
+<span class="nc" id="L351">        redbullCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Redbull&quot;, redbullCB);
+<span class="nc" id="L353">        cborder.add(redbullCB);</span>
+
+<span class="nc" id="L355">        heinekenCB.setValue(0);</span>
+<span class="nc" id="L356">        heinekenCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Heineken&quot;, heinekenCB);
+<span class="nc" id="L358">        cborder.add(heinekenCB);</span>
+
+<span class="nc" id="L360">        soproniCB.setValue(0);</span>
+<span class="nc" id="L361">        soproniCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Soproni&quot;, soproniCB);
+<span class="nc" id="L363">        cborder.add(soproniCB);</span>
+
+<span class="nc" id="L365">        dreherCB.setValue(0);</span>
+<span class="nc" id="L366">        dreherCB.setItems(valasztasok);</span>
+        //Arufeltoltes.put(&quot;Dreher&quot;, dreherCB);
+<span class="nc" id="L368">        cborder.add(dreherCB);</span>
+
+<span class="nc" id="L370">    }</span>
+
+    @FXML
+    void addElementPushed(ActionEvent event) throws IOException {
+<span class="nc" id="L374">        StorageDao sDao = new JpaStorageDAO();</span>
+<span class="nc" id="L375">        List&lt;Storage&gt; aru = sDao.getStorage();</span>
+<span class="nc bnc" id="L376" title="All 2 branches missed.">        for (int i = 0; i &lt; aru.size(); i++){</span>
+<span class="nc bnc" id="L377" title="All 2 branches missed.">            if ((int)cborder.get(i).getValue() != 0){</span>
+<span class="nc" id="L378">                aru.get(i).setPiece(aru.get(i).getPiece() + (int)cborder.get(i).getValue());</span>
+            }
+        }
+
+<span class="nc" id="L382">        sDao.updateStorage(aru);</span>
+<span class="nc" id="L383">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
